@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-watch-v21\\values-watch-v21.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\96006989be4961797bda525ef825601d\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "from": {
+                        "startLines": "2,6,10",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,271,499",
+                        "endLines": "5,9,13",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "266,494,724"
+                    }
+                }
+            ]
+        }
+    ]
+}

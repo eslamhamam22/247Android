@@ -1,0 +1,393 @@
+<resources>
+
+    <!--GOOGLE_DEV_KEYS-->
+    <!-- <string name="client_id">387615629444-hhqts1ei8oslrpb97ast6c14qpdafgf7.apps.googleusercontent.com</string>
+     <string name="secret_id">2QXhAz7vDaeTK-eJnkQALKxN</string>
+     <string name="google_android_key">AIzaSyCW7uAajspdHmOm9Rz5CrxPYAN8R5UXnMQ</string>
+     <string name="google_server_key">AIzaSyCBZqsbT6XjJU_c4fczxqKVlmVT886085c</string>-->
+
+    <!--GOOGLE_PROD_KEYS-->
+    <string name="client_id">658431378721-23pau7q0bo9addbr3pqdbtl6ctfdrkul.apps.googleusercontent.com</string>
+    <string name="secret_id">Dy-uviiC6etQVfgF9N6beyPp</string>
+    <string name="google_android_key">AIzaSyBi3qVakaNh185b2cmgFsuhBntGtA2SLLA</string>
+    <string name="google_server_key">AIzaSyCCm_dEtdfR12jlhi6REsenrgKwjLKS_iQ</string>
+
+    <!--general-->
+    <string name="app_name">24/7</string>
+    <string name="facebook_app_id">251812285515179</string>
+    <!--//debug-->
+    <!--<string name="google_android_key">AIzaSyCW7uAajspdHmOm9Rz5CrxPYAN8R5UXnMQ</string>-->
+    <!--//release-->
+    <!--    <string name="google_android_key">AIzaSyBi3qVakaNh185b2cmgFsuhBntGtA2SLLA</string>-->
+
+    <string name="connection_error">خطأ فى الإتصال, برجاء التأكد من اللإتصال بالشبكة وإعادة المحاولة</string>
+    <string name="server_error">حدث خطأ ما برجاء إعادة المحاولة</string>
+    <string name="no_data_error">لا يوجد بيانات</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+
+    <!--activity_register_or_login-->
+    <string name="register_or_login">سجل دخول\nإلى التطبيق بواسطة</string>
+    <string name="login_mobile">تسجيل الدخول بواسطة الجوال</string>
+    <string name="login_facebook">تسجيل باستخدام فيسبوك</string>
+    <string name="login_google">تسجيل باستخدام جوجل</string>
+    <string name="agree_message">استخدام التطبيق يعنى موافقتك على</string>
+    <string name="terms_conditions"><u>الأحكام و الشروط</u></string>
+    <string name="skip_login"><u>تخطي التسجيل</u></string>
+
+    <!--activity_mobile_registeration-->
+    <string name="register_mobile">التسجيل بواسطة رقم الجوال</string>
+    <string name="phone_number">رقم الجوال</string>
+    <string name="verify">تأكيد</string>
+    <string name="empty_phone_error">من فضلك ادخل رقم الجوال</string>
+    <string name="invalid_phone_number">برجاء أدخال رقم جوال صحيح </string>
+    <string name="success_send_code">تم ارسال رمز التفعيل بنجاح</string>
+    <string name="change_phone">تغيير رقم الجوال</string>
+
+    <!--activity_mobile_verification-->
+    <string name="verify_mobile">تاكيد رقم الجوال</string>
+    <string name="four_digits_code">برجاء ادخال رمز التحقق</string>
+    <string name="code_hint">0000</string>
+    <string name="submit">تفعيل</string>
+    <string name="resend_code"><u>اعادة إرسال الرمز</u></string>
+    <string name="invalid_verification_code">رمز غير صحيح، برجاء ادخال رمز صحيح</string>
+
+    <!--activity_pages-->
+    <string name="terms_conditions_title">الأحكام و الشروط</string>
+    <string name="copy_right">All Copyrights reserved@24.7</string>
+    <string name="version">Version</string>
+
+    <!--activity_how_become_a_driver-->
+    <string name="become_driver">How to become\na Driver</string>
+    <string name="submit_request">تقديم الطلب</string>
+
+    <!--activity_main-->
+    <string name="notifications">التنبيهات</string>
+    <string name="my_orders">طلباتي</string>
+    <string name="stores">المتاجر</string>
+    <string name="my_account">حسابي</string>
+    <string name="settings">الإعدادات</string>
+
+    <!--fragment_settings-->
+    <string name="language">اللغه</string>
+    <string name="english">English</string>
+    <string name="arabic">العربية</string>
+    <string name="how_to_use">كيف يعمل التطبيق</string>
+    <string name="contact_us">اتصل بنا</string>
+    <string name="about_us">نبذه عن التطبيق</string>
+    <string name="return_policy">سياسة الخصوصية</string>
+    <string name="rate_app">قيم التطبيق</string>
+    <string name="share_app">شارك بنشر التطبيق</string>
+
+    <!--fragment_my_account-->
+    <string name="my_account_title">حسابي</string>
+    <string name="my_wallet">محفظتي</string>
+    <string name="car_details">معلومات المركبة</string>
+    <string name="my_addresses">قائمه العناوين</string>
+    <string name="my_complaints">الشكاوي</string>
+    <string name="my_reviews">تقييماتي</string>
+    <string name="logout">تسجيل خروج</string>
+    <string name="become">كيف تصبح مندوب لـ </string>
+    <string name="delegate">مندوب</string>
+    <string name="delegate_logo"></string>
+
+    <string name="has_request_error">لقد تم تقديم طلبك مسبقاً سيتم التواصل معك قريباً</string>
+    <string name="rating">التقييم</string>
+    <string name="delivery_rating">تقييم التوصيل</string>
+
+    <!--activity_account_details-->
+    <string name="account_details">تفاصيل الحساب</string>
+    <string name="load_image"><u>إضافة صوره شخصية</u></string>
+    <string name="full_name">الإسم كامل</string>
+    <string name="phone_no">رقم الجوال</string>
+    <string name="birth_date">تاريخ الميلاد</string>
+    <string name="gender">الجنس</string>
+    <string name="city">المدينة</string>
+    <string name="update">تعديل</string>
+    <string name="submit_profile">تسجيل</string>
+    <string name="empty_name_error">برجاء أدخال الاسم كامل</string>
+    <string name="invalid_name_error">الاسم يقبل حروف و ارقام فقط</string>
+    <string name="wallet">My Wallet</string>
+
+    <!--activity_activity_delegate_request-->
+    <string name="become_delegate">اصبح مندوب</string>
+    <string name="personal_info">Personal info</string>
+    <string name="car_brand">نوع المركبة</string>
+    <string name="upload_license">صورة رخصة القيادة</string>
+    <string name="upload_id">صورة بطاقة الهوية</string>
+    <string name="upload_car_front">صورة امامية للمركبة</string>
+    <string name="upload_car_back">صورة خلفية للمركبة</string>
+    <string name="request_submitted_successfully">تم تقديم طلبك، سيتم التواصل معك قريباً</string>
+
+    <!--activity_car_details-->
+    <string name="license_image">رخصة القيادة</string>
+    <string name="id_image">بطاقة الهوية</string>
+    <string name="car_front_image">صورة امامية للمركبة</string>
+    <string name="car_back_image">صورة خلفية للمركبة</string>
+
+    <!--activity_my_addresses-->
+    <string name="my_addresses_title">قائمة العناوين الخاصة بي</string>
+    <string name="add_address">إضافة عنوان</string>
+    <string name="delete_address_message">سيتم الغاء هذا العنوان من قائمة العناوين الخاصة بك، هل انت متأكد؟</string>
+    <string name="select_from_addresses">اختر من قائمة العناوين</string>
+
+    <!--activity_add_address-->
+    <string name="address_name">اسم العنوان</string>
+    <string name="save_address">إضافة عنوان</string>
+    <string name="empty_address_error">برجاء ادخال اسم للعنوان</string>
+    <string name="search_location">حدد الموقع</string>
+    <string name="add_address_move_note">اترك لتحديد هذا الموقع كعنوان</string>
+    <string name="add_address_release_note">سيتم اضافة هذا الموقع لقائمة العناوين</string>
+
+    <!--activity_address_search-->
+    <string name="search_name">بحث باسم المتجر</string>
+
+    <!--activity_contact_us-->
+    <string name="contact_info">بيانات الإتصال</string>
+    <string name="follow">تابعونا على</string>
+
+    <!--activity_how_to_use-->
+    <string name="skip">تخطي</string>
+
+    <!--fragment_categories-->
+    <string name="request_pick_location">ارسال واستلام طرد</string>
+    <string name="no_connection_title">لا يوجد اتصال</string>
+    <string name="no_connection_message">تحقق من شبكتك وقم بإعادة تحميل الصفحة</string>
+    <string name="reload_page">إعادة تحميل الصفحة</string>
+    <string name="search">بحث</string>
+
+    <!--activity_nearest_stores-->
+    <string name="near_by">بالقرب</string>
+    <string name="more_near_stores">المزيد</string>
+    <string name="open_now">مفتوح الآن</string>
+    <string name="closed">مغلق</string>
+    <string name="kilometer">كم</string>
+    <string name="meter">م</string>
+    <string name="show_all">اعرض الكل</string>
+    <string name="all_active_stores">متاجر متاحه</string>
+    <string name="no_active_stores">لا يوجد متاجر  متاحه الآن</string>
+    <string name="prayer_time_note">ملاحظة: عند الطلب خلال اوقات الصلاة نأسف لإبلاغكم بأن طلبكم قد يستغرق وقت اضافي 30 دقيقة</string>
+    <string name="cancel_msg">هل أنت متأكد من رغبتك بسحب عرض التوصيل ؟</string>
+
+
+    <!--activity_all_nearest_stores-->
+    <string name="all_nearest_stores">المتاجر القريبة</string>
+    <string name="all_stores">جميع المتاجر</string>
+    <string name="no_stores">لا توجد متاجر</string>
+
+    <!--activity_store_details-->
+    <string name="working_houres">مواعيد العمل</string>
+    <string name="request_from_store">اطلب من المتجر</string>
+
+    <!--activity_request_from_stores-->
+    <string name="from">من</string>
+    <string name="to">الى</string>
+    <string name="destination">موقع التسليم</string>
+    <string name="what_you_need">ماذا تحتاج؟</string>
+    <string name="what_you_need_hint">اكتب تفاصيل طلبك</string>
+    <string name="what_you_need_error">قيمة وصف الطلب طويلة جدًا، يجب إدخال 255  حرفًا علي اﻷكثر</string>
+    <string name="voice_record">تسجيل صوتي</string>
+    <string name="upload_image">إضافة صورة</string>
+    <string name="max_no_images">يمكنك اضافة حتى 10 صور</string>
+    <string name="save">حفظ</string>
+    <string name="cancel">إلغاء</string>
+    <string name="order_submitted_successfully">تم تقديم طلبك بنجاح</string>
+    <string name="zero_time">00:00</string>
+    <string name="blocked_area_error">نأسف هذه منطقه غير مدعومة</string>
+    <string name="submit_order">تقديم الطلب</string>
+    <string name="delivery_dutation">وقت التوصيل</string>
+    <string name="add_coupon">إضافة رمز الخصم</string>
+    <string name="coupon_code">اضافة الرمز</string>
+    <string name="enter_code">اضف الرمز</string>
+    <string name="empty_coupon_error">يجب اضافه الرمز</string>
+
+    <!--activity_map_select_destination-->
+    <string name="where_to">إلى أين</string>
+    <string name="confirm_destination">تأكيد مكان التوصيل</string>
+    <string name="pickup_point">موقع الاستلام</string>
+    <string name="confirm_pickup">تأكيد مكان الاستلام</string>
+    <string name="pickup_from">استلام من؟</string>
+    <string name="pickup_move_note">اترك لتحديد نقطة الاستلام</string>
+    <string name="pickup_release_note">سيتم الاستلام من هذا الموقع</string>
+    <string name="delivery_move_note">اترك لتحديد نقطة التسليم</string>
+    <string name="delivery_release_note">سيتم التسليم إلى هذا الموقع</string>
+
+    <!--activity_order_details-->
+    <string name="my_order">طلبي</string>
+    <string name="order">طلب</string>
+    <string name="order_items">تفاصيل طلبي</string>
+    <string name="waiting_drivers">في انتظار العروض</string>
+    <string name="offers">العروض</string>
+    <string name="accept">قبول</string>
+    <string name="reject_offer">رفض</string>
+    <string name="days">أيام</string>
+    <string name="day">يوم</string>
+    <string name="new_order">طلب جديد</string>
+    <string name="are_you_ready">هل انت مستعد لتوصيل الطلب؟</string>
+    <string name="total">إجمالي المبلغ</string>
+    <string name="cancel_offer">إلغاء العرض</string>
+    <string name="accept_offer_message">أنت توافق على أن يتم تسليم طلبك مقابل</string>
+    <string name="reject_offer_message">سيتم رفض عرض التوصيل الخاص بهذا المندوب،هل توافق؟</string>
+    <string name="question_mark">\؟</string>
+    <string name="no_available_drivers">لم يتم العثور على مندوبين</string>
+    <string name="no_delegate_offers">تم تنبيه عدد من المندوبين حولك ولكن لم يتم الحصول علي عرض توصيل بعد</string>
+    <string name="no_more_delegates">لم يتم العثور على مندوبين جدد</string>
+    <string name="search_again"><u>البحث مرة اخرى</u></string>
+    <string name="cancel_order_msg">هل تود تأكيد إلغاء طلبك ؟</string>
+    <string name="cancel_order">الغاء الطلب</string>
+    <string name="choose_reason">اختر سبب الغاء الطلب</string>
+    <string name="cancelation_reasons">سبب الغاء الطلب:</string>
+    <string name="submit_complain">تقديم شكوي</string>
+    <string name="cancel_delegate_order">هل تود الانسحاب ، و الغاء طلب التوصيل للعميل ؟</string>
+    <string name="cancel_delegate_order_reason">ادخل سبب الغاء الطلب</string>
+    <string name="cancel_delegate_order_reason_error">يرجى إدخال سبب الغاء الطلب</string>
+    <string name="add_rate"><u>إضافة تقييم</u></string>
+    <string name="reorder">اعادة الطلب</string>
+    <string name="changes">الباقي</string>
+    <string name="dialoug_reordere_msg">سيتم إنشاء طلب جديد مطابق لتفاصيل هذا الطلب</string>
+    <string name="free_commission_message">مبروك! تم منحك رحلة مجانية بدون عمولة</string>
+    <string name="free">مجاني</string>
+    <string name="ignore_message">سيتم رفض الطلب و لن تتمكن من اضافة عرض توصيل</string>
+    <string name="houre">س</string>
+    <string name="price">التوصيل</string>
+    <string name="away">يبعد عنك</string>
+    <string name="time">الوقت</string>
+    <string name="discount">الخصم</string>
+
+    <!--dialog_add_offer-->
+    <string name="add_offer">إضافة عرض توصيل</string>
+    <string name="shipping_cost">تكلفة التوصيل</string>
+    <string name="sar">ر.س</string>
+    <string name="commission">عمولة</string>
+    <string name="vat">ضريبة القيمة المضافة</string>
+    <string name="ready">تقديم عرض</string>
+    <string name="reject">إلغاء</string>
+    <string name="dashes">-</string>
+    <string name="profit">إجمالي ربحك</string>
+    <string name="min_shipping_cost">تكلفة التوصيل يجب ألا تقل عن</string>
+    <string name="max_shipping_cost">تكلفة التوصيل يجب ألا تزيد عن</string>
+
+    <!--activate_gps_layout-->
+    <string name="activate_gps_title">تفعيل تحديد المواقع</string>
+    <string name="activate_gps_message">برجاء السماح للتطبيق بالحصول على موقعك الحالي</string>
+
+    <!--GPS dialog-->
+    <string name="gps_dialog_title">افتح نظام تحديد الموقع</string>
+    <string name="gps_dialog_message">نظام تحديد الموقع غير مفعل هل ترغب فى تفعيله؟</string>
+
+    <!--upload_image_dialog-->
+    <string name="upload_image_dialog_message">اختر</string>
+    <string name="upload_camera_image">كاميرا</string>
+    <string name="upload_gallery_image">معرض</string>
+    <string name="image_size_error">الحد الاقصى لحجم الصورة 20MB</string>
+    <string name="image_type_error">ادخل صورة في صيغة png, jpg, jpeg</string>
+
+    <!--dialog_rate-->
+    <string name="review_driver">تقييم المندوب</string>
+    <string name="review_customer">تقييم العميل</string>
+    <string name="rate_hint">كيف تقييم هذه التجربه؟</string>
+    <string name="rate_driver">قم بتقييم المندوب</string>
+    <string name="rate_customer">قم بتقييم العميل</string>
+    <string name="submit_rating">إرسال التقييم</string>
+
+    <!--dialog_pick_item-->
+    <string name="update_cost">اضافة سعر السلعة</string>
+    <string name="item_price">سعر السلعة</string>
+    <string name="submit_price">تأكيد السعر</string>
+
+    <!--dialog_deliver_order-->
+    <string name="not_yet">ليس بعد</string>
+
+    <!--activity_notification-->
+    <string name="turn_notification">السماح بالتنبيهات</string>
+    <!--My_Orders-->
+    <string name="avalible_delivery"> متاح لاستلام طلبات التوصيل</string>
+    <string name="my_all_orders">طلباتي</string>
+    <string name="delivery_request">طلبات التوصيل</string>
+    <string name="current_request">طلبات حالية</string>
+    <string name="history">طلبات سابقة</string>
+    <string name="no_current_order">لا توجد طلبات حالية</string>
+    <string name="no_history_order">لا توجد طلبات سابقة</string>
+    <string name="newstaus">جديد</string>
+    <string name="pending">في الإنتظار</string>
+    <string name="assigned">تم التعيين</string>
+    <string name="being_delivered">جاري التوصيل </string>
+    <string name="delivered">تم التسليم </string>
+    <string name="cancelled"> تم الغاءه</string>
+    <string name="in_progress">في الطريق للاستلام</string>
+
+    <!--chat-->
+    <string name="submit_msg_hint">اكتب رسالتك </string>
+
+    <string name="track_order">تتبع</string>
+    <string name="send">ارسل</string>
+    <string name="start_ride">ابدأ الرحلة</string>
+    <string name="item_picked">استلم الغرض</string>
+    <string name="delivered_order">تم التسليم</string>
+    <string name="deliver_order">تأكيد التسليم</string>
+    <string name="end_ride_message">سيتم انهاء الطلب و تأكيد التسليم بعد استلام المبلغ الاتى من العميل:</string>
+    <string name="order_chat">الطلب #</string>
+    <string name="call">اتصل</string>
+
+    <!--blocked_areas-->
+    <string name="place_not_allow">نأسف هذه منطقه غير مدعومة</string>
+
+    <!--activity_Balance_details-->
+    <string name="balance_title">رصيد الحساب</string>
+    <string name="minus_balance">رصيدك ناقص</string>
+    <string name="need_balance">تحتاج إلى إضافة نقود إلى محفظتك أو التحويل إلى حساب الشركة المصرفي</string>
+    <string name="withdraw">Withdraw</string>
+    <string name="transfer">Transfer</string>
+    <string name="add_money">إضافة نقود</string>
+
+    <!--activity_Add_Money-->
+    <string name="amount_nedded">المبلغ المطلوب اضافته</string>
+    <string name="select_payment">اختر طريقة دفع</string>
+    <string name="credit_card">بطاقة ائتمان</string>
+    <string name="Sadad">سداد</string>
+    <string name="bank_transfer">تحويل بنكي</string>
+    <string name="transaction_history">العمليات السابقه</string>
+    <string name="bank_account_title">يجب أن تقوم بالتحويل البنكي لأحد الحسابات التالية ثم إرسال طلب مرفق به تفاصيل العملية وورقه التحويل البنكي</string>
+    <string name="account_no">رقم الحساب.</string>
+    <string name="submit_transaction"> إرسال طلب التحويل</string>
+    <string name="inner_submit_transaction">إرسال</string>
+
+    <string name="transfer_document">وثيقة التحويل</string>
+    <string name="attach_bank_doc">ارفق صورة وثيقة التحويل البنكي</string>
+    <string name="bank_transfar_submition">تقديم طلب التحويل البنكي</string>
+    <string name="choose_bank">اختر بنك</string>
+    <string name="amount">المبلغ </string>
+    <string name="sucess_transfer">تم إرسال الطلب للمراجعة، وسيتم إشعاركم قريبا</string>
+
+    <string name="transfer_to">تحويل إلى</string>
+    <string name="max_debit">لقد تخطيت الحد الأقصى المسموح به لرصيدك، يرجى سداد المبلغ المطلوب بمحفظتك حتى تتمكن من استقبال طلبات جديدة</string>
+    <string name="max_debit_offer">لقد تخطيت الحد الأقصى المسموح به لرصيدك، يرجى سداد المبلغ المطلوب بمحفظتك حتى تتمكن من إضافة عروض جديدة</string>
+
+    <string name="max_debit_first">لقد تخطيت الحد الأقصى المسموح به لرصيدك</string>
+    <string name="max_debit_sec">برجاء إيداع المبلغ  المطلوب حتى يمكنك  استقبال طلبات جديدة</string>
+    <string name="total_earing">إجمالي أرباحي</string>
+    <string name="no_transaction">لا يوجد عمليات</string>
+
+    <!--activity_submit_complaint-->
+    <string name="order_no">شكوى خاصه بالطلب رقم</string>
+    <string name="subject">موضوع الشكوى</string>
+    <string name="enter_subject">يرجى إدخال موضوع الشكوى</string>
+    <string name="complaint_title_error">قيمة عنوان الشكوي طويلة جدًا يرجي إدخال 30  حرفًا أو أقل</string>
+    <string name="description">تفاصيل المشكلة</string>
+    <string name="enter_description">يرجى إدخال تفاصيل الشكوى هنا</string>
+    <string name="complaint_description_error">قيمة وصف الشكوي طويلة جدًا يرجي إدخال 512 حرفًا أو أقل</string>
+    <string name="submit_complaint">تقديم الشكوى</string>
+    <string name="submit_complaint_message">تم تقديم الشكوى، سيتم التحقق و التواصل معك قريبا</string>
+
+    <!--activity_my_complaints-->
+    <string name="in_progress_complaint">جاري التحقق</string>
+    <string name="resolved">تم الحل</string>
+
+    <!--activity_cust_del_profile-->
+    <string name="no_reviews">لا يوجد تقييمات</string>
+    <string name="customer_profile">بيانات العميل</string>
+    <string name="orders_no">عدد الطلبات</string>
+    <string name="delegate_profile">بيانات المندوب</string>
+    <string name="deliveries_no">عدد التوصيلات</string>
+
+</resources>

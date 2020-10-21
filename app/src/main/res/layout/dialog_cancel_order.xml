@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_language"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginStart="40dp"
+    android:layout_marginEnd="40dp"
+
+    android:background="@android:color/transparent"
+
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_corners">
+
+        <TextView
+            android:id="@+id/cancel_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:paddingStart="20dp"
+
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+
+            android:paddingBottom="10dp"
+            android:text="@string/cancel_order_msg"
+            android:textColor="@color/app_color"
+            android:textSize="15sp" />
+
+
+        <EditText
+            android:id="@+id/cancel_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cancel_message"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/store_cell_bg"
+            android:gravity="top"
+            android:hint="@string/cancel_delegate_order_reason"
+            android:inputType="textMultiLine"
+            android:maxHeight="100dp"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="30dip"
+            android:textColor="@color/gray"
+            android:textSize="15sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/error_reason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_cancelation_reasons"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/cancel_delegate_order_reason_error"
+            android:textColor="@color/app_color"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+
+        <RelativeLayout
+            android:id="@+id/rl_cancelation_reasons"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/white_corners"
+            android:gravity="center"
+            android:layout_below="@id/cancel_message"
+            android:translationZ="1dp">
+
+            <Spinner
+                android:id="@+id/sp_cancelation_reasons"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:background="@color/transparent"
+                android:overlapAnchor="false"
+                android:dropDownWidth="match_parent" />
+
+            <ImageView
+                android:id="@+id/arrow_ic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/chevron_ic"
+                android:visibility="visible"/>
+
+        </RelativeLayout>
+
+
+        <View
+            android:id="@+id/view_language_separator"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@id/error_reason"
+            android:alpha="0.3"
+            android:background="@color/line_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_language_separator"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="20dp"
+                android:text="@string/no"
+                android:textColor="@color/gray"
+                android:textSize="15sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_below="@id/tv_english"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:alpha="0.3"
+                android:background="@color/line_gray" />
+
+            <TextView
+                android:id="@+id/yes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="20dp"
+                android:text="@string/yes"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/app_color">
+
+        <TextView
+            android:id="@+id/tv_where_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:text="@string/where_to"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="21dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/back_ic" />
+
+        <ImageView
+            android:id="@+id/iv_user_addresses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/user_addresses_ic" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_title"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:id="@+id/rl_main_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <fragment
+                android:id="@+id/fr_map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:id="@+id/ll_map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_marker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tv_pin_note"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="-10dp"
+                        android:background="@drawable/red_corners"
+                        android:paddingStart="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/pickup_release_note"
+                        android:textColor="@color/white"
+                        android:textSize="13sp" />
+
+                    <ImageView
+                        android:id="@+id/iv_marker"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/select_store_pin_map" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/select_map_shadow" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/white_corners"
+                android:translationZ="5dp">
+
+                <TextView
+                    android:id="@+id/tv_to"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLength="30"
+                    android:padding="15dp"
+                    android:text="@string/to"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_destination"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/tv_to"
+                    android:hint="@string/destination"
+                    android:padding="15dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/background_blue"
+                    android:textColorHint="@color/line_gray"
+                    android:textSize="15sp" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/iv_current_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/btn_confirm_destination"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="20dp"
+                android:src="@drawable/indecator_ac_ic" />
+
+            <Button
+                android:id="@+id/btn_confirm_destination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:alpha="0.5"
+                android:background="@drawable/blue_corners"
+                android:drawableStart="@drawable/white_destination_ic"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:text="@string/confirm_destination"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <include
+        layout="@layout/activate_gps_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_title" />
+
+</RelativeLayout>

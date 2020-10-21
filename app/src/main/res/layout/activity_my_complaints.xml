@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/app_color">
+
+        <TextView
+            android:id="@+id/tv_my_complaints_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/my_complaints"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="21dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/back_ic" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_title">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_my_complaints"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </RelativeLayout>
+
+    <include
+        layout="@layout/no_connection_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_title" />
+
+    <include layout="@layout/error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/rl_title"/>
+
+    <ProgressBar
+        android:id="@+id/load_more_pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+    <com.rey.material.widget.ProgressView
+        android:id="@+id/pv_load"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:pv_autostart="true"
+        app:pv_circular="true"
+        app:pv_progressMode="indeterminate"
+        app:pv_progressStyle="@style/ColoredCircularProgressDrawable" />
+
+</RelativeLayout>

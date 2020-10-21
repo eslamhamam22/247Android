@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-night-v8\\values-night-v8.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\96006989be4961797bda525ef825601d\\res\\values-night-v8\\values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593,687",
+                        "endColumns": "69,83,83,95,101,101,93,88",
+                        "endOffsets": "120,204,288,384,486,588,682,771"
+                    }
+                }
+            ]
+        }
+    ]
+}

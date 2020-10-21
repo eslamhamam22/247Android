@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/transparent_popup"
+    android:id="@+id/ll_language">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_corners"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+        <TextView
+            android:id="@+id/tv_english"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/english"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:padding="20dp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"/>
+
+        <ImageView
+            android:id="@+id/iv_checked_english"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/checked_lightblue_ic"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@id/tv_english"
+            android:layout_alignBottom="@id/tv_english"
+            android:layout_marginEnd="30dp"
+            android:contentDescription="@null"
+            android:visibility="gone"/>
+
+        <View
+            android:id="@+id/view_language_separator"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/line_gray"
+            android:alpha="0.3"
+            android:layout_below="@id/tv_english"/>
+
+        <TextView
+            android:id="@+id/tv_arabic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/arabic"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:padding="20dp"
+            android:gravity="center"
+            android:layout_below="@id/view_language_separator"/>
+
+        <ImageView
+            android:id="@+id/iv_checked_arabic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/checked_lightblue_ic"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@id/tv_arabic"
+            android:layout_alignBottom="@id/tv_arabic"
+            android:layout_marginEnd="30dp"
+            android:contentDescription="@null"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

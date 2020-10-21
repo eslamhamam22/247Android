@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/app_color">
+
+        <TextView
+            android:id="@+id/tv_contact_us_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:text="@string/contact_us"/>
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="21dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/back_ic" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/sv_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_title">
+
+        <RelativeLayout
+            android:id="@+id/rl_main_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <fragment
+                android:id="@+id/fr_map"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+            <FrameLayout
+                android:id="@+id/fl_transparent"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/transparent"/>
+
+            <TextView
+                android:id="@+id/tv_contact_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/contact_info"
+                android:textColor="@color/title_black"
+                android:textSize="18sp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_below="@id/fr_map"/>
+
+            <TextView
+                android:id="@+id/tv_mobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/app_color"
+                android:textSize="15sp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:drawableStart="@drawable/mobile_ic"
+                android:drawablePadding="10dp"
+                android:layout_below="@id/tv_contact_info"
+                android:textDirection="ltr"/>
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/title_black"
+                android:textSize="15sp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:drawableStart="@drawable/email_ic"
+                android:drawablePadding="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/tv_mobile"/>
+
+            <TextView
+                android:id="@+id/tv_fax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/title_black"
+                android:textSize="15sp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:drawableStart="@drawable/fax_ic"
+                android:drawablePadding="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/tv_email"
+                android:textDirection="ltr"/>
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/title_black"
+                android:textSize="15sp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:drawableStart="@drawable/pin_ic"
+                android:drawablePadding="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/tv_fax"
+                android:textAlignment="viewStart"/>
+
+            <TextView
+                android:id="@+id/tv_website"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/background_blue"
+                android:textSize="15sp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:drawableStart="@drawable/link_ic"
+                android:drawablePadding="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/tv_address"/>
+
+            <TextView
+                android:id="@+id/tv_follow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/follow"
+                android:textColor="@color/title_black"
+                android:textSize="18sp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/tv_website"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/tv_follow"
+                android:layout_marginStart="20dp">
+
+                <ImageView
+                    android:id="@+id/iv_facebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/fb_ic"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="50dp" />
+
+                <ImageView
+                    android:id="@+id/iv_google"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/google_ic"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="50dp"/>
+
+                <ImageView
+                    android:id="@+id/iv_twitter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/twitter_ic"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="50dp"/>
+
+                <ImageView
+                    android:id="@+id/iv_instagram"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/instgram_ic"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="50dp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <include
+        layout="@layout/no_connection_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_title" />
+
+    <com.rey.material.widget.ProgressView
+        android:id="@+id/pv_load"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:pv_autostart="true"
+        app:pv_circular="true"
+        app:pv_progressMode="indeterminate"
+        app:pv_progressStyle="@style/ColoredCircularProgressDrawable" />
+
+</RelativeLayout>

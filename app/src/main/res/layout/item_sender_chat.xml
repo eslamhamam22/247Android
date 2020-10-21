@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_marginEnd="20dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingStart="20dp"
+        android:paddingBottom="10dp"
+        android:orientation="vertical"
+        android:id="@+id/backgroundView"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="20dp"
+        android:paddingEnd="20dp"
+
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/baby_blue_corners"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/messageTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="jjdjdjjdkgfghghgfhhhhfff"
+            android:visibility="gone"
+
+            android:textColor="@color/title_black" />
+
+        <ImageView
+            android:layout_width="200dp"
+            android:scaleType="centerCrop"
+            android:id="@+id/image_upload"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/pic_ic" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/images_list"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+
+            android:layout_below="@+id/messageTxt"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="10am - 10 pm"
+            android:id="@+id/time"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="end"
+            android:textSize="10dp"
+            android:layout_below="@+id/images_list"
+            android:textColor="@color/background_blue"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/user_circle"
+        app:civ_border_width="1dp"
+        android:layout_alignParentEnd="true"
+        android:padding="3dp"
+        android:background="@drawable/white_rounded_shape"
+        app:civ_border_color="#00000000"/>
+
+
+</RelativeLayout>

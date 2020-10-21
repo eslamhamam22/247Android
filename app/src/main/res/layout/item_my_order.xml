@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/nodata_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/no_data"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/no_active_orders" />
+
+        <TextView
+            android:id="@+id/noDataTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/no_data"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/line_gray"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dataLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/tv_order_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/red_corners"
+            android:paddingStart="13dp"
+            android:paddingEnd="13dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="10 oct 2017"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/line_gray"
+            android:textSize="13sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_order_num"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_order_num" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+
+            app:layout_constraintTop_toBottomOf="@+id/tv_order_num">
+
+            <ImageView
+                android:id="@+id/image_loc_ar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="4dp"
+                app:srcCompat="@drawable/blue_pin" />
+
+            <ImageView
+                android:id="@+id/image_loc_en"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="1dp"
+                android:visibility="gone"
+                app:srcCompat="@drawable/blue_pin" />
+
+            <ImageView
+                android:id="@+id/image_loc_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/textviews"
+                android:layout_marginStart="3dp"
+                android:layout_marginBottom="1dp"
+                android:visibility="visible"
+                app:srcCompat="@drawable/red_pin" />
+
+            <ImageView
+                android:id="@+id/image_loc_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/image_loc_2"
+                android:layout_below="@+id/image_loc_en"
+                android:layout_marginStart="7dp"
+
+                android:scaleType="fitXY"
+                android:visibility="visible"
+                app:srcCompat="@drawable/line_dashes_sm" />
+
+            <RelativeLayout
+                android:id="@+id/textviews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp">
+
+
+                <!--<ImageView-->
+                <!--android:id="@+id/iv_from_to_in"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_marginStart="10dp"-->
+                <!--android:layout_height="55dp"-->
+                <!--android:scaleType="fitXY"-->
+                <!--android:adjustViewBounds="true"-->
+
+                <!--android:layout_alignParentStart="true"-->
+                <!--app:layout_constraintTop_toTopOf="parent"-->
+                <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--android:background="@drawable/from_to_pins_03"-->
+
+                <!--/>-->
+                <TextView
+                    android:id="@+id/tv_store_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toStartOf="@+id/tv_status"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="fffffff"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toStartOf="@id/tv_status"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="10dp"
+                    android:text="status"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/gray"
+
+                    android:textSize="13sp"
+
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_store_name"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <ImageView
+                    android:id="@+id/image_drive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_store_name"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginEnd="5dp"
+                    android:scaleType="fitXY"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/driver_ic" />
+
+                <TextView
+                    android:id="@+id/tv_driver_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_store_name"
+                    android:layout_alignBottom="@+id/image_drive"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_toEndOf="@+id/image_drive"
+
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="storbbbbbbbbbhh"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/hint_blue"
+                    android:textSize="13sp"
+
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_store_name" />
+
+                <TextView
+                    android:id="@+id/tv_to_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_driver_name"
+
+
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="store"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/gray"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/line_view"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/line_gray"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

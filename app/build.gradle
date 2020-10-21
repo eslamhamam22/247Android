@@ -1,0 +1,168 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'io.fabric'
+def appModuleRootFolder = '.'
+def srcDir = 'src'
+def googleServicesJson = 'google-services.json'
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "amaz.objects.TwentyfourSeven"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 11
+        versionName "2.0"
+        multiDexEnabled true
+        //test
+        /*manifestPlaceholders = [onesignal_app_id: "e073e56d-809f-4a58-80b6-f4f1b9626afe",
+                                onesignal_google_project_number: "REMOTE"]*/
+       //live
+        manifestPlaceholders = [onesignal_app_id: "9376e1a6-656e-4735-b46d-74b858aee33d",
+                                onesignal_google_project_number: "REMOTE"]
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    defaultConfig {
+        multiDexEnabled true
+    }
+}
+buildscript {
+    repositories {
+        maven { url 'https://plugins.gradle.org/m2/'}
+        //maven { url 'https://maven.fabric.io/public'}
+    }
+    dependencies {
+        //classpath 'io.fabric.tools:gradle:1.+'
+
+        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:[0.11.0, 0.99.99]'
+    }
+}
+
+repositories {
+    //maven { url 'https://maven.fabric.io/public' }
+
+    maven { url 'https://maven.google.com' }
+}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    // api project(path: ':FORTSDKv1.4.2.1')
+    //Payfort support sdk
+    // implementation(name: 'FORTSDKv1.2', ext: 'aar')
+    implementation 'com.victor:lib:1.0.1'
+    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'com.shamanland:fonticon:0.1.8'
+    implementation('de.keyboardsurfer.android.widget:crouton:1.8.5@aar') {
+        // exclusion is not necessary, but generally a good idea.
+        exclude group: 'com.google.android', module: 'support-v4'
+    }
+    implementation 'com.google.guava:guava:19.0'
+    implementation 'org.bouncycastle:bcprov-jdk16:1.46'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.browser:browser:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
+    implementation 'com.google.firebase:firebase-core:17.2.2'
+    implementation 'com.google.firebase:firebase-database:19.2.0'
+    implementation 'com.google.firebase:firebase-storage:19.1.0'
+    implementation 'com.google.firebase:firebase-messaging:20.1.0'
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    implementation 'com.facebook.android:facebook-login:4.39.0'
+    implementation 'com.hbb20:ccp:2.2.3'
+    implementation 'com.github.rey5137:material:1.2.4'
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.9.10'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    //implementation 'com.github.bumptech.glide:glide:4.3.1'
+
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    //implementation 'com.google.android.gms:play-services-places:16.0.0'
+//    implementation('cn.trinea.android.view.autoscrollviewpager:android-auto-scroll-view-pager:1.1.2') {
+//        exclude module: 'support-v4'
+//    }
+    implementation 'com.github.pzienowicz:androidx-auto-scroll-view-pager:1.0.0'
+    implementation 'com.onesignal:OneSignal:[3.9.1, 3.99.99]'
+    implementation 'com.airbnb.android:lottie:2.7.0'
+    implementation 'me.grantland:autofittextview:0.2.1'
+    implementation 'net.cachapa.expandablelayout:expandablelayout:2.9.2'
+    implementation 'org.zakariya.stickyheaders:stickyheaders:0.7.6'
+    implementation 'com.wang.avi:library:2.1.3'
+    implementation 'com.firebase:geofire-android:2.3.1'
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    //implementation 'com.crashlytics.sdk.android:crashlytics:2.9.9'
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
+    implementation 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+    implementation 'com.google.maps.android:android-maps-utils:0.5'
+    implementation 'org.sufficientlysecure:html-textview:3.6'
+    // implementation project(':FORTSDKv1.4.2.1')
+    implementation 'io.branch.sdk.android:library:3.1.1'
+
+    implementation 'com.google.android.libraries.places:places-compat:1.1.0'
+
+    // Recommended: Add the Firebase SDK for Google Analytics.
+    implementation 'com.google.firebase:firebase-analytics:17.2.2'
+
+    // Add the Firebase SDK for Crashlytics.
+    implementation 'com.google.firebase:firebase-crashlytics:17.0.0-beta01'
+
+    //implementation 'com.google.android.play:core:1.6.4'
+    implementation 'com.google.android.gms:play-services-wallet:18.0.0'
+
+
+}
+//task switchToDebug(type: Copy) {
+//    description = 'Switches to DEBUG google-services.json'
+//    from "src/debug"
+//    include "google-services.json"
+//    into "."
+//}
+//
+//task switchToRelease(type: Copy) {
+//    description = 'Switches to RELEASE google-services.json'
+//    from "src/release"
+//    include "google-services.json"
+//    into "."
+//}
+
+task switchToRelease(type: Copy) {
+    def buildType = 'release'
+    description = 'Switches to RELEASE google-services.json'
+    from "${srcDir}/${buildType}/"
+    include "$googleServicesJson"
+    into "$appModuleRootFolder"
+}
+
+task switchToDebug(type: Copy) {
+    def buildType = 'debug'
+    description = 'Switches to DEBUG google-services.json'
+    from "${srcDir}/${buildType}"
+    include "$googleServicesJson"
+    into "$appModuleRootFolder"
+}
+
+afterEvaluate {
+    processDebugGoogleServices.dependsOn switchToDebug
+    processReleaseGoogleServices.dependsOn switchToRelease
+}
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.onesignal.androidsdk.onesignal-gradle-plugin'
+apply plugin: 'com.google.firebase.crashlytics'
+googleServices.disableVersionCheck = true

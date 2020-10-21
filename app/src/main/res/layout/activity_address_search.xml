@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_color">
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textColorHint="@color/alpha_white"
+            android:textSize="15sp"
+            android:layout_toEndOf="@id/iv_back"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:hint="@string/search_location"
+            android:background="@color/transparent"
+            android:layout_toStartOf="@id/iv_clear_location"
+            android:textCursorDrawable="@null"
+            android:inputType="textNoSuggestions"
+            android:imeOptions="actionDone"
+            android:layout_marginTop="10dp" />
+
+        <View
+            android:id="@+id/v_separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/et_search"
+            android:background="@color/white"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toEndOf="@id/iv_back"
+            android:layout_marginEnd="20dp"
+            android:alpha="0.5"/>
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="21dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/back_ic"
+            android:layout_marginTop="10dp"/>
+
+        <ImageView
+            android:id="@+id/iv_clear_location"
+            android:layout_width="21dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/delete_input_ic"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_nearby"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textColorHint="@color/alpha_white"
+            android:textSize="15sp"
+            android:layout_toEndOf="@id/iv_back"
+            android:hint="@string/near_by"
+            android:background="@drawable/dark_red_corners"
+            android:layout_toStartOf="@id/iv_clear_location"
+            android:layout_below="@id/v_separator"
+            android:layout_marginBottom="10dp">
+
+            <EditText
+                android:id="@+id/et_nearby"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/title_black"
+                android:textColorHint="@color/alpha_white"
+                android:textSize="15sp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:hint="@string/near_by"
+                android:background="@null"
+                android:textCursorDrawable="@null"
+                android:inputType="text"
+                android:imeOptions="actionDone"
+                android:layout_toStartOf="@id/iv_clear_address"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <ImageView
+                android:id="@+id/iv_clear_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/delete_input_ic_2"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@id/et_nearby"
+                android:layout_alignBottom="@id/et_nearby"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+
+
+        <ImageView
+            android:id="@+id/iv_near_me"
+            android:layout_width="21dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/nearby"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@id/v_separator"
+            android:layout_alignTop="@id/rl_nearby"
+            android:layout_alignBottom="@id/rl_nearby"/>
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_places"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_title"/>
+
+    <include layout="@layout/error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/rl_title" />
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/no_connection_layout"
+        android:layout_below="@id/rl_title"/>
+
+</RelativeLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rl_complaint_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/tv_order_no_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/red_corners"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:layout_alignParentTop="true"/>
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/line_gray"
+            android:textAlignment="viewEnd"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@id/tv_order_no_content"
+            android:layout_alignTop="@id/tv_order_no_content"
+            android:layout_alignBottom="@id/tv_order_no_content" />
+
+        <TextView
+            android:id="@+id/tv_complaint_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_order_no_content"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_toStartOf="@id/tv_complaint_status"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="10dp"
+            android:textAlignment="viewStart"/>
+
+        <TextView
+            android:id="@+id/tv_complaint_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_order_no_content"
+            android:textSize="13sp"
+            android:textColor="@color/app_color"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="viewEnd"/>
+
+        <TextView
+            android:id="@+id/tv_complaint_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_complaint_title"
+            android:textSize="13sp"
+            android:textColor="@color/gray"
+            android:layout_marginTop="10dp"
+            android:textAlignment="viewStart"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/line_gray"
+        android:alpha="0.08"
+        android:layout_below="@id/rl_complaint_content"/>
+
+</RelativeLayout>

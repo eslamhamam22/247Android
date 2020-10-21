@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/load_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rv_title"
+        android:background="@color/smoke_white"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:id="@+id/turn_notification_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/switch_on" />
+
+        <TextView
+            android:id="@+id/tv_switch_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/turn_notification"
+            android:textColor="@color/gray"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rv_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_below="@id/v_status_bar"
+        android:background="@color/app_color">
+
+        <TextView
+            android:id="@+id/tv_my_notification_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:text="@string/notifications"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/v_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="@color/app_color" />
+    <!--<android.support.v4.widget.NestedScrollView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+
+    <!--android:descendantFocusability="blocksDescendants"-->
+    <!--android:layout_height="match_parent">-->
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/notifications_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_title" />
+    <!--</LinearLayout>-->
+
+    <!--</android.support.v4.widget.NestedScrollView>-->
+
+
+    <com.rey.material.widget.ProgressView
+        android:id="@+id/pv_load"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:pv_autostart="true"
+        app:pv_circular="true"
+        app:pv_progressMode="indeterminate"
+        app:pv_progressStyle="@style/ColoredCircularProgressDrawable" />
+
+    <include
+        layout="@layout/error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_title"
+        android:visibility="gone"/>
+
+    <include
+        layout="@layout/no_connection_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rv_title" />
+
+</RelativeLayout>

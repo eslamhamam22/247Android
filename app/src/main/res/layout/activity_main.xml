@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.MyAccount.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/fl_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/v_separator"
+        android:background="@color/smoke_white"/>
+
+    <View
+        android:id="@+id/v_separator"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/line_gray"
+        android:layout_above="@id/tl_tabs"
+        android:alpha="0.3"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tl_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_alignParentBottom="true"
+        app:tabMode="fixed"
+        app:tabIndicatorHeight="0dp"
+        android:background="@color/white"/>
+
+    <com.rey.material.widget.ProgressView
+        android:id="@+id/pv_load"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:pv_autostart="true"
+        app:pv_circular="true"
+        app:pv_progressMode="indeterminate"
+        app:pv_progressStyle="@style/ColoredCircularProgressDrawable" />
+
+</RelativeLayout>

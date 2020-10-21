@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/offers_bg"
+    android:padding="15dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_delegate_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/smoke_white"
+        app:cardElevation="0dp"
+        android:backgroundTint="@color/smoke_white">
+
+        <ImageView
+            android:id="@+id/iv_delegate_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:src="@drawable/avatar"
+            android:scaleType="fitXY"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_delegate_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/cv_delegate_image"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/white"
+        android:textSize="13sp"/>
+
+    <RatingBar
+        android:id="@+id/rb_delegate_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:layout_below="@id/tv_delegate_name"
+        android:layout_toEndOf="@id/cv_delegate_image"
+        android:layout_marginStart="10dp"
+        style="@style/smallRatingBar"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:isIndicator="true"/>
+
+    <TextView
+        android:id="@+id/tv_accept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/accept"
+        android:background="@drawable/red_corners"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@id/tv_total"
+        android:layout_alignTop="@id/tv_delegate_name"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:textAllCaps="false"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/tv_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:layout_below="@id/tv_delegate_name"
+        android:layout_toEndOf="@id/rb_delegate_rate"
+        android:layout_toStartOf="@id/tv_accept"
+        android:textAlignment="viewEnd"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"/>
+
+    <ImageView
+        android:id="@+id/iv_car"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_total"
+        android:layout_alignStart="@id/rb_delegate_rate"
+        android:src="@drawable/driver_ic"
+        android:layout_alignTop="@id/tv_address"
+        android:layout_alignBottom="@id/tv_address"/>
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/iv_car"
+        android:layout_below="@id/tv_accept"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginTop="5dp" />
+
+    <ImageView
+        android:id="@+id/iv_red_pin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/red_pin_ic"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:layout_alignStart="@id/iv_car"
+        android:layout_alignEnd="@id/iv_car"
+        android:layout_alignTop="@id/tv_distance"
+        android:layout_alignBottom="@id/tv_distance" />
+
+    <TextView
+        android:id="@+id/tv_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/iv_car"
+        android:layout_below="@id/tv_address"
+        android:layout_marginStart="5dp"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:layout_marginTop="10dp"/>
+
+    <ImageView
+        android:id="@+id/iv_dots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dashed_lines"
+        android:layout_below="@id/iv_car"
+        android:layout_above="@id/iv_red_pin"
+        android:layout_alignStart="@id/iv_car"
+        android:layout_alignEnd="@id/iv_car"
+        />
+
+</RelativeLayout>

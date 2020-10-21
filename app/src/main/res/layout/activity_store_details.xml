@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/app_color">
+
+
+        <TextView
+            android:id="@+id/tv_store_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:maxLines="1"
+            android:ellipsize="end"
+            />
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="21dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/back_ic" />
+
+        <ImageView
+            android:id="@+id/iv_share"
+            android:layout_width="21dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/share_white_ic"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_title">
+
+        <fragment
+            android:id="@+id/fr_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rl_store_item"
+            android:background="@drawable/store_cell_bg"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:padding="5dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_store_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:id="@+id/tv_open_now"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/light_green"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp" />
+
+                <!--<androidx.cardview.widget.CardView-->
+                    <!--android:id="@+id/cv_store_image"-->
+                    <!--android:layout_width="50dp"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--app:cardCornerRadius="3dp"-->
+                    <!--card_view:cardBackgroundColor="@color/white"-->
+                    <!--app:cardElevation="0dp"-->
+                    <!--card_view:cardElevation="0dp"-->
+                    <!--android:backgroundTint="@color/white"-->
+                    <!--android:layout_below="@id/tv_open_now"-->
+                    <!--android:layout_marginStart="13dp">-->
+
+                    <ImageView
+                        android:id="@+id/iv_store_image"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="fitCenter"
+                        android:layout_below="@id/tv_open_now"
+                        android:layout_marginStart="13dp"/>
+
+                <!--</androidx.cardview.widget.CardView>-->
+
+                <TextView
+                    android:id="@+id/tv_store_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/title_black"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_toEndOf="@id/iv_store_image"
+                    android:layout_toStartOf="@id/tv_distance"
+                    android:layout_below="@id/tv_open_now"
+                    android:textAlignment="viewStart"
+                    android:maxLines="2"
+                    android:ellipsize="end"/>
+
+                <me.grantland.widget.AutofitTextView
+                    android:id="@+id/tv_distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/line_gray"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    android:layout_alignTop="@id/tv_store_name"
+                    android:layout_alignBottom="@id/tv_store_name"
+                    android:lines="1"
+                    android:textAlignment="viewEnd"/>
+
+                <ImageView
+                    android:id="@+id/iv_pin"
+                    android:layout_width="15dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/red_pin_ic"
+                    android:layout_below="@id/tv_store_name"
+                    android:layout_marginStart="15dp"
+                    android:layout_toEndOf="@id/iv_store_image"/>
+
+                <TextView
+                    android:id="@+id/tv_store_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/iv_pin"
+                    android:layout_below="@id/tv_store_name"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:textColor="@color/gray"
+                    android:textSize="13sp"
+                    android:textAlignment="viewStart" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_working_hours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/ghost_white"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tv_working_hours"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/working_houres"
+                android:textColor="@color/gray"
+                android:textSize="15sp"
+                android:layout_marginBottom="20dp"
+                android:layout_toStartOf="@id/iv_expand_collapse"/>
+
+            <ImageView
+                android:id="@+id/iv_expand_collapse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/anchor_upward"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@id/tv_working_hours"
+                android:layout_alignBottom="@id/tv_working_hours"/>
+
+
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/el_working_houres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:el_duration="500"
+                android:background="@color/ghost_white"
+                android:layout_below="@id/tv_working_hours">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_working_houres"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
+
+            <Button
+                android:id="@+id/btn_request_from_stores"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/el_working_houres"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/red_corners"
+                android:text="@string/request_from_store"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:drawableStart="@drawable/request_from_store_ic"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <com.rey.material.widget.ProgressView
+        android:id="@+id/pv_load"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:pv_autostart="true"
+        app:pv_circular="true"
+        app:pv_progressMode="indeterminate"
+        app:pv_progressStyle="@style/ColoredCircularProgressDrawable" />
+
+</RelativeLayout>

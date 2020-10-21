@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/app_color">
+
+        <TextView
+            android:id="@+id/tv_stores_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="21dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/back_ic" />
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/search_white_ic"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/sv_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_title">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/smoke_white"
+        android:id="@+id/rl_main_content">
+
+        <TextView
+            android:id="@+id/tv_near_by"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/near_by"
+            android:textColor="@color/gray"
+            android:textSize="15sp"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/tv_more_near_by"/>
+
+        <TextView
+            android:id="@+id/tv_more_near_by"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:padding="5dp"
+            android:text="@string/more_near_stores"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:background="@drawable/red_corners"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_nearest_stores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_near_by"
+            android:background="@color/white"/>
+
+        <TextView
+            android:id="@+id/tv_active_stores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/all_active_stores"
+            android:textColor="@color/gray"
+            android:textSize="15sp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/rv_nearest_stores"
+            android:layout_margin="15dp"
+            android:layout_toStartOf="@id/tv_all_stores"/>
+
+        <TextView
+            android:id="@+id/tv_all_stores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:padding="5dp"
+            android:text="@string/show_all"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:background="@drawable/red_corners"
+            android:layout_below="@id/rv_nearest_stores"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_active_stores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_active_stores"
+            android:background="@color/white"
+            android:visibility="visible"/>
+
+        <!--<LinearLayout
+            android:id="@+id/ll_no_active_stores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/tv_active_stores"
+            android:gravity="center"
+            android:paddingTop="50dp"
+            android:paddingBottom="50dp"
+            android:background="@color/white"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/no_active_stores"
+                android:layout_marginBottom="20dp"/>
+
+            <TextView
+                android:id="@+id/tv_no_active_stores"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_active_stores"
+                android:textColor="@color/line_gray"
+                android:textSize="15sp"/>
+
+        </LinearLayout>-->
+
+        <ProgressBar
+            android:id="@+id/pb_load_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            style="@style/ColoredCircularProgressDrawable"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!--<LinearLayout
+        android:id="@+id/ll_no_active_stores"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/sv_main"
+        android:gravity="center"
+        android:paddingTop="50dp"
+        android:paddingBottom="50dp"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/no_active_stores"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:id="@+id/tv_no_active_stores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_active_stores"
+            android:textColor="@color/line_gray"
+            android:textSize="15sp"/>
+
+    </LinearLayout>-->
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/error_layout"
+        android:layout_below="@id/sv_main"/>
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/activate_gps_layout"
+        android:layout_below="@id/rl_title"/>
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/no_connection_layout"
+        android:layout_below="@id/rl_title"/>
+
+    <com.rey.material.widget.ProgressView
+        android:id="@+id/pv_load"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:pv_autostart="true"
+        app:pv_circular="true"
+        app:pv_progressMode="indeterminate"
+        app:pv_progressStyle="@style/ColoredCircularProgressDrawable" />
+
+</RelativeLayout>

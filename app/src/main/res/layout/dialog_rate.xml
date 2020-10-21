@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:background="@color/transparent_popup"
+    android:visibility="gone"
+    android:id="@+id/rl_rate_dialog">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/ll_rate">
+
+            <RelativeLayout
+                android:id="@+id/rl_rate_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/white_smokw_corners"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:padding="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_rate_review_cust_del"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/review_driver"
+                    android:textSize="15sp"
+                    android:textColor="@color/hint_blue"
+                    android:layout_centerHorizontal="true"/>
+
+                <ImageView
+                    android:id="@+id/iv_rate_close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/close_rate"/>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_rate_cust_del_image"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="@color/smoke_white"
+                    app:cardElevation="0dp"
+                    android:backgroundTint="@color/smoke_white"
+                    android:layout_below="@id/tv_rate_review_cust_del"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp">
+
+                    <ImageView
+                        android:id="@+id/iv_rate_cust_del_image"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/avatar"
+                        android:scaleType="fitXY"
+                        />
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tv_rate_cust_del_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/cv_rate_cust_del_image"
+                    android:layout_marginBottom="10dp"/>
+
+                <EditText
+                    android:id="@+id/et_rate_cust_del"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/white_corners"
+                    android:layout_below="@id/tv_rate_cust_del_name"
+                    android:hint="@string/rate_hint"
+                    android:textSize="13sp"
+                    android:textColor="@color/gray"
+                    android:textColorHint="@color/line_gray"
+                    android:padding="10dp"
+                    android:lines="3"
+                    android:maxLength="512"
+                    android:gravity="top"
+                    android:inputType="textMultiLine"/>
+
+                <TextView
+                    android:id="@+id/tv_rate_cust_del"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rate_driver"
+                    android:textColor="@color/gray"
+                    android:textSize="13sp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/et_rate_cust_del"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_emotions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_rate_cust_del"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="20dp">
+
+                    <ImageView
+                        android:id="@+id/iv_sad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/sad_1"/>
+
+                    <ImageView
+                        android:id="@+id/iv_subtraction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/subtraction_22"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"/>
+
+                    <ImageView
+                        android:id="@+id/iv_meh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/meh_1"
+                        android:layout_marginEnd="5dp"/>
+
+                    <ImageView
+                        android:id="@+id/iv_smile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/smile_1__1"/>
+
+                    <ImageView
+                        android:id="@+id/iv_happy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/smile_1__2_1"
+                        android:layout_marginStart="5dp"/>
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/v_rate_separator"
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:layout_below="@id/ll_emotions"
+                    android:background="@drawable/group_1721"
+                    android:layout_alignStart="@id/ll_emotions"
+                    android:layout_alignEnd="@id/ll_emotions"
+                    android:layout_marginBottom="20dp"/>
+
+                <Button
+                    android:id="@+id/btn_submit_rating"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/v_rate_separator"
+                    android:background="@drawable/light_blue_corners"
+                    android:text="@string/submit_rating"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textAllCaps="false"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
+                    android:padding="12dp"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+    <com.rey.material.widget.ProgressView
+        android:id="@+id/pv_rate_load"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:pv_autostart="true"
+        app:pv_circular="true"
+        app:pv_progressMode="indeterminate"
+        app:pv_progressStyle="@style/ColoredCircularProgressDrawable" />
+
+</RelativeLayout>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_rl">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/app_color">
+
+        <TextView
+            android:id="@+id/tv_searched_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:layout_toEndOf="@id/iv_back"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:hint="@string/search_location"
+            android:textColorHint="@color/alpha_white"
+            android:drawableEnd="@drawable/white_pin"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/tv_searched_address"
+            android:background="@color/white"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toEndOf="@id/iv_back"
+            android:layout_marginEnd="20dp"
+            android:alpha="0.5"/>
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="21dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/back_ic" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_title"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:id="@+id/rl_main_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <fragment
+                android:id="@+id/fr_map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+            <LinearLayout
+                android:id="@+id/ll_map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_marker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tv_pin_note"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="-10dp"
+                        android:background="@drawable/blue_corners"
+                        android:paddingStart="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="5dp"
+                        android:text="@string/add_address_release_note"
+                        android:textColor="@color/white"
+                        android:textSize="13sp" />
+
+                    <ImageView
+                        android:id="@+id/iv_marker"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/select_destination_pin_map" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/select_map_shadow" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/tv_address_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/btn_add_address"
+                android:layout_marginStart="20dp"
+                android:layout_toStartOf="@id/iv_current_location"
+                android:background="@drawable/white_corners"
+                android:hint="@string/address_name"
+                android:textSize="15sp"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/line_gray"
+                android:padding="15dp"
+                android:layout_alignTop="@id/iv_current_location"
+                android:layout_alignBottom="@id/iv_current_location"
+                android:drawableStart="@drawable/address_name_ic"
+                android:drawablePadding="20dp"
+                android:maxLength="30"
+                android:inputType="text"
+                android:textAlignment="viewStart"/>
+
+            <ImageView
+                android:id="@+id/iv_current_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/indecator_ac_ic"
+                android:layout_above="@id/btn_add_address"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="20dp" />
+
+            <Button
+                android:id="@+id/btn_add_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/blue_corners"
+                android:text="@string/save_address"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:alpha="0.5"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <com.rey.material.widget.ProgressView
+        android:id="@+id/pv_load"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:pv_autostart="true"
+        app:pv_circular="true"
+        app:pv_progressMode="indeterminate"
+        app:pv_progressStyle="@style/ColoredCircularProgressDrawable" />
+
+</RelativeLayout>

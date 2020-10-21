@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_week_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textAlignment="viewStart" />
+
+    <TextView
+        android:id="@+id/tv_houres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textColor="@color/background_blue"
+        android:textSize="15sp"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@id/tv_week_day"
+        android:textAlignment="viewEnd" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/tv_houres"
+        android:background="@color/line_gray"
+        android:alpha="0.08" />
+
+</RelativeLayout>

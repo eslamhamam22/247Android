@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <color name="colorPrimary">#008577</color>
+  <color name="colorPrimaryDark">#00574B</color>
+  <color name="colorAccent">#D81B60</color>
+
+  <!--general-->
+  <color name="app_color">#e84450</color>
+  <color name="transparent_popup">#80000000</color>
+  <color name="transparent_map">#50000000</color>
+  <color name="transparent">#00000000</color>
+  <color name="transparent_view">#80707070</color>
+  <color name="transparent_view2">#10000000</color>
+
+
+  <!--activity_register_or_login-->
+  <color name="white">#ffffff</color>
+  <color name="gray">#6c727b</color>
+  <color name="facebook_blue">#3f4bb7</color>
+  <color name="google_red">#ce3f3f</color>
+  <color name="light_pink">#ffb2b8</color>
+
+  <!--activity_mobile_registeration-->
+  <color name="background_blue">#366db3</color>
+  <color name="hint_blue">#498bca</color>
+
+  <!--fragment_settings-->
+  <color name="smoke_white">#f2f6f8</color>
+  <color name="black">#212121</color>
+  <color name="line_gray">#bcc5d3</color>
+
+  <!--item_my_address-->
+  <color name="title_black">#3f4247</color>
+  <color name="line_gray_2">#78849e</color>
+
+  <!--activity_add_address-->
+  <color name="alpha_white">#80ffffff</color>
+
+  <!--item_store-->
+  <color name="light_green">#4dd552</color>
+
+  <!--activity_store_details-->
+  <color name="ghost_white">#f7f7fa</color>
+  
+  <!--activity_request_from_store-->
+  <color name="gray_2">#959dad</color>
+  <color name="progress_red">#bf1925</color>
+  <color name="ash_gray">#a8afbb</color>
+
+  <!--activity_address_search-->
+  <color name="dark_red">#d43844</color>
+
+  <!--status_colors-->
+  <color name="progress_color">#5CACF9</color>
+  <color name="pending_color">#A5AAB2</color>
+  <color name="assigned_color">#FF9F3E</color>
+  <color name="in_progres_color">#d8ca72</color>
+
+  <!--activity_order_details-->
+  <color name="offer_transparent">#20000000</color>
+  <color name="header_gray">#f2f2f2</color>
+  <color name="green">#155724</color>
+  <color name="free_commission_background">#d4edda</color>
+  <color name="light_gray">#cecece</color>
+
+  <!--fragment_notification-->
+  <color name="notification_gray">#8A949D</color>
+
+  <!--fragment_my_account-->
+  <color name="rating_gray">#707070</color>
+
+  <!--chat color-->
+  <color name="baby_blue">#a3cdf5</color>
+  <color name="cell_baby_blue">#d4eaff</color>
+  <color name="color_custom_date">#E69DA2</color>
+  <color name="cell_light_red">#fedcdf</color>
+  <color name="kelly_green">#4EBF26</color>
+  <color name="neg_dark_red">#97151e</color>
+  <color name="honey_green">#f5fff1</color>
+  <color name="red_amount">#ee0010</color>
+
+  <color name="red_wallet">#FFF3F4</color>
+
+
+</resources>
+

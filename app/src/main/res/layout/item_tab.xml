@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.grantland.widget.AutofitTextView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:textColor="@color/gray"
+    android:gravity="center"
+    android:drawablePadding="5dp"
+    android:maxLines="1"
+    app:minTextSize="6sp"
+    android:textSize="9sp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+</me.grantland.widget.AutofitTextView>

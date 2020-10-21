@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/app_color">
+
+        <TextView
+            android:id="@+id/tv_my_reviews_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="21dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/back_ic" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_title"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="20dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_profile"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginEnd="15dp"
+                android:backgroundTint="@color/smoke_white"
+                app:cardCornerRadius="10dp"
+                card_view:cardBackgroundColor="@color/smoke_white"
+                card_view:cardElevation="0dp">
+
+                <ImageView
+                    android:id="@+id/iv_profile"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toEndOf="@id/cv_profile"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <RatingBar
+                android:id="@+id/rb_cust_del_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                style="@style/smallRatingBar"
+                android:numStars="5"
+                android:visibility="visible"
+                android:layout_below="@id/tv_user_name"
+                android:layout_alignStart="@id/tv_user_name"
+                android:layout_toEndOf="@id/cv_profile"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:isIndicator="true"/>
+
+            <TextView
+                android:id="@+id/tv_orders_no_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_toEndOf="@id/cv_profile"
+                android:layout_below="@id/rb_cust_del_rate"
+                android:textColor="@color/rating_gray"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_orders_no_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_toEndOf="@id/tv_orders_no_title"
+                android:layout_below="@id/rb_cust_del_rate"
+                android:textColor="@color/title_black"
+                android:textSize="13sp" />
+
+
+            <LinearLayout
+                android:id="@+id/ll_customer_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_user_name"
+                android:layout_alignStart="@id/tv_user_name"
+                android:layout_toEndOf="@id/cv_profile"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginEnd="10dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_customer_rate_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:drawableStart="@drawable/client"
+                    android:drawablePadding="5dp"
+                    android:text="@string/rating"
+                    android:textColor="@color/rating_gray"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:visibility="gone"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_customer_rate_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/black_rounded_corners"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_customer_rate_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:src="@drawable/star_grey_ic" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_delegate_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/tv_user_name"
+                android:layout_toEndOf="@id/ll_customer_rating"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_delegate_rate_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:drawableStart="@drawable/driver"
+                    android:drawablePadding="5dp"
+                    android:text="@string/delivery_rating"
+                    android:textColor="@color/rating_gray"
+                    android:textSize="13sp"
+                    android:gravity="center"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_delegate_rate_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/red_rounded_corners"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp">
+
+                    <TextView
+                        android:id="@+id/tv_delegate_rate_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:src="@drawable/star_red_ic" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:alpha="0.08"
+            android:background="@color/line_gray" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_my_reviews"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <include
+            layout="@layout/error_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/no_connection_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_title" />
+
+    <ProgressBar
+        android:id="@+id/load_more_pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <com.rey.material.widget.ProgressView
+        android:id="@+id/pv_load"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:pv_autostart="true"
+        app:pv_circular="true"
+        app:pv_progressMode="indeterminate"
+        app:pv_progressStyle="@style/ColoredCircularProgressDrawable" />
+
+</RelativeLayout>

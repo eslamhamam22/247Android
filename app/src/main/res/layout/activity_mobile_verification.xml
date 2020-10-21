@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo_red"
+                android:layout_gravity="center"
+                android:layout_marginBottom="40dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_verify_mobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/verify_mobile"
+                android:textColor="@color/app_color"
+                android:textSize="24sp"
+                android:textAlignment="center"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/tv_four_digits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/four_digits_code"
+                android:textColor="@color/gray"
+                android:textSize="15sp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <EditText
+                    android:id="@+id/et_verification_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/code_hint"
+                    android:textColorHint="@color/smoke_white"
+                    android:textColor="@color/hint_blue"
+                    android:textSize="24sp"
+                    android:inputType="phone"
+                    android:maxLength="4"
+                    android:letterSpacing="0.9"
+                    android:background="@color/white"
+                    android:layout_marginBottom="3dp"
+                    android:textCursorDrawable="@null"
+                    android:textDirection="ltr"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:visibility="visible"
+                    android:layout_alignStart="@id/et_verification_code"
+                    android:layout_alignEnd="@id/et_verification_code"
+                    android:layout_below="@id/et_verification_code">
+
+                    <View
+                        android:id="@+id/view_digit_one"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="@color/line_gray"
+                        android:layout_marginEnd="7dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="1"/>
+
+                    <View
+                        android:id="@+id/view_digit_two"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="@color/line_gray"
+                        android:layout_marginEnd="7dp"
+                        android:layout_weight="1"/>
+
+                    <View
+                        android:id="@+id/view_digit_three"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="@color/line_gray"
+                        android:layout_marginEnd="7dp"
+                        android:layout_weight="1"/>
+
+                    <View
+                        android:id="@+id/view_digit_four"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="@color/line_gray"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="2dp"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/submit"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@drawable/red_corners"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:alpha="0.5"/>
+
+            <TextView
+                android:id="@+id/tv_resend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/resend_code"
+                android:textColor="@color/gray"
+                android:textSize="15sp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="21dp"
+        android:layout_height="20dp"
+        android:src="@drawable/back_red_ic"
+        android:contentDescription="@null"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="40dp"/>
+
+    <com.rey.material.widget.ProgressView
+        android:id="@+id/pv_load"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:pv_autostart="true"
+        app:pv_circular="true"
+        app:pv_progressMode="indeterminate"
+        app:pv_progressStyle="@style/ColoredCircularProgressDrawable" />
+
+</RelativeLayout>

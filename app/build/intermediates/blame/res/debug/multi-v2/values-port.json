@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-port\\values-port.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\96006989be4961797bda525ef825601d\\res\\values-port\\values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

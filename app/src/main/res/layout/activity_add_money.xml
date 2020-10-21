@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_title"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/app_color">
+
+                <TextView
+                    android:id="@+id/tv_add_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/add_money"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:id="@+id/iv_back"
+                    android:layout_width="21dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/back_ic" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_amount_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/amount_nedded"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="-100 SAR"
+                android:textAlignment="center"
+                android:textColor="@color/red_amount" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/smoke_white"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tv_select_payment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/select_payment"
+                    android:textColor="@color/gray" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/creditCardLayout"
+                android:layout_width="match_parent"
+                android:layout_height="115dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_nr"
+                android:padding="20dp"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/credit_ic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/credit_ic" />
+
+                <TextView
+                    android:id="@+id/tv_credit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@+id/credit_ic"
+                    android:text="@string/credit_card"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="115dp"
+                android:background="@drawable/bg_nr"
+                android:padding="20dp"
+
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/sadad_ic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/sadad_ic" />
+
+                <TextView
+                    android:id="@+id/tv_sadad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@+id/sadad_ic"
+                    android:text="@string/Sadad"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/bankTransferRV"
+                android:layout_width="match_parent"
+                android:layout_height="115dp"
+                android:background="@drawable/bg_nr"
+                android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/bank_transfer_ic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:src="@drawable/bank_ic" />
+
+                <TextView
+                    android:id="@+id/tv_bank_transfer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@+id/bank_transfer_ic"
+                    android:text="@string/bank_transfer"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="17dp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <com.rey.material.widget.ProgressView
+        android:id="@+id/pv_load"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:pv_autostart="true"
+        app:pv_circular="true"
+        app:pv_progressMode="indeterminate"
+        app:pv_progressStyle="@style/ColoredCircularProgressDrawable" />
+
+</RelativeLayout>

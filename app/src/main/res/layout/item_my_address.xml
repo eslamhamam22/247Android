@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="15dp"
+    android:paddingEnd="10dp"
+    android:paddingTop="10dp"
+    android:id="@+id/rl_item_address">
+
+    <TextView
+        android:id="@+id/tv_addresss_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/title_black"
+        android:textSize="15sp"
+        android:layout_marginBottom="5dp"/>
+
+    <ImageView
+        android:id="@+id/iv_pin"
+        android:layout_width="15dp"
+        android:layout_height="20dp"
+        android:src="@drawable/destination_pin"
+        android:layout_below="@id/tv_addresss_title"/>
+
+    <TextView
+        android:id="@+id/tv_address_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/iv_pin"
+        android:layout_toStartOf="@id/iv_delete"
+        android:layout_below="@id/tv_addresss_title"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/gray"
+        android:textSize="13sp"
+        android:textAlignment="viewStart"/>
+
+    <ImageView
+        android:id="@+id/iv_select"
+        android:layout_width="20dp"
+        android:layout_height="15dp"
+        android:src="@drawable/checked_ic"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_width="35dp"
+        android:layout_height="28.75dp"
+        android:src="@drawable/delete_ic"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@id/tv_address_content"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="10dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/tv_address_content"
+        android:background="@color/line_gray"
+        android:alpha="0.08"
+        android:layout_marginTop="10dp"/>
+</RelativeLayout>

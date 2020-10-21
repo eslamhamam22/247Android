@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/app_color"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_active_stores_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:text="@string/stores"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/smoke_white"
+        android:layout_below="@id/rl_title">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2.25"
+            android:layout_marginBottom="20dp"
+            android:focusableInTouchMode="true">
+
+            <ImageView
+                android:id="@+id/iv_banner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/louding_img"
+                android:layout_marginBottom="30dp"
+                android:scaleType="centerCrop"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/gradient_img"
+                android:layout_alignParentBottom="true"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="15dp"/>
+
+            <TextView
+                android:id="@+id/tv_stores_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/white_corners"
+                android:hint="@string/search"
+                android:textSize="15sp"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/line_gray"
+                android:padding="10dp"
+                android:drawableEnd="@drawable/search_ic"
+                android:drawablePadding="20dp"
+                android:textAlignment="viewStart"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_request_pickup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/request_pick_location"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:background="@drawable/red_corners"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:padding="10dp"
+                android:drawableStart="@drawable/request_pickup_ic"
+                android:visibility="visible"
+                android:layout_marginBottom="20dp"
+                android:minHeight="0dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_categories"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/no_connection_layout"
+        android:layout_below="@id/rl_title"/>
+
+    <com.rey.material.widget.ProgressView
+        android:id="@+id/pv_load"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:pv_autostart="true"
+        app:pv_circular="true"
+        app:pv_progressMode="indeterminate"
+        app:pv_progressStyle="@style/ColoredCircularProgressDrawable" />
+
+</RelativeLayout>

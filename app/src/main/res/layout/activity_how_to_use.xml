@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="21dp"
+            android:layout_height="20dp"
+            android:src="@drawable/back_red_ic"
+            android:contentDescription="@null"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            />
+
+        <pl.pzienowicz.autoscrollviewpager.AutoScrollViewPager
+            android:id="@+id/vp_use"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_above="@id/tl_indicator"
+            android:layout_below="@id/iv_back"
+            android:src="@drawable/splash" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tl_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_marginTop="20dp"
+            app:tabBackground="@drawable/slider_selector"
+            app:tabGravity="center"
+            app:tabMaxWidth="15dp"
+            app:tabMinWidth="15dp"
+            app:tabIndicatorHeight="0dp"
+            android:layout_above="@id/rl_skip_or_submit"
+            android:layoutDirection="ltr"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_skip_or_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/tv_skip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="@string/skip"
+                android:textColor="@color/app_color"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/iv_next"
+                android:layout_width="21dp"
+                android:layout_height="20dp"
+                android:contentDescription="@null"
+                android:src="@drawable/back_ar_red_ic"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"/>
+
+            <Button
+                android:id="@+id/btn_submit_request"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/red_corners"
+                android:text="@string/submit_request"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="30dp"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <include
+        layout="@layout/no_connection_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_title" />
+
+    <com.rey.material.widget.ProgressView
+        android:id="@+id/pv_load"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:pv_autostart="true"
+        app:pv_circular="true"
+        app:pv_progressMode="indeterminate"
+        app:pv_progressStyle="@style/ColoredCircularProgressDrawable" />
+
+</RelativeLayout>

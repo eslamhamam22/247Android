@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_add_coupon"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/transparent_popup"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_add_coupon_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/promo_corners"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp">
+
+        <TextView
+            android:id="@+id/tv_add_coupon_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:paddingStart="20dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="10dp"
+            android:text="@string/coupon_code"
+            android:textColor="@color/app_color"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/et_coupon_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_corners"
+            android:gravity="top"
+            android:hint="@string/enter_code"
+            android:padding="10dp"
+            android:textColor="@color/gray"
+            android:textColorHint="@color/line_gray"
+            android:textSize="13sp"
+            android:layout_below="@id/tv_add_coupon_title"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp" />
+
+        <TextView
+            android:id="@+id/tv_coupon_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_coupon_value"
+            android:text="@string/empty_coupon_error"
+            android:textColor="@color/app_color"
+            android:textSize="12sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:visibility="gone" />
+
+
+        <View
+            android:id="@+id/view_add_coupon_separator"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@id/tv_coupon_error"
+            android:alpha="0.3"
+            android:background="@color/line_gray"
+            android:layout_marginTop="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_add_coupon_separator"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_add_coupon_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="20dp"
+                android:text="@string/cancel"
+                android:textColor="@color/gray"
+                android:textSize="15sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:alpha="0.3"
+                android:background="@color/line_gray" />
+
+            <TextView
+                android:id="@+id/tv_add_coupon_yes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="20dp"
+                android:text="@string/submit"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <com.rey.material.widget.ProgressView
+            android:id="@+id/pv_add_coupon_load"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            app:pv_autostart="true"
+            app:pv_circular="true"
+            app:pv_progressMode="indeterminate"
+            app:pv_progressStyle="@style/ColoredCircularProgressDrawable" />
+
+    </RelativeLayout>
+
+</LinearLayout>
