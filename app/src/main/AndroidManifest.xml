@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:installLocation="preferExternal"
     package="amaz.objects.TwentyfourSeven">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
@@ -10,8 +12,11 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-feature android:name="android.hardware.location.gps" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions"/>
+
+    <uses-feature android:name="android.hardware.location.gps" />
 
     <application
         tools:replace="android:allowBackup"
@@ -19,6 +24,7 @@
         android:icon="@drawable/app_icon"
         android:label="@string/app_name"
         android:roundIcon="@drawable/app_icon"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:allowBackup="false">
@@ -98,18 +104,27 @@
         <activity
             android:name=".ui.AllNearestStores.AllNearestStoresActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name="amaz.objects.TwentyfourSeven.ui.MyOrders.MyCurrentOrdersActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name="amaz.objects.TwentyfourSeven.ui.AddMoney.AddMoneyActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name="amaz.objects.TwentyfourSeven.ui.AddMoney.BankTransferActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name="amaz.objects.TwentyfourSeven.ui.AddMoney.SubmitTransactionActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name="amaz.objects.TwentyfourSeven.ui.AddMoney.StcPayActivity"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".ui.StoreDetails.StoreDetailsActivity"
             android:screenOrientation="portrait"
@@ -174,8 +189,6 @@
         <!-- Branch testing (TestMode "true" to simulate fresh installs on dev environment) -->
         <meta-data android:name="io.branch.sdk.TestMode" android:value="false" />
 
-
-
         <!-- Branch install referrer tracking -->
         <receiver android:name="io.branch.referral.InstallListener" android:exported="true">
             <intent-filter>
@@ -186,6 +199,7 @@
         <activity
             android:name=".ui.MyBalance.MyBalanceActivity"
             android:screenOrientation="portrait"></activity>
+
         <activity
             android:name=".ui.RequestFromStore.RequestFromStoreActivity"
             android:screenOrientation="portrait" />
@@ -224,7 +238,13 @@
 
         <activity android:name=".ui.PayViaCreditCard.PayViaCreditCardActivity"
             android:screenOrientation="portrait"/>
-
+        <activity
+            tools:replace="android:theme"
+            android:name="com.oppwa.mobile.connect.checkout.dialog.CheckoutActivity"
+            android:theme="@style/Theme.Checkout.Light"
+            android:windowSoftInputMode="adjustPan"
+            android:exported="false"
+            android:launchMode="singleTop"/>
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -234,6 +254,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
+
         <service
             android:name="amaz.objects.TwentyfourSeven.ui.Notification.MyNotificationExtenderService"
             android:exported="false"
@@ -242,7 +263,9 @@
                 <action android:name="com.onesignal.NotificationExtender" />
             </intent-filter>
         </service>
-
+        <service
+            android:name="com.oppwa.mobile.connect.service.ConnectService"
+            android:exported="false"/>
 <!--        <service android:name=".utilities.DelegateLocationService" />-->
         <service android:name=".utilities.tracking_module.TrackingService"/>
 
@@ -259,6 +282,7 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
         <meta-data
             android:name="com.onesignal.NotificationOpened.DEFAULT"
             android:value="DISABLE" />

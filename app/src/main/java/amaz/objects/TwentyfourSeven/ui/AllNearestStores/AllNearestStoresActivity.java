@@ -1,5 +1,6 @@
 package amaz.objects.TwentyfourSeven.ui.AllNearestStores;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
@@ -34,6 +35,10 @@ import amaz.objects.TwentyfourSeven.utilities.Fonts;
 import amaz.objects.TwentyfourSeven.utilities.LanguageUtilities;
 import amaz.objects.TwentyfourSeven.utilities.LocalSettings;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -278,6 +283,15 @@ public class AllNearestStoresActivity extends BaseActivity implements CategorySt
         this.nextPageToken = response.getNextPageToken();
         nearestStoresList.addAll(response.getResults());
         nearestStoresAdapter.notifyDataSetChanged();
-
+        String filename = "myfile";
+        String fileContents = "Hello world!";
+        File file = new File(this.getFilesDir(), filename);
+        try (FileOutputStream fos = this.openFileOutput(filename, Context.MODE_PRIVATE)) {
+            fos.write(fileContents.getBytes());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

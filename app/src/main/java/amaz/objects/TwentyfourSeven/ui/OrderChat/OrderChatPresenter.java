@@ -219,6 +219,95 @@ public class OrderChatPresenter extends BasePresenter {
                 });
     }
 
+    public void getDelegateOrderDetails(String token, String locale, int orderId) {
+        final OrderChatView orderDetailsView = view.get();
+        orderDetailsView.showLoading();
+        orderRepository.getDelegateOrderDetails(token, locale, orderId, new OnResponseListener() {
+            @Override
+            public void onSuccess(Response response) {
+                orderDetailsView.hideLoading();
+                Order order = ((CustomerOrderDetailsResponse) response.body()).getData().getOrder();
+                orderDetailsView.showOrderDetails(order);
+            }
+
+            @Override
+            public void onFailure() {
+                orderDetailsView.hideLoading();
+            }
+
+            @Override
+            public void onAuthError() {
+                orderDetailsView.hideLoading();
+            }
+
+            @Override
+            public void onInvalidTokenError() {
+                orderDetailsView.hideLoading();
+            }
+
+            @Override
+            public void onServerError() {
+                orderDetailsView.hideLoading();
+            }
+
+            @Override
+            public void onValidationError(String errorMessage) {
+                orderDetailsView.hideLoading();
+            }
+
+            @Override
+            public void onSuspendedUserError(String errorMessage) {
+                orderDetailsView.hideLoading();
+            }
+        });
+    }
+
+    public void getCustomerOrderDetails(String token, String locale, final int orderId) {
+        final OrderChatView orderDetailsView = view.get();
+        orderDetailsView.showLoading();
+        orderRepository.getCustomerOrderDetails(token, locale, orderId, new OnResponseListener() {
+            @Override
+            public void onSuccess(Response response) {
+                orderDetailsView.hideLoading();
+                Order order = ((CustomerOrderDetailsResponse) response.body()).getData().getOrder();
+                orderDetailsView.showOrderDetails(order);
+            }
+
+            @Override
+            public void onFailure() {
+                orderDetailsView.hideLoading();
+            }
+
+            @Override
+            public void onAuthError() {
+                orderDetailsView.hideLoading();
+                orderDetailsView.showInvalideTokenError();
+            }
+
+            @Override
+            public void onInvalidTokenError() {
+                orderDetailsView.hideLoading();
+            }
+
+            @Override
+            public void onServerError() {
+                orderDetailsView.hideLoading();
+                orderDetailsView.showServerError();
+            }
+
+            @Override
+            public void onValidationError(String errorMessage) {
+                orderDetailsView.hideLoading();
+            }
+
+            @Override
+            public void onSuspendedUserError(String errorMessage) {
+                orderDetailsView.hideLoading();
+                orderDetailsView.showSuspededUserError(errorMessage);
+            }
+        });
+    }
+
     public void deliverOrder(String token, String locale, int orderId, String appVersion) {
 
         final OrderChatView orderChatView = view.get();
@@ -494,6 +583,8 @@ public class OrderChatPresenter extends BasePresenter {
         void showSuccessStartRide();
 
         void showSuccessPickItem(Order order);
+
+        void showOrderDetails(Order order);
 
         void showSuccessDeliverOrder();
 

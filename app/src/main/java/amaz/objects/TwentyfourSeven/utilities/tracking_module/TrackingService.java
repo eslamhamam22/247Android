@@ -35,7 +35,7 @@ import amaz.objects.TwentyfourSeven.utilities.LocalSettings;
 
 public class TrackingService extends Service {
 
-    private static final long UPDATE_INTERVAL_IN_MILLISECONDS = 20000;
+    private static final long UPDATE_INTERVAL_IN_MILLISECONDS = 120000;
     private static final long FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS =
             UPDATE_INTERVAL_IN_MILLISECONDS / 2;
 

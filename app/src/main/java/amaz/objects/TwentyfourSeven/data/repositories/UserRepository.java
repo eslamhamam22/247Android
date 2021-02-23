@@ -35,7 +35,7 @@ public interface UserRepository {
 
     void deleteDelegateImages(String token, String locale, long id, final OnResponseListener onUploadImageResponse);
 
-    void submitDelegateRequest(String token, String locale, String carDetails, String imagesIds, final OnResponseListener onSubmitRequestResponse);
+    void submitDelegateRequest(String token, String locale, String carDetails,String idNumber, String imagesIds, final OnResponseListener onSubmitRequestResponse);
 
     void getCarDetails(String token, String locale, final OnResponseListener onGetCarDetailsResponse);
 
@@ -76,6 +76,12 @@ public interface UserRepository {
 
     void getWalletDetails(String token, String locale, final OnResponseListener onSubmitRequestResponse);
 
-    void registerCardPayment(String token, String locale, double amount, final OnResponseListener onRegisterCardPaymentResponse);
+    void registerCardPayment(String token, String locale, double amount, int orderId, final OnResponseListener onRegisterCardPaymentResponse);
+
+    void getCheckoutId(String token, String locale, double amount, int orderId, final OnResponseListener onRegisterCardPaymentResponse);
+
+    void postStcDirectPaymentAuthorize(String token, String locale, String mobile, Double amount, final OnResponseListener onRegisterCardPaymentResponse);
+
+    void postStcDirectPaymentConfirm(String token, String locale, String otpReference, String otpValue, String sTCPayPmtReference, String tokenReference, final OnResponseListener onRegisterCardPaymentResponse);
 
 }

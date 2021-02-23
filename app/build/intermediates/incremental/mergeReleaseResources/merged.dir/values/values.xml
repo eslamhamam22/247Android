@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
+    <attr format="color" name="accentColor"/>
     <attr format="boolean" name="barrierAllowsGoneWidgets"/>
     <attr format="enum" name="barrierDirection">
         <enum name="left" value="0"/>
@@ -13,8 +14,26 @@
     <attr format="reference" name="bottomNavigationStyle"/>
     <attr format="reference" name="bottomSheetDialogTheme"/>
     <attr format="reference" name="bottomSheetStyle"/>
+    <attr format="reference" name="cameraDrawable"/>
+    <attr format="color" name="cameraTintColor"/>
+    <attr format="reference" name="cancelButtonDrawable"/>
+    <attr format="color" name="cancelButtonTintColor"/>
     <attr format="reference" name="cardViewStyle"/>
     <attr format="boolean" name="chainUseRtl"/>
+    <attr format="color" name="checkboxButtonTintColor"/>
+    <attr format="reference" name="checkoutAmountTextViewStyle"/>
+    <attr format="reference" name="checkoutButtonStyle"/>
+    <attr format="reference" name="checkoutEditTextStyle"/>
+    <attr format="reference" name="checkoutHelperTextViewStyle"/>
+    <attr format="reference" name="checkoutLabelTextViewStyle"/>
+    <attr format="reference" name="checkoutListViewStyle"/>
+    <attr format="reference" name="checkoutMethodImageViewStyle"/>
+    <attr format="reference" name="checkoutProgressBarStyle"/>
+    <attr format="reference" name="checkoutProgressTextViewStyle"/>
+    <attr format="reference" name="checkoutSectionTitleTextViewStyle"/>
+    <attr format="reference" name="checkoutTextViewStyle"/>
+    <attr format="reference" name="checkoutTitleTextViewStyle"/>
+    <attr format="reference" name="checkoutTokenImageViewStyle"/>
     <attr format="reference" name="chipGroupStyle"/>
     <attr format="reference" name="chipStandaloneStyle"/>
     <attr format="reference" name="chipStyle"/>
@@ -52,6 +71,7 @@
     </attr>
     <attr format="reference" name="fastscroll__style"/>
     <attr name="floatingActionButtonStyle"/>
+    <attr format="color|reference" name="headerBackground"/>
     <attr format="dimension" name="height"/>
     <attr format="reference" name="hideMotionSpec"/>
     <attr format="boolean" name="isLightTheme"/>
@@ -163,9 +183,15 @@
         <flag name="dimensions" value="8"/>
         <flag name="groups" value="32"/>
     </attr>
+    <attr format="reference" name="listDisclosureDrawable"/>
+    <attr format="color" name="listDisclosureTintColor"/>
+    <attr format="reference" name="listMarkDrawable"/>
+    <attr format="color" name="listMarkTintColor"/>
     <attr format="reference" name="materialButtonStyle"/>
     <attr format="reference" name="materialCardViewStyle"/>
     <attr format="reference" name="navigationViewStyle"/>
+    <attr format="color" name="paymentMethodListDividerColor"/>
+    <attr format="reference" name="paymentMethodListItemSelector"/>
     <attr format="float" name="pv_progress"/>
     <attr format="integer" name="pv_progressMode">
         <enum name="determinate" value="0x00000000"/>
@@ -179,6 +205,7 @@
     <attr format="color" name="rippleColor"/>
     <attr format="color|reference" name="scrimBackground"/>
     <attr format="reference" name="showMotionSpec"/>
+    <attr format="boolean" name="state_error"/>
     <attr format="color" name="strokeColor"/>
     <attr format="dimension" name="strokeWidth"/>
     <attr format="reference" name="tabStyle"/>
@@ -198,15 +225,18 @@
     <attr format="reference" name="textInputStyle"/>
     <attr format="string" name="title"/>
     <attr format="reference|string" name="tv_fontFamily"/>
+    <attr format="color|reference" name="windowBackground"/>
     <bool name="abc_action_bar_embed_tabs">true</bool>
     <bool name="abc_allow_stacked_button_bar">false</bool>
     <bool name="abc_config_actionMenuItemAllCaps">true</bool>
+    <bool name="connect_checkout_show_toasts">false</bool>
     <bool name="layout_direction_rtl">false</bool>
     <bool name="mtrl_btn_textappearance_all_caps">true</bool>
     <color name="abc_input_method_navigation_guard">@android:color/black</color>
     <color name="abc_search_url_text_normal">#7fa87f</color>
     <color name="abc_search_url_text_pressed">@android:color/black</color>
     <color name="abc_search_url_text_selected">@android:color/black</color>
+    <color name="accentColor">#ffa726</color>
     <color name="accent_material_dark">@color/material_deep_teal_200</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
     <color name="alpha_white">#80ffffff</color>
@@ -241,6 +271,40 @@
     <color name="cardview_shadow_start_color">#37000000</color>
     <color name="cell_baby_blue">#d4eaff</color>
     <color name="cell_light_red">#fedcdf</color>
+    <color name="checkout_amount_text_color_dark">#eeeeee</color>
+    <color name="checkout_amount_text_color_light">#ffffff</color>
+    <color name="checkout_background_color_dark">#333333</color>
+    <color name="checkout_background_color_light">#ffffff</color>
+    <color name="checkout_button_background_color">#ffa726</color>
+    <color name="checkout_button_pressed_background_color">#ffbe61</color>
+    <color name="checkout_button_text_color_dark">#282828</color>
+    <color name="checkout_button_text_color_light">#fafafa</color>
+    <color name="checkout_color_accent">#ffa726</color>
+    <color name="checkout_edit_text_color_light">#212121</color>
+    <color name="checkout_edit_text_focus_color">#ffa726</color>
+    <color name="checkout_edit_text_stroke_color">#b7b7b7</color>
+    <color name="checkout_edit_text_stroke_error_color">#f44336</color>
+    <color name="checkout_header_background_color_dark">#212121</color>
+    <color name="checkout_header_background_color_light">#ffa726</color>
+    <color name="checkout_helper_text_color">#f44336</color>
+    <color name="checkout_list_disclosure_tint_color_dark">#eeeeee</color>
+    <color name="checkout_list_disclosure_tint_color_light">#535353</color>
+    <color name="checkout_list_divider_color">#c8c8c8</color>
+    <color name="checkout_list_divider_color_dark">#2a2a2a</color>
+    <color name="checkout_list_item_pressed_color">#ffa726</color>
+    <color name="checkout_list_item_selected_color">#f5f5f5</color>
+    <color name="checkout_list_mark_tint_color">#ffa726</color>
+    <color name="checkout_method_image_background_color">#eeeeee</color>
+    <color name="checkout_section_background_color_dark">#2a2a2a</color>
+    <color name="checkout_section_background_color_light">#fffaf4</color>
+    <color name="checkout_section_title_text_color_dark">#d1d1d1</color>
+    <color name="checkout_section_title_text_color_light">#535353</color>
+    <color name="checkout_text_color">#212121</color>
+    <color name="checkout_text_color_dark">#eeeeee</color>
+    <color name="checkout_text_color_hint">#61000000</color>
+    <color name="checkout_text_color_hint_dark">#80ffffff</color>
+    <color name="checkout_title_text_color_dark">#eeeeee</color>
+    <color name="checkout_title_text_color_light">#ffffff</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
@@ -287,6 +351,7 @@
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
+    <color name="error_color">#f44336</color>
     <color name="error_color_material_dark">#ff7043</color>
     <color name="error_color_material_light">#ff5722</color>
     <color name="facebook_blue">#3f4bb7</color>
@@ -303,6 +368,8 @@
     <color name="highlighted_text_material_light">#66009688</color>
     <color name="hint_blue">#498bca</color>
     <color name="honey_green">#f5fff1</color>
+    <color name="ic_camera_tint_color_dark">#eeeeee</color>
+    <color name="ic_camera_tint_color_light">#535353</color>
     <color name="in_progres_color">#d8ca72</color>
     <color name="kelly_green">#4EBF26</color>
     <color name="light_gray">#cecece</color>
@@ -724,6 +791,7 @@
     <color name="secondary_text_disabled_material_dark">#36ffffff</color>
     <color name="secondary_text_disabled_material_light">#24000000</color>
     <color name="smoke_white">#f2f6f8</color>
+    <color name="success_color">#009688</color>
     <color name="switch_thumb_disabled_material_dark">#ff616161</color>
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
@@ -834,6 +902,10 @@
     <dimen name="cardview_compat_inset_shadow">1dp</dimen>
     <dimen name="cardview_default_elevation">2dp</dimen>
     <dimen name="cardview_default_radius">2dp</dimen>
+    <dimen name="checkout_button_margin_top">50dp</dimen>
+    <dimen name="checkout_helper_margin_top">4dp</dimen>
+    <dimen name="checkout_input_margin_top">15dp</dimen>
+    <dimen name="checkout_payment_data_padding">10dp</dimen>
     <dimen name="com_facebook_auth_dialog_corner_radius">2dp</dimen>
     <dimen name="com_facebook_auth_dialog_corner_radius_oversized">4dp</dimen>
     <dimen name="com_facebook_button_corner_radius">2dp</dimen>
@@ -1109,20 +1181,36 @@
     <item name="view_offset_helper" type="id"/>
     <integer name="abc_config_activityDefaultDur">220</integer>
     <integer name="abc_config_activityShortDur">150</integer>
+    <integer name="accountHolderMaxLength">128</integer>
+    <integer name="anim_time">400</integer>
     <integer name="app_bar_elevation_anim_duration">150</integer>
+    <integer name="bicBankCodeMaxLength">12</integer>
     <integer name="bottom_sheet_slide_duration">150</integer>
+    <integer name="button_anim_time">150</integer>
     <integer name="cancel_button_image_alpha">127</integer>
+    <integer name="cardExpirationDateMaxLength">7</integer>
+    <integer name="cardHolderMaxLength">128</integer>
+    <integer name="cardNumberMaxLength">24</integer>
+    <integer name="cardSecurityCodeMaxLength">4</integer>
+    <integer name="card_flip_time_full">400</integer>
+    <integer name="card_flip_time_half">200</integer>
     <integer name="config_tooltipAnimTime">150</integer>
+    <integer name="countryCodeMaxLegth">6</integer>
     <integer name="design_snackbar_text_max_lines">2</integer>
     <integer name="design_tab_indicator_anim_duration_ms">300</integer>
     <integer name="google_play_services_version">12451000</integer>
+    <integer name="helperTextMaxLines">3</integer>
     <integer name="hide_password_duration">320</integer>
+    <integer name="ibanMaxLength">39</integer>
+    <integer name="label_anim_time">150</integer>
+    <integer name="mobilePhoneNumberMaxLength">12</integer>
     <integer name="mtrl_btn_anim_delay_ms">100</integer>
     <integer name="mtrl_btn_anim_duration_ms">100</integer>
     <integer name="mtrl_chip_anim_duration">100</integer>
     <integer name="mtrl_tab_indicator_anim_duration_ms">250</integer>
     <integer name="show_password_duration">200</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
+    <string name="Cash_on_delivery">Cash on delivery</string>
     <string name="Sadad">Sadad</string>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_up_description">Navigate up</string>
@@ -1151,6 +1239,8 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with <ns1:g example="Mail" id="application_name">%s</ns1:g></string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
+    <string name="abn_armo">ABN ARMO</string>
+    <string name="abn_armo_test">ABN AMRO Test</string>
     <string name="about_us">About Us</string>
     <string name="accept">Accept</string>
     <string name="accept_offer_message">You are accepting the order to be delivered with</string>
@@ -1167,17 +1257,22 @@
     <string name="add_rate"><u>Add Rate</u></string>
     <string name="address_name">Address name</string>
     <string name="agree_message">By using the app you agree to</string>
+    <string name="alipay">Alipay</string>
     <string name="all_active_stores">Active Stores</string>
     <string name="all_nearest_stores">All Stores Nearby</string>
     <string name="all_stores">All Stores</string>
+    <string name="amex">American Express</string>
     <string name="amount">Amount </string>
     <string name="amount_nedded">Amount needs to be added</string>
+    <string name="androidpay">Android Pay</string>
     <string name="app_name">24/7</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
     <string name="arabic">العربية</string>
     <string name="are_you_ready">Are you ready to deliver?</string>
+    <string name="asn_bank">ASN Bank</string>
     <string name="assigned">ASSIGNED</string>
     <string name="attach_bank_doc">upload bank userTransaction receipt</string>
+    <string name="austria">Österreich</string>
     <string name="avalible_delivery">Available for delivery requests</string>
     <string name="away">Away</string>
     <string name="balance_title">Account Balance</string>
@@ -1188,9 +1283,12 @@
     <string name="become_delegate">Become a Delegate</string>
     <string name="become_driver">How to become\na Driver</string>
     <string name="being_delivered">ITEM PICKED</string>
+    <string name="belgium">Belgique</string>
     <string name="birth_date">Birth date</string>
     <string name="blocked_area_error">Sorry, we don\'t operate in this area</string>
+    <string name="boleto">BOLETO Bancário</string>
     <string name="bottom_sheet_behavior" translatable="false">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
+    <string name="bunq_bank">Bunq Bank</string>
     <string name="call">Call</string>
     <string name="cancel">Cancel</string>
     <string name="cancel_delegate_order">Are you sure you want to withdraw from this ride?</string>
@@ -1210,10 +1308,63 @@
     <string name="changes">Changes</string>
     <string name="character_counter_content_description">Character limit exceeded %1$d of %2$d</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
+    <string name="checkout_auth_confirm_payment">To confirm payment</string>
+    <string name="checkout_error">Error</string>
+    <string name="checkout_error_account_holder_invalid">Account holder name is not valid</string>
+    <string name="checkout_error_bic_bank_code_invalid">BIC or Bank Code is not valid</string>
+    <string name="checkout_error_card_holder_invalid">Card holder name is not valid</string>
+    <string name="checkout_error_card_number_invalid">Card number entered is not valid</string>
+    <string name="checkout_error_expiration_date">Card is expired</string>
+    <string name="checkout_error_expiration_date_invalid">Card expiration date is not valid, use MM/YY or MM/YYYY format</string>
+    <string name="checkout_error_iban_account_number_invalid">IBAN or Account Number is not valid</string>
+    <string name="checkout_error_iban_invalid">IBAN is not valid</string>
+    <string name="checkout_error_mobile_phone_number_invalid">Invalid mobile number</string>
+    <string name="checkout_error_security_code_invalid">Security code must contain last 3 digits on the back of your card</string>
+    <string name="checkout_error_security_code_invalid_amex">Security code must contain 4-digit number on the front of your card</string>
+    <string name="checkout_fingerprint_cancel">Cancel</string>
+    <string name="checkout_fingerprint_enter_pin">Enter PIN</string>
+    <string name="checkout_fingerprint_not_recognized">Fingerprint not recognized, try again</string>
+    <string name="checkout_fingerprint_success">Fingerprint recognized</string>
+    <string name="checkout_fingerprint_touch_sensor">Touch sensor</string>
+    <string name="checkout_helper_bic_bank_code">BIC or Bank Code</string>
+    <string name="checkout_helper_card_holder">Name as it appears on card</string>
+    <string name="checkout_helper_card_number">Long number on the front of your card</string>
+    <string name="checkout_helper_country_code">+xxx</string>
+    <string name="checkout_helper_expiration_date">Use MM/YY or MM/YYYY format</string>
+    <string name="checkout_helper_iban">The IBAN (International Bank Account Number) associated with the bank account</string>
+    <string name="checkout_helper_iban_account_number">IBAN or Account Number</string>
+    <string name="checkout_helper_phone_number">xxxxxxxxx</string>
+    <string name="checkout_helper_security_code">Last 3 digits on the back of your card</string>
+    <string name="checkout_helper_security_code_amex">4-digit code on front of your card</string>
+    <string name="checkout_layout_accessibility_cancel_checkout">cancel checkout</string>
+    <string name="checkout_layout_accessibility_list_disclosure">select payment method</string>
+    <string name="checkout_layout_accessibility_payment_icon">payment method</string>
+    <string name="checkout_layout_hint_card_cvv">CVV</string>
+    <string name="checkout_layout_hint_card_expiration_date">Expiration Date</string>
+    <string name="checkout_layout_hint_card_holder">Name of Card Holder</string>
+    <string name="checkout_layout_hint_card_number">Credit Card Number</string>
+    <string name="checkout_layout_hint_country_code">Country Code</string>
+    <string name="checkout_layout_hint_direct_debit_sepa_account_holder">Account Holder</string>
+    <string name="checkout_layout_hint_direct_debit_sepa_iban">IBAN</string>
+    <string name="checkout_layout_hint_phone_number">Phone number</string>
+    <string formatted="false" name="checkout_layout_text_header_amount">%.2f %s</string>
+    <string name="checkout_layout_text_other_payment_methods">Other Payment Methods</string>
+    <string name="checkout_layout_text_pay">PAY NOW</string>
+    <string name="checkout_layout_text_payment_info">Payment Info</string>
+    <string name="checkout_layout_text_register">REGISTER</string>
+    <string name="checkout_layout_text_select_bank">Select Bank</string>
+    <string name="checkout_layout_text_select_country">Select Country</string>
+    <string name="checkout_layout_text_select_payment_method">Payment Methods</string>
+    <string name="checkout_layout_text_stored_payment_methods">Stored Payment Methods</string>
+    <string name="checkout_payment_details">Payment Details</string>
+    <string name="checkout_processing">Processing</string>
+    <string name="checkout_tokenization_checkbox">Store payment details for future use</string>
+    <string name="checkout_transaction_run">Please wait</string>
+    <string name="chinaunionpay">UnionPay Online Payment</string>
     <string name="choose_bank">Choose Bank</string>
     <string name="choose_reason">Select cancellation reason</string>
     <string name="city">City</string>
-    <string name="client_id">658431378721-23pau7q0bo9addbr3pqdbtl6ctfdrkul.apps.googleusercontent.com</string>
+    <string name="client_id">658431378721-0jhn3oaem2nnf0k2h871k65ns1r9tiv1.apps.googleusercontent.com</string>
     <string name="closed">Closed</string>
     <string name="code_hint">0000</string>
     <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">00000000000000000000000000000000</string>
@@ -1266,11 +1417,13 @@
     <string name="connection_error">Connection error, please check your connection and try again</string>
     <string name="contact_info">Contact info</string>
     <string name="contact_us">Contact Us</string>
+    <string name="content_description"> </string>
     <string name="copy_right">All Copyrights reserved@24.7</string>
     <string name="coupon_code">Add Coupon Code</string>
     <string name="credit_card">Cerdit Card</string>
     <string name="current_request">Current orders</string>
     <string name="customer_profile">Customer Profile</string>
+    <string name="dankort">Dankort</string>
     <string name="dashes">-</string>
     <string name="day">Day</string>
     <string name="days">Days</string>
@@ -1291,7 +1444,10 @@
     <string name="description">Complaint description</string>
     <string name="destination">Delivery location</string>
     <string name="dialoug_reordere_msg">you are going to recreate this order with same details</string>
+    <string name="diners">Diners Club</string>
+    <string name="directdebit_sepa">SEPA Direct Debit</string>
     <string name="discount">Discount</string>
+    <string name="discover">Discover</string>
     <string name="empty_address_error">please enter Address Name</string>
     <string name="empty_coupon_error">Enter coupon code</string>
     <string name="empty_name_error">please enter your full name</string>
@@ -1315,7 +1471,9 @@
     <string name="full_name">Full name</string>
     <string name="gcm_defaultSenderId" translatable="false">658431378721</string>
     <string name="gender">Gender</string>
-    <string name="google_android_key">AIzaSyBi3qVakaNh185b2cmgFsuhBntGtA2SLLA</string>
+    <string name="germany">Deutschland</string>
+    <string name="giropay">Giropay</string>
+    <string name="google_android_key">AIzaSyAYR8NFqc1mIbM832Rj5sz_F_g1-NZV8pM</string>
     <string name="google_api_key" translatable="false">AIzaSyBi3qVakaNh185b2cmgFsuhBntGtA2SLLA</string>
     <string name="google_app_id" translatable="false">1:658431378721:android:101d386943e1f8fc</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBi3qVakaNh185b2cmgFsuhBntGtA2SLLA</string>
@@ -1329,18 +1487,29 @@
     <string name="houre">H</string>
     <string name="how_to_use">How to use</string>
     <string name="id_image">national ID</string>
+    <string name="id_number">ID Number</string>
+    <string name="ideal">IDEAL</string>
     <string name="ignore_message">By rejecting the order, it won\'t be available and you won\'t be able to submit offer on this order anymore</string>
     <string name="image_size_error">Max Size 20 MB</string>
     <string name="image_type_error">Please upload only png, jpg, jpeg image</string>
     <string name="in_progress">IN PROGRESS</string>
     <string name="in_progress_complaint">IN PROGRESS</string>
+    <string name="ing">ING</string>
+    <string name="ing_test">ING Test</string>
     <string name="inner_submit_transaction">Submit</string>
     <string name="invalid_name_error">full name allows letters and numbers only (i.e. a-z, A-Z, 0-9)</string>
     <string name="invalid_phone_number">please enter a valid mobile number</string>
     <string name="invalid_verification_code">Invalid code, Please enter the correct code</string>
+    <string name="invoice_details">Invoice Details</string>
+    <string name="invoice_details_message">The order will be completed and the delivery will be confirmed by the delegate after receiving the following amount or online paid through you:</string>
+    <string name="is_paid">Is Paid</string>
     <string name="item_picked">Pick Item</string>
     <string name="item_price">Item Price</string>
+    <string name="jcb">JCB</string>
     <string name="kilometer">Km</string>
+    <string name="klarna_installments">Klarna Installments</string>
+    <string name="klarna_invoice">Klarna Invoice</string>
+    <string name="knab_bank">Knab Bank</string>
     <string name="language">Language</string>
     <string name="license_image">driver license</string>
     <string name="load_image"><u>upload profile image</u></string>
@@ -1352,6 +1521,8 @@
     <string name="login_google">Login via Google</string>
     <string name="login_mobile">Login via mobile number</string>
     <string name="logout">Logout</string>
+    <string name="master">MasterCard</string>
+    <string name="masterpass">Masterpass</string>
     <string name="max_debit">You\'ve reached your wallet maximum limit , you need to pay the amount requierd in your wallet to start receiving new orders</string>
     <string name="max_debit_first">You\'ve reached your wallet maximum</string>
     <string name="max_debit_offer">You\'ve reached your wallet maximum limit , you need to pay the amount requierd in your wallet to start submitting new offers</string>
@@ -1375,6 +1546,7 @@
     <string name="my_wallet">My Wallet</string>
     <string name="near_by">Nearby</string>
     <string name="need_balance">You need to add money to your wallet or transfer to company bank account</string>
+    <string name="netherlands">Nederland</string>
     <string name="new_order">New Order</string>
     <string name="newstaus">NEW</string>
     <string name="no">No</string>
@@ -1406,6 +1578,11 @@
     <string name="path_password_eye_mask_strike_through" translatable="false">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
+    <string name="paydirekt">Paydirekt</string>
+    <string name="payment_method">Payment method</string>
+    <string name="payment_online">Payment online</string>
+    <string name="paypal">PayPal</string>
+    <string name="paysafecard">Paysafecard</string>
     <string name="pending">PENDING</string>
     <string name="personal_info">Personal info</string>
     <string name="phone_no">phone no.</string>
@@ -1430,11 +1607,14 @@
     <string name="profit">Total earnings</string>
     <string name="project_id" translatable="false">app-30576</string>
     <string name="question_mark">\?</string>
+    <string name="rabobank">Rabobank</string>
     <string name="rate_app">Rate The App</string>
     <string name="rate_customer">Rate Your  Customer</string>
     <string name="rate_driver">Rate Your Delegate</string>
     <string name="rate_hint">How do you rate this experience?</string>
+    <string name="ratenkauf">Ratenkauf</string>
     <string name="rating">Rating</string>
+    <string name="rbs_test">RBS Test</string>
     <string name="ready">submit offer</string>
     <string name="register_mobile">Register via Mobile</string>
     <string name="register_or_login">Register to app via </string>
@@ -1470,10 +1650,15 @@
     <string name="share_app">Share the App</string>
     <string name="shipping_cost">Delivery cost</string>
     <string name="show_all">Show All</string>
+    <string name="sibs_multibanco">Multibanco</string>
     <string name="skip">Skip</string>
     <string name="skip_login"><u>Skip Login</u></string>
+    <string name="sns_bank">SNS Bank</string>
+    <string name="sns_regio_bank">SNS Regio Bank</string>
+    <string name="sofortueberweisung">SOFORT BANKING</string>
     <string name="start_ride">Start Ride</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="stc_pay">Stc Pay</string>
     <string name="stores">Stores</string>
     <string name="subject">Complaint Subject</string>
     <string name="submit">Submit</string>
@@ -1489,6 +1674,7 @@
     <string name="submit_transaction">Submit Transaction</string>
     <string name="success_send_code">verification code is sent successfully</string>
     <string name="sucess_transfer">Request is sent for verification, will notify you soon with updates</string>
+    <string name="switzerland">Schweiz</string>
     <string name="terms_conditions"><u>Terms &amp; Conditions</u></string>
     <string name="terms_conditions_title">Terms &amp; Conditions</string>
     <string name="time">Time</string>
@@ -1500,7 +1686,12 @@
     <string name="transfer">Transfer</string>
     <string name="transfer_document">Transfer document</string>
     <string name="transfer_to">Transferred to</string>
+    <string name="triodos_bank">Triodos Bank</string>
+    <string name="trustly">Trustly</string>
     <string name="turn_notification">Turn on notifacations</string>
+    <string name="unionpay">UnionPay Card</string>
+    <string name="unionpaysms">UnionPay SMS</string>
+    <string name="united_kingdom">United Kingdom</string>
     <string name="update">Edit</string>
     <string name="update_cost">Set item cost</string>
     <string name="upload_camera_image">Camera</string>
@@ -1511,10 +1702,12 @@
     <string name="upload_image">Upload image</string>
     <string name="upload_image_dialog_message">Choose</string>
     <string name="upload_license">uploaded driver license image</string>
+    <string name="van_lanschot_bankiers">Van Lanschot Bankiers</string>
     <string name="vat">VAT</string>
     <string name="verify">Verify</string>
     <string name="verify_mobile">Verify Mobile\nNumber</string>
     <string name="version">Version</string>
+    <string name="visa">VISA</string>
     <string name="voice_record">Voice Record</string>
     <string name="waiting_drivers">Waiting for offers</string>
     <string name="wallet">My Wallet</string>
@@ -1525,6 +1718,7 @@
     <string name="where_to">Where to</string>
     <string name="withdraw">Withdraw</string>
     <string name="working_houres">Working hours</string>
+    <string name="yandex">Yandex</string>
     <string name="yes">Yes</string>
     <string name="zero_time">00:00</string>
     <style name="AVLoadingIndicatorView">
@@ -3000,9 +3194,137 @@
     <style name="CardView.Light">
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
     </style>
+    <style name="Checkout.Button" parent="android:Widget.Button">
+        <item name="android:background">@drawable/checkout_button_selector</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+    <style name="Checkout.Button.Light">
+        <item name="android:textColor">@color/checkout_button_text_color_light</item>
+    </style>
+    <style name="Checkout.EditText" parent="android:Widget.EditText">
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+    <style name="Checkout.EditText.Dark">
+        <item name="android:textColor">@color/checkout_text_color_dark</item>
+    </style>
+    <style name="Checkout.EditText.Light">
+        <item name="android:textColor">@color/checkout_edit_text_color_light</item>
+    </style>
+    <style name="Checkout.ErrorTextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/error_color</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+    <style name="Checkout.HintTextAppearance" parent="@style/TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/checkout_color_accent</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="Checkout.ListView" parent="android:Widget.ListView">
+        <item name="android:listSelector">@drawable/checkout_list_item_background</item>
+        <item name="android:divider">@color/checkout_list_divider_color</item>
+        <item name="android:dividerHeight">0.1dp</item>
+    </style>
+    <style name="Checkout.ListView.Dark">
+        <item name="android:divider">@color/checkout_list_divider_color_dark</item>
+    </style>
+    <style name="Checkout.PaymentButton" parent="android:Widget.ImageButton">
+        <item name="android:background">@drawable/payment_button_background</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:padding">4dp</item>
+    </style>
+    <style name="Checkout.PaymentMethodImageView" parent="android:Widget">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <style name="Checkout.PaymentMethodImageView.Dark">
+        <item name="android:background">@drawable/checkout_payment_method_item_background</item>
+    </style>
+    <style name="Checkout.PaymentTokenImageView" parent="android:Widget">
+        <item name="android:background">@drawable/payment_token_background</item>
+    </style>
+    <style name="Checkout.PaymentTokenImageView.Dark" parent="android:Widget">
+        <item name="android:background">@drawable/checkout_payment_method_item_background</item>
+    </style>
+    <style name="Checkout.Progress" parent="android:Widget.Holo.ProgressBar"/>
+    <style name="Checkout.TextAppearance" parent="@android:style/TextAppearance.DeviceDefault">
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="Checkout.TextAppearance.Button">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="Checkout.TextAppearance.Title">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Checkout.TextView" parent="android:Widget.TextView">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+    <style name="Checkout.TextView.Dark">
+        <item name="android:textColor">@color/checkout_text_color_dark</item>
+    </style>
+    <style name="Checkout.TextView.Helper">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/checkout_helper_text_color</item>
+    </style>
+    <style name="Checkout.TextView.Helper.Label">
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">0dp</item>
+    </style>
+    <style name="Checkout.TextView.PaymentAmount">
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="Checkout.TextView.PaymentAmount.Dark">
+        <item name="android:textColor">@color/checkout_amount_text_color_light</item>
+    </style>
+    <style name="Checkout.TextView.PaymentAmount.Light">
+        <item name="android:textColor">@color/checkout_amount_text_color_light</item>
+    </style>
+    <style name="Checkout.TextView.PaymentProgress">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="Checkout.TextView.PaymentProgress.Dark">
+        <item name="android:textColor">@color/checkout_text_color_dark</item>
+    </style>
+    <style name="Checkout.TextView.PaymentTitle">
+        <item name="android:textSize">21sp</item>
+    </style>
+    <style name="Checkout.TextView.PaymentTitle.Dark">
+        <item name="android:textColor">@color/checkout_title_text_color_light</item>
+    </style>
+    <style name="Checkout.TextView.PaymentTitle.Light">
+        <item name="android:textColor">@color/checkout_title_text_color_light</item>
+    </style>
+    <style name="Checkout.TextView.SectionTitle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:paddingBottom">7dp</item>
+    </style>
+    <style name="Checkout.TextView.SectionTitle.Dark">
+        <item name="android:textColor">@color/checkout_section_title_text_color_dark</item>
+        <item name="android:background">@color/checkout_section_background_color_dark</item>
+    </style>
+    <style name="Checkout.TextView.SectionTitle.Light">
+        <item name="android:textColor">@color/checkout_section_title_text_color_light</item>
+        <item name="android:background">@color/checkout_section_background_color_light</item>
+    </style>
     <style name="ColoredCircularProgressDrawable" parent="Material.Drawable.CircularProgress">
         <item name="cpd_strokeColor">@color/app_color</item>
         <item name="cpd_strokeSize">2dp</item>
+    </style>
+    <style name="ConnectCheckout.Button.Dark" parent="Checkout.Button">
+        <item name="android:textColor">@color/checkout_button_text_color_dark</item>
     </style>
     <style name="CustomDialog" parent="android:Theme.Dialog">
         <item name="android:windowIsTranslucent">true</item>
@@ -3976,6 +4298,10 @@
     </style>
     <style name="TextAppearance.Widget.AppCompat.Toolbar.Title" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Title">
     </style>
+    <style name="TextInputLayout">
+        <item name="errorTextAppearance">@style/Checkout.ErrorTextAppearance</item>
+        <item name="hintTextAppearance">@style/Checkout.HintTextAppearance</item>
+    </style>
     <style name="Theme.AppCompat" parent="Base.Theme.AppCompat"/>
     <style name="Theme.AppCompat.CompactMenu" parent="Base.Theme.AppCompat.CompactMenu"/>
     <style name="Theme.AppCompat.DayNight" parent="Theme.AppCompat.Light"/>
@@ -4004,6 +4330,77 @@
     <style name="Theme.AppCompat.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Checkout" parent="Theme.AppCompat">
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:textColor">@color/checkout_text_color</item>
+        <item name="android:textColorHint">@color/checkout_text_color_hint</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="colorAccent">@color/checkout_color_accent</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="cancelButtonDrawable">@drawable/checkout_close</item>
+        <item name="cameraTintColor">@color/checkout_color_accent</item>
+        <item name="cameraDrawable">@drawable/ic_camera</item>
+        <item name="listDisclosureTintColor">#9e9e9e</item>
+        <item name="listDisclosureDrawable">@drawable/checkout_list_disclosure</item>
+        <item name="listMarkDrawable">@drawable/checkout_list_mark</item>
+        <item name="listMarkTintColor">@color/checkout_color_accent</item>
+        <item name="checkboxButtonTintColor">@color/checkout_color_accent</item>
+        <item name="paymentMethodListDividerColor">@color/checkout_list_divider_color</item>
+
+        <item name="paymentMethodListItemSelector">@drawable/list_item_selector</item>
+
+        <item name="checkoutTextViewStyle">@style/Checkout.TextView</item>
+        <item name="checkoutHelperTextViewStyle">@style/Checkout.TextView.Helper</item>
+        <item name="checkoutEditTextStyle">@style/Checkout.EditText</item>
+        <item name="checkoutTitleTextViewStyle">@style/Checkout.TextView.PaymentTitle</item>
+        <item name="checkoutMethodImageViewStyle">@style/Checkout.PaymentMethodImageView</item>
+        <item name="checkoutTokenImageViewStyle">@style/Checkout.PaymentTokenImageView</item>
+        <item name="checkoutListViewStyle">@style/Checkout.ListView</item>
+        <item name="checkoutSectionTitleTextViewStyle">@style/Checkout.TextView.SectionTitle</item>
+        <item name="checkoutButtonStyle">@style/Checkout.Button</item>
+    </style>
+    <style name="Theme.Checkout.Dark">
+        <item name="headerBackground">@color/checkout_header_background_color_dark</item>
+        <item name="windowBackground">@color/checkout_background_color_dark</item>
+
+        <item name="android:textColorHint">@color/checkout_text_color_hint_dark</item>
+
+        <item name="cancelButtonTintColor">@android:color/white</item>
+        <item name="listDisclosureTintColor">@color/checkout_list_disclosure_tint_color_dark</item>
+        <item name="cameraTintColor">@color/checkout_color_accent</item>
+        <item name="paymentMethodListDividerColor">@color/checkout_list_divider_color_dark</item>
+
+        <item name="checkoutTextViewStyle">@style/Checkout.TextView.Dark</item>
+        <item name="checkoutTokenImageViewStyle">@style/Checkout.PaymentTokenImageView.Dark</item>
+        <item name="checkoutTitleTextViewStyle">@style/Checkout.TextView.PaymentTitle.Dark</item>
+        <item name="checkoutAmountTextViewStyle">@style/Checkout.TextView.PaymentAmount.Dark</item>
+        <item name="checkoutSectionTitleTextViewStyle">@style/Checkout.TextView.SectionTitle.Dark</item>
+
+        <item name="checkoutEditTextStyle">@style/Checkout.EditText.Dark</item>
+
+        <item name="checkoutMethodImageViewStyle">@style/Checkout.PaymentMethodImageView.Dark</item>
+        <item name="checkoutListViewStyle">@style/Checkout.ListView.Dark</item>
+
+        <item name="checkoutButtonStyle">@style/ConnectCheckout.Button.Dark</item>
+
+        <item name="checkoutProgressTextViewStyle">@style/Checkout.TextView.PaymentProgress.Dark</item>
+    </style>
+    <style name="Theme.Checkout.Light">
+        <item name="headerBackground">@color/checkout_header_background_color_light</item>
+        <item name="windowBackground">@color/checkout_background_color_light</item>
+
+        <item name="cancelButtonTintColor">@android:color/white</item>
+
+        <item name="colorControlNormal">#e0e0e0</item>
+
+        <item name="checkoutTitleTextViewStyle">@style/Checkout.TextView.PaymentTitle.Light</item>
+        <item name="checkoutEditTextStyle">@style/Checkout.EditText.Light</item>
+        <item name="checkoutSectionTitleTextViewStyle">@style/Checkout.TextView.SectionTitle.Light</item>
+        <item name="checkoutButtonStyle">@style/Checkout.Button.Light</item>
     </style>
     <style name="Theme.Design" parent="Theme.AppCompat">
   </style>
@@ -5372,6 +5769,7 @@
         <attr name="android:minHeight"/>
     </declare-styleable>
     <declare-styleable name="CheckBoxDrawable"><attr format="reference|dimension" name="cbd_width"/><attr format="reference|dimension" name="cbd_height"/><attr format="reference|dimension" name="cbd_boxSize"/><attr format="reference|dimension" name="cbd_cornerRadius"/><attr format="reference|dimension" name="cbd_strokeSize"/><attr format="reference|color" name="cbd_strokeColor"/><attr format="reference|color" name="cbd_tickColor"/><attr format="reference|integer" name="cbd_animDuration"/></declare-styleable>
+    <declare-styleable name="CheckoutView"><attr format="string" name="typeface"/></declare-styleable>
     <declare-styleable name="Chip"><attr format="color" name="chipBackgroundColor"/><attr format="dimension" name="chipMinHeight"/><attr format="dimension" name="chipCornerRadius"/><attr format="color" name="chipStrokeColor"/><attr format="dimension" name="chipStrokeWidth"/><attr name="rippleColor"/><attr name="android:text"/><attr name="android:textAppearance"/><attr name="android:ellipsize"/><attr name="android:maxWidth"/><attr format="boolean" name="chipIconVisible"/><attr format="boolean" name="chipIconEnabled"/><attr format="reference" name="chipIcon"/><attr format="color" name="chipIconTint"/><attr format="dimension" name="chipIconSize"/><attr format="boolean" name="closeIconVisible"/><attr format="boolean" name="closeIconEnabled"/><attr format="reference" name="closeIcon"/><attr format="color" name="closeIconTint"/><attr format="dimension" name="closeIconSize"/><attr name="android:checkable"/><attr format="boolean" name="checkedIconVisible"/><attr format="boolean" name="checkedIconEnabled"/><attr format="reference" name="checkedIcon"/><attr name="showMotionSpec"/><attr name="hideMotionSpec"/><attr format="dimension" name="chipStartPadding"/><attr format="dimension" name="iconStartPadding"/><attr format="dimension" name="iconEndPadding"/><attr format="dimension" name="textStartPadding"/><attr format="dimension" name="textEndPadding"/><attr format="dimension" name="closeIconStartPadding"/><attr format="dimension" name="closeIconEndPadding"/><attr format="dimension" name="chipEndPadding"/></declare-styleable>
     <declare-styleable name="ChipGroup"><attr format="dimension" name="chipSpacing"/><attr format="dimension" name="chipSpacingHorizontal"/><attr format="dimension" name="chipSpacingVertical"/><attr format="boolean" name="singleLine"/><attr format="boolean" name="singleSelection"/><attr format="reference" name="checkedChip"/></declare-styleable>
     <declare-styleable name="CircleImageView"><attr format="dimension" name="civ_border_width"/><attr format="color" name="civ_border_color"/><attr format="boolean" name="civ_border_overlay"/><attr format="color" name="civ_fill_color"/></declare-styleable>

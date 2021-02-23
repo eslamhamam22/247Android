@@ -1,13 +1,18 @@
 package amaz.objects.TwentyfourSeven.ui.StoreDetails;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
+
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -92,8 +97,7 @@ public class StoreDetailsActivity extends BaseActivity implements View.OnClickLi
     public void onPresenterAvailable(BasePresenter presenter) {
         storeDetailsPresenter = (StoreDetailsPresenter) presenter;
         storeDetailsPresenter.setView(this);
-
-        if(workingHouresList.isEmpty()){
+        if (workingHouresList.isEmpty()) {
             if (placeId == null) {
                 if (store != null) {
                     storeDetailsPresenter.getStoreWorkingHoures(store.getPlaceId(), "opening_hours", localSettings.getLocale(),
@@ -104,7 +108,6 @@ public class StoreDetailsActivity extends BaseActivity implements View.OnClickLi
                         getString(R.string.google_server_key));
             }
         }
-
     }
 
     @Override
@@ -245,10 +248,10 @@ public class StoreDetailsActivity extends BaseActivity implements View.OnClickLi
             hideLoading();
             storeTitleTv.setText("\u200E" + store.getName() + "\u200E");
             //Picasso.with(this).load(categoryImage).placeholder(R.drawable.grayscale).into(storeImageIv);
-            if(!StoreDetailsActivity.this.isFinishing()){
+            if (!StoreDetailsActivity.this.isFinishing()) {
                 Glide.with(this)
-                        .load(APIURLs.BASE_URL+APIURLs.STORE_IMAGES+store.getPlaceId())
-                        .signature(new MediaStoreSignature("", System.currentTimeMillis(),0))
+                        .load(APIURLs.BASE_URL + APIURLs.STORE_IMAGES + store.getPlaceId())
+                        .signature(new MediaStoreSignature("", System.currentTimeMillis(), 0))
                         .apply(new RequestOptions().placeholder(R.drawable.grayscale).dontAnimate())
                         .error(Glide.with(this).load(categoryImage).apply(new RequestOptions().placeholder(R.drawable.grayscale).dontAnimate()))
                         .into(storeImageIv);
@@ -332,6 +335,17 @@ public class StoreDetailsActivity extends BaseActivity implements View.OnClickLi
                 googleMap.getUiSettings().setScrollGesturesEnabled(true);
                 googleMap.clear();
                 if (latitude != 0 && longitude != 0) {
+                    if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                            && ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                        // TODO: Consider calling
+                        //    ActivityCompat#requestPermissions
+                        // here to request the missing permissions, and then overriding
+                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                        //                                          int[] grantResults)
+                        // to handle the case where the user grants the permission. See the documentation
+                        // for ActivityCompat#requestPermissions for more details.
+                        return;
+                    }
                     googleMap.setMyLocationEnabled(true);
                 }
 

@@ -12,14 +12,14 @@ public final class R {
     public static final class attr {
         private attr() {}
 
-        public static final int el_duration = 0x7f030172;
-        public static final int el_expanded = 0x7f030173;
-        public static final int el_parallax = 0x7f030174;
+        public static final int el_duration = 0x7f030185;
+        public static final int el_expanded = 0x7f030186;
+        public static final int el_parallax = 0x7f030187;
     }
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] ExpandableLayout = { 0x10100c4, 0x7f030172, 0x7f030173, 0x7f030174 };
+        public static final int[] ExpandableLayout = { 0x10100c4, 0x7f030185, 0x7f030186, 0x7f030187 };
         public static final int ExpandableLayout_android_orientation = 0;
         public static final int ExpandableLayout_el_duration = 1;
         public static final int ExpandableLayout_el_expanded = 2;

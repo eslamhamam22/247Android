@@ -7,9 +7,9 @@
      <string name="google_server_key">AIzaSyCBZqsbT6XjJU_c4fczxqKVlmVT886085c</string>-->
 
     <!--GOOGLE_PROD_KEYS-->
-    <string name="client_id">658431378721-23pau7q0bo9addbr3pqdbtl6ctfdrkul.apps.googleusercontent.com</string>
+    <string name="client_id">658431378721-0jhn3oaem2nnf0k2h871k65ns1r9tiv1.apps.googleusercontent.com</string>
     <string name="secret_id">Dy-uviiC6etQVfgF9N6beyPp</string>
-    <string name="google_android_key">AIzaSyBi3qVakaNh185b2cmgFsuhBntGtA2SLLA</string>
+    <string name="google_android_key">AIzaSyAYR8NFqc1mIbM832Rj5sz_F_g1-NZV8pM</string>
     <string name="google_server_key">AIzaSyCCm_dEtdfR12jlhi6REsenrgKwjLKS_iQ</string>
 
     <!--general-->
@@ -113,6 +113,7 @@
     <string name="become_delegate">اصبح مندوب</string>
     <string name="personal_info">Personal info</string>
     <string name="car_brand">نوع المركبة</string>
+    <string name="id_number">رقم الهوية</string>
     <string name="upload_license">صورة رخصة القيادة</string>
     <string name="upload_id">صورة بطاقة الهوية</string>
     <string name="upload_car_front">صورة امامية للمركبة</string>
@@ -318,7 +319,6 @@
 
     <!--chat-->
     <string name="submit_msg_hint">اكتب رسالتك </string>
-
     <string name="track_order">تتبع</string>
     <string name="send">ارسل</string>
     <string name="start_ride">ابدأ الرحلة</string>
@@ -328,6 +328,8 @@
     <string name="end_ride_message">سيتم انهاء الطلب و تأكيد التسليم بعد استلام المبلغ الاتى من العميل:</string>
     <string name="order_chat">الطلب #</string>
     <string name="call">اتصل</string>
+    <string name="invoice_details">تفاصيل الفاتورة</string>
+    <string name="invoice_details_message">سيتم انهاء الطلب و تأكيد التسليم من المندوب بعد استلام المبلغ الاتى او الدفع الالكترونى من خلالك:</string>
 
     <!--blocked_areas-->
     <string name="place_not_allow">نأسف هذه منطقه غير مدعومة</string>
@@ -342,10 +344,15 @@
 
     <!--activity_Add_Money-->
     <string name="amount_nedded">المبلغ المطلوب اضافته</string>
+    <string name="is_paid">تم الدفع</string>
+    <string name="payment_method">طريقة الدفع</string>
+    <string name="Cash_on_delivery">الدفع عند الإستلام</string>
+    <string name="payment_online">الدفع الإلكترونى</string>
     <string name="select_payment">اختر طريقة دفع</string>
     <string name="credit_card">بطاقة ائتمان</string>
     <string name="Sadad">سداد</string>
     <string name="bank_transfer">تحويل بنكي</string>
+    <string name="stc_pay">Stc Pay</string>
     <string name="transaction_history">العمليات السابقه</string>
     <string name="bank_account_title">يجب أن تقوم بالتحويل البنكي لأحد الحسابات التالية ثم إرسال طلب مرفق به تفاصيل العملية وورقه التحويل البنكي</string>
     <string name="account_no">رقم الحساب.</string>

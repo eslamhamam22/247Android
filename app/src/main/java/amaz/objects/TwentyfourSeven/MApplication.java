@@ -7,7 +7,11 @@ import android.util.Log;
 import com.google.firebase.database.FirebaseDatabase;
 import com.onesignal.OneSignal;
 
+import amaz.objects.TwentyfourSeven.api.CustomTrust;
 import io.branch.referral.Branch;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import amaz.objects.TwentyfourSeven.api.APIURLs;
@@ -20,6 +24,7 @@ import amaz.objects.TwentyfourSeven.utilities.LanguageUtilities;
 import amaz.objects.TwentyfourSeven.utilities.LocalSettings;
 
 import okhttp3.OkHttpClient;
+import okhttp3.Protocol;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -146,7 +151,6 @@ public class MApplication extends Application {
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(APIURLs.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create());
-
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(60, TimeUnit.SECONDS)
                 .readTimeout(60, TimeUnit.SECONDS)
@@ -160,7 +164,10 @@ public class MApplication extends Application {
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(APIURLs.STC_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create());
-        paymentStcApiEndPointInterface = builder.build().create(ApiEndPointInterface.class);
+
+        CustomTrust customTrust = new CustomTrust(getApplicationContext());
+        OkHttpClient client = customTrust.getClient();
+        paymentStcApiEndPointInterface = builder.client(client).build().create(ApiEndPointInterface.class);
     }
 
     public Fonts getFonts(){

@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
@@ -18,6 +19,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -25,8 +27,11 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -35,6 +40,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -78,6 +84,7 @@ import amaz.objects.TwentyfourSeven.listeners.OnRefeshTokenResponse;
 import amaz.objects.TwentyfourSeven.listeners.OnRequestImageIntentListener;
 import amaz.objects.TwentyfourSeven.presenter.BasePresenter;
 import amaz.objects.TwentyfourSeven.presenter.PresenterFactory;
+import amaz.objects.TwentyfourSeven.ui.AddMoney.AddMoneyActivity;
 import amaz.objects.TwentyfourSeven.ui.CustOrDelProfile.CustOrDelProfileActivity;
 import amaz.objects.TwentyfourSeven.ui.MyAccount.MainActivity;
 import amaz.objects.TwentyfourSeven.ui.Notification.NotificationFragment;
@@ -94,17 +101,17 @@ import amaz.objects.TwentyfourSeven.utilities.LocalSettings;
 import amaz.objects.TwentyfourSeven.utilities.TokenUtilities;
 
 public class OrderChatActivity extends BaseActivity implements View.OnClickListener, OnRequestImageIntentListener,
-        OrderChatPresenter.OrderChatView, OnRefeshTokenResponse, OnImageClickListener {
+        OrderChatPresenter.OrderChatView, OnRefeshTokenResponse, OnImageClickListener, AdapterView.OnItemSelectedListener {
     private LinearLayout mainContentLl;
     private ImageView backIv, user_imageIV, send_photo;
     private RecyclerView messages_list;
     private ChatAdapter chatAdapter;
     private ArrayList<Message> messages = new ArrayList<>();
     private TextView tv_track_order, tv_call, send_btn;
-    private FrameLayout startRideFl, itemPickedFl, orderDeliveredFl;
+    private FrameLayout startRideFl, itemPickedFl, orderDeliveredFl, invoiceDetailsFl;
     private RelativeLayout delegateDistanceRl;
     private ImageView delegateIv, fromIv;
-    private Button startRideBtn, itemPickedBtn, orderDeliveredBtn;
+    private Button startRideBtn, itemPickedBtn, orderDeliveredBtn, invoiceDetailsBtn;
     private ProgressView loaderPv;
     private PopupWindow previewPopupWindow;
     private ImageView popupCloseIv;
@@ -122,10 +129,19 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
     private LinearLayout deliverLl, deliverContentLl, popupDeliverItemPriceLl, popupDeliverDiscountLl;
     private TextView popupDeliverTitleTv, popupDeliverMessageTv, popupDeliverItemPriceTitleTv, popupDeliverItemPriceValueTv,
             popupDeliverShippingTitleTv, popupDeliverShippingValueTv, popupDeliverVatTitleTv, popupDeliverVatValueTv,
-            popupDeliverDiscountTitleTv, popupDeliverDiscountValueTv,
+            popupDeliverDiscountTitleTv, popupDeliverDiscountValueTv, popupPaymentMethodTv,
             popupDeliverTotalTitleTv, popupDeliverTotalValueTv, popupDeliverNoTv, popupDeliverYesTv;
     private View popupDeliverItemPriceView, popupDeliverDiscountView;
     private ProgressView popupDeliverLoaderPv, pv_load_popup;
+
+    private PopupWindow invoiceOrderPopupWindow;
+    private LinearLayout invoiceLl, invoiceContentLl, popupInvoiceItemPriceLl, popupInvoiceDiscountLl;
+    private TextView popupInvoiceTitleTv, popupInvoiceMessageTv, popupInvoiceItemPriceTitleTv, popupInvoiceItemPriceValueTv,
+            popupInvoiceShippingTitleTv, popupInvoiceShippingValueTv, popupInvoiceVatTitleTv, popupInvoiceVatValueTv,
+            popupInvoiceDiscountTitleTv, popupInvoiceDiscountValueTv, popupInvoicePaymentMethodTv,
+            popupInvoiceTotalTitleTv, popupInvoiceTotalValueTv, popupInvoiceNoTv, popupInvoiceYesTv;
+    private View popupInvoiceItemPriceView, popupInvoiceDiscountView;
+    private ProgressView popupInvoiceLoaderPv;
 
     private Order order = new Order();
     private boolean fromCustomerOrders;
@@ -159,11 +175,10 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
                     "driving", getString(R.string.google_server_key), false);
         }
 
-        if (delLat == 0 && delLng == 0){
-            if (order.getDelegate() != null){
+        if (delLat == 0 && delLng == 0) {
+            if (order.getDelegate() != null) {
                 orderChatPresenter.getOrderDelegateLocation(order.getDelegate().getId());
-            }
-            else {
+            } else {
                 orderChatPresenter.getOrderDelegateLocation(localSettings.getUser().getId());
             }
         }
@@ -185,6 +200,7 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         initViews();
         initializePickItemPopup();
         initializeDeliverPopup();
+        initializeInvoicePopup();
         setFonts();
         setBroadCast();
         initializePreviewPopup();
@@ -198,7 +214,7 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
                 new IntentFilter(Constants.BROADCASTRECEVIERGENERATION));
         firstConnect = true;
         if (orderSwitching) {
-            if (!localSettings.isOrderDetailsOpened()){
+            if (!localSettings.isOrderDetailsOpened()) {
                 switchToOrderDetails();
             }
             finish();
@@ -244,23 +260,22 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
                                             } else {
                                                 orderSwitching = true;
                                             }
-                                        }
-                                        else if(orderNotificationJson.get("status").equals("delivery_in_progress")){
+                                        } else if (orderNotificationJson.get("status").equals("delivery_in_progress")) {
+                                            invoiceDetailsFl.setVisibility(View.VISIBLE);
                                             hideDelegateDistance();
                                             order.setStatus(orderNotificationJson.get("status").toString());
-                                            if (order.getDelegate() != null){
+                                            if (order.getDelegate() != null) {
                                                 orderChatPresenter.getOrderDelegateLocation(order.getDelegate().getId());
-                                            }
-                                            else {
+                                            } else {
                                                 orderChatPresenter.getOrderDelegateLocation(localSettings.getUser().getId());
                                             }
-                                        }
-                                        else {
+
+                                            orderChatPresenter.getCustomerOrderDetails(localSettings.getToken(), localSettings.getLocale(), order.getId());
+                                        } else {
                                             order.setStatus(orderNotificationJson.get("status").toString());
-                                            if (order.getDelegate() != null){
+                                            if (order.getDelegate() != null) {
                                                 orderChatPresenter.getOrderDelegateLocation(order.getDelegate().getId());
-                                            }
-                                            else {
+                                            } else {
                                                 orderChatPresenter.getOrderDelegateLocation(localSettings.getUser().getId());
                                             }
                                         }
@@ -269,8 +284,7 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
                                     e.printStackTrace();
                                 }
                             }
-                        }
-                        else if (link_to.equals("delegate_order_details")){
+                        } else if (link_to.equals("delegate_order_details")) {
                             String orderNotificationData = intent.getStringExtra("order_data");
                             if (orderNotificationData != null) {
                                 try {
@@ -284,23 +298,26 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
                                             } else {
                                                 orderSwitching = true;
                                             }
-                                        }
-                                        else if(orderNotificationJson.get("status").equals("in_progress")){
+                                        } else if (orderNotificationJson.get("status").equals("in_progress")) {
                                             startRideFl.setVisibility(View.GONE);
                                             itemPickedFl.setVisibility(View.VISIBLE);
                                             orderDeliveredFl.setVisibility(View.GONE);
-                                        }
-                                        else if(orderNotificationJson.get("status").equals("delivery_in_progress")){
-                                            startRideFl.setVisibility(View.GONE);
-                                            itemPickedFl.setVisibility(View.GONE);
-                                            orderDeliveredFl.setVisibility(View.VISIBLE);
-                                            hideDelegateDistance();
-                                            order.setStatus(orderNotificationJson.get("status").toString());
-                                            if (order.getDelegate() != null){
-                                                orderChatPresenter.getOrderDelegateLocation(order.getDelegate().getId());
-                                            }
+                                            invoiceDetailsFl.setVisibility(View.GONE);
+                                        } else if (orderNotificationJson.get("status").equals("delivery_in_progress")) {
+                                            if (order.getStatus().equals("delivery_in_progress"))
+                                                orderChatPresenter.getDelegateOrderDetails(localSettings.getToken(), localSettings.getLocale(), order.getId());
                                             else {
-                                                orderChatPresenter.getOrderDelegateLocation(localSettings.getUser().getId());
+                                                startRideFl.setVisibility(View.GONE);
+                                                itemPickedFl.setVisibility(View.GONE);
+                                                orderDeliveredFl.setVisibility(View.VISIBLE);
+                                                invoiceDetailsFl.setVisibility(View.GONE);
+                                                hideDelegateDistance();
+                                                order.setStatus(orderNotificationJson.get("status").toString());
+                                                if (order.getDelegate() != null) {
+                                                    orderChatPresenter.getOrderDelegateLocation(order.getDelegate().getId());
+                                                } else {
+                                                    orderChatPresenter.getOrderDelegateLocation(localSettings.getUser().getId());
+                                                }
                                             }
                                         }
                                         /*else {
@@ -363,8 +380,7 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         tv_call.setOnClickListener(this);
         if (order.getStatus().equals("assigned") || order.getStatus().equals("in_progress") || order.getStatus().equals("delivery_in_progress")) {
             tv_call.setVisibility(View.VISIBLE);
-        }
-        else {
+        } else {
             tv_call.setVisibility(View.GONE);
         }
         delegateDistanceRl = findViewById(R.id.rl_delegate_distance);
@@ -420,6 +436,10 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         } else {
             orderDeliveredFl.setVisibility(View.GONE);
         }*/
+
+        invoiceDetailsFl = findViewById(R.id.fl_invoice_details);
+        invoiceDetailsBtn = findViewById(R.id.btn_invoice_details);
+
         if (!fromCustomerOrders) {
             //tracker = new DelegateTracker(this, this);
             //tracker.getLocation();
@@ -427,27 +447,34 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
                 startRideFl.setVisibility(View.VISIBLE);
                 itemPickedFl.setVisibility(View.GONE);
                 orderDeliveredFl.setVisibility(View.GONE);
+                invoiceDetailsFl.setVisibility(View.GONE);
             } else if (order.getStatus().equals("in_progress")) {
                 startRideFl.setVisibility(View.GONE);
                 itemPickedFl.setVisibility(View.VISIBLE);
                 orderDeliveredFl.setVisibility(View.GONE);
+                invoiceDetailsFl.setVisibility(View.GONE);
             } else if (order.getStatus().equals("delivery_in_progress")) {
                 startRideFl.setVisibility(View.GONE);
                 itemPickedFl.setVisibility(View.GONE);
                 orderDeliveredFl.setVisibility(View.VISIBLE);
+                invoiceDetailsFl.setVisibility(View.GONE);
             }
         } else {
             startRideFl.setVisibility(View.GONE);
             itemPickedFl.setVisibility(View.GONE);
             orderDeliveredFl.setVisibility(View.GONE);
+            invoiceDetailsFl.setVisibility(View.GONE);
+            if (order.getStatus().equals("delivery_in_progress")) {
+                invoiceDetailsFl.setVisibility(View.VISIBLE);
+            }
         }
-        if (order.getStatus().equals("delivery_in_progress")){
+        if (order.getStatus().equals("delivery_in_progress")) {
             hideDelegateDistance();
         }
 
         loaderPv = findViewById(R.id.pv_load);
         orderDeliveredBtn.setOnClickListener(this);
-
+        invoiceDetailsBtn.setOnClickListener(this);
         cameraIc.setOnClickListener(this);
         gallaryImg.setOnClickListener(this);
 
@@ -492,10 +519,9 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         if (!fromCustomerOrders) {
             if (order.getCreatedBy() != null) {
                 tv_userName.setText(order.getCreatedBy().getName());
-                if (order.getCreatedBy().getRating() == 0){
+                if (order.getCreatedBy().getRating() == 0) {
                     ratingBar.setRating(5);
-                }
-                else {
+                } else {
                     ratingBar.setRating(order.getCreatedBy().getRating());
                 }
 
@@ -508,10 +534,9 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         } else {
             if (order.getDelegate() != null) {
                 tv_userName.setText(order.getDelegate().getName());
-                if (order.getDelegate().getDelegateRating() == 0){
+                if (order.getDelegate().getDelegateRating() == 0) {
                     ratingBar.setRating(5);
-                }
-                else {
+                } else {
                     ratingBar.setRating(order.getDelegate().getDelegateRating());
                 }
                 if (order.getDelegate().getImage() != null) {
@@ -558,10 +583,10 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
                     itemPrice = Double.parseDouble(popupPickItemPriceEt.getText().toString());
                     //total = itemPrice + order.getShippingCost() + order.getVat();
                     total = itemPrice + order.getShippingCost();
-                    popupPickItemTotalValueTv.setText(String.format(Locale.ENGLISH,"%.2f", total) + " " + getString(R.string.sar));
+                    popupPickItemTotalValueTv.setText(String.format(Locale.ENGLISH, "%.2f", total) + " " + getString(R.string.sar));
                 } else {
                     //popupPickItemTotalValueTv.setText(String.format("%.2f", order.getShippingCost() + order.getVat()) + " " + getString(R.string.sar));
-                    popupPickItemTotalValueTv.setText(String.format(Locale.ENGLISH,"%.2f", order.getShippingCost()) + " " + getString(R.string.sar));
+                    popupPickItemTotalValueTv.setText(String.format(Locale.ENGLISH, "%.2f", order.getShippingCost()) + " " + getString(R.string.sar));
                 }
             }
 
@@ -590,12 +615,10 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         popupDeliverShippingValueTv = v.findViewById(R.id.tv_deliver_shipping_value);
         popupDeliverVatTitleTv = v.findViewById(R.id.tv_deliver_vat_title);
         popupDeliverVatValueTv = v.findViewById(R.id.tv_deliver_vat_value);
-
         popupDeliverDiscountLl = v.findViewById(R.id.ll_deliver_discount);
         popupDeliverDiscountTitleTv = v.findViewById(R.id.tv_deliver_discount_title);
         popupDeliverDiscountValueTv = v.findViewById(R.id.tv_deliver_discount_value);
         popupDeliverDiscountView = v.findViewById(R.id.v_deliver_discount);
-
         popupDeliverTotalTitleTv = v.findViewById(R.id.tv_deliver_total_title);
         popupDeliverTotalValueTv = v.findViewById(R.id.tv_deliver_total_value);
         popupDeliverNoTv = v.findViewById(R.id.tv_deliver_no);
@@ -603,6 +626,48 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         popupDeliverYesTv = v.findViewById(R.id.tv_deliver_yes);
         popupDeliverYesTv.setOnClickListener(this);
         popupDeliverLoaderPv = v.findViewById(R.id.pv_deliver_load);
+        popupPaymentMethodTv = v.findViewById(R.id.tv_payment_method);
+    }
+
+    private void initializeInvoicePopup() {
+        View v = LayoutInflater.from(this).inflate(R.layout.dialog_invoice_details, null, false);
+        invoiceOrderPopupWindow = new PopupWindow(v, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        invoiceLl = v.findViewById(R.id.ll_invoice_details_order);
+        invoiceLl.setOnClickListener(this);
+        invoiceContentLl = v.findViewById(R.id.ll_invoice_details_content);
+        invoiceContentLl.setOnClickListener(this);
+        popupInvoiceTitleTv = v.findViewById(R.id.tv_deliver_order_title);
+        popupInvoiceMessageTv = v.findViewById(R.id.tv_deliver_order_message);
+        popupInvoiceItemPriceLl = v.findViewById(R.id.ll_deliver_item_price);
+        popupInvoiceItemPriceTitleTv = v.findViewById(R.id.tv_deliver_item_price_title);
+        popupInvoiceItemPriceValueTv = v.findViewById(R.id.tv_deliver_item_price_value);
+        popupInvoiceItemPriceView = v.findViewById(R.id.v_deliver_item_price);
+        popupInvoiceShippingTitleTv = v.findViewById(R.id.tv_deliver_shipping_title);
+        popupInvoiceShippingValueTv = v.findViewById(R.id.tv_deliver_shipping_value);
+        popupInvoiceVatTitleTv = v.findViewById(R.id.tv_deliver_vat_title);
+        popupInvoiceVatValueTv = v.findViewById(R.id.tv_deliver_vat_value);
+        popupInvoiceDiscountLl = v.findViewById(R.id.ll_deliver_discount);
+        popupInvoiceDiscountTitleTv = v.findViewById(R.id.tv_deliver_discount_title);
+        popupInvoiceDiscountValueTv = v.findViewById(R.id.tv_deliver_discount_value);
+        popupInvoiceDiscountView = v.findViewById(R.id.v_deliver_discount);
+        popupInvoiceTotalTitleTv = v.findViewById(R.id.tv_deliver_total_title);
+        popupInvoiceTotalValueTv = v.findViewById(R.id.tv_deliver_total_value);
+        popupInvoiceNoTv = v.findViewById(R.id.tv_invoice_details_no);
+        popupInvoiceNoTv.setOnClickListener(this);
+        popupInvoiceYesTv = v.findViewById(R.id.tv_invoice_details_yes);
+        popupInvoiceYesTv.setOnClickListener(this);
+        popupInvoiceLoaderPv = v.findViewById(R.id.pv_deliver_load);
+        popupInvoicePaymentMethodTv = v.findViewById(R.id.tv_payment_method);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 
     private void setFonts() {
@@ -610,7 +675,7 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         startRideBtn.setTypeface(fonts.customFontBD());
         itemPickedBtn.setTypeface(fonts.customFontBD());
         orderDeliveredBtn.setTypeface(fonts.customFontBD());
-
+        invoiceDetailsBtn.setTypeface(fonts.customFontBD());
         popupPickItemUpdateCostTv.setTypeface(fonts.customFontBD());
         popupPickItemPriceTv.setTypeface(fonts.customFont());
         popupPickItemCurrencyTv.setTypeface(fonts.customFontBD());
@@ -618,9 +683,6 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         popupPickItemShippingValueTv.setTypeface(fonts.customFontBD());
         popupPickItemVatTitleTv.setTypeface(fonts.customFont());
         popupPickItemVatValueTv.setTypeface(fonts.customFontBD());
-
-        popupDeliverDiscountTitleTv.setTypeface(fonts.customFont());
-        popupDeliverDiscountValueTv.setTypeface(fonts.customFontBD());
 
         popupPickItemTotalTitleTv.setTypeface(fonts.customFont());
         popupPickItemTotalValueTv.setTypeface(fonts.customFontBD());
@@ -648,7 +710,25 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         popupDeliverTotalValueTv.setTypeface(fonts.customFontBD());
         popupDeliverNoTv.setTypeface(fonts.customFont());
         popupDeliverYesTv.setTypeface(fonts.customFont());
-
+        popupPaymentMethodTv.setTypeface(fonts.customFont());
+        popupDeliverDiscountTitleTv.setTypeface(fonts.customFont());
+        popupDeliverDiscountValueTv.setTypeface(fonts.customFontBD());
+        // popupInvoice  font settings
+        popupInvoiceTitleTv.setTypeface(fonts.customFontBD());
+        popupInvoiceMessageTv.setTypeface(fonts.customFont());
+        popupInvoiceItemPriceTitleTv.setTypeface(fonts.customFont());
+        popupInvoiceItemPriceValueTv.setTypeface(fonts.customFontBD());
+        popupInvoiceShippingTitleTv.setTypeface(fonts.customFont());
+        popupInvoiceShippingValueTv.setTypeface(fonts.customFontBD());
+        popupInvoiceVatTitleTv.setTypeface(fonts.customFont());
+        popupInvoiceVatValueTv.setTypeface(fonts.customFontBD());
+        popupInvoiceTotalTitleTv.setTypeface(fonts.customFont());
+        popupInvoiceTotalValueTv.setTypeface(fonts.customFontBD());
+        popupInvoiceNoTv.setTypeface(fonts.customFont());
+        popupInvoiceYesTv.setTypeface(fonts.customFont());
+        popupInvoicePaymentMethodTv.setTypeface(fonts.customFont());
+        popupInvoiceDiscountTitleTv.setTypeface(fonts.customFont());
+        popupInvoiceDiscountValueTv.setTypeface(fonts.customFontBD());
     }
 
     private void openPickItemPopup() {
@@ -659,10 +739,10 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
 
     private void setPickItemPopupData() {
         popupPickItemPriceEt.setText("");
-        popupPickItemShippingValueTv.setText(String.format(Locale.ENGLISH,"%.2f", order.getShippingCost()) + " " + getString(R.string.sar));
+        popupPickItemShippingValueTv.setText(String.format(Locale.ENGLISH, "%.2f", order.getShippingCost()) + " " + getString(R.string.sar));
         //popupPickItemVatValueTv.setText(String.format("%.2f", order.getVat()) + " " + getString(R.string.sar));
         //popupPickItemTotalValueTv.setText(String.format("%.2f", order.getShippingCost() + order.getVat()) + " " + getString(R.string.sar));
-        popupPickItemTotalValueTv.setText(String.format(Locale.ENGLISH,"%.2f", order.getShippingCost()) + " " + getString(R.string.sar));
+        popupPickItemTotalValueTv.setText(String.format(Locale.ENGLISH, "%.2f", order.getShippingCost()) + " " + getString(R.string.sar));
     }
 
     private void openDeliveryPopup() {
@@ -670,12 +750,12 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
     }
 
     private void setDeliveryPopupData() {
-        popupDeliverShippingValueTv.setText(String.format(Locale.ENGLISH,"%.2f", order.getShippingCost()) + " " + getString(R.string.sar));
+        popupDeliverShippingValueTv.setText(String.format(Locale.ENGLISH, "%.2f", order.getShippingCost()) + " " + getString(R.string.sar));
         //popupDeliverVatValueTv.setText(String.format("%.2f", order.getVat()) + " " + getString(R.string.sar));
-        if (order.getDiscount() != null  && order.getDiscount() != 0) {
+        if (order.getDiscount() != null && order.getDiscount() != 0) {
             popupDeliverDiscountLl.setVisibility(View.VISIBLE);
             popupDeliverDiscountView.setVisibility(View.VISIBLE);
-            popupDeliverDiscountValueTv.setText(String.format(Locale.ENGLISH,"%.2f", order.getDiscount()) + " " + getString(R.string.sar));
+            popupDeliverDiscountValueTv.setText(String.format(Locale.ENGLISH, "%.2f", order.getDiscount()) + " " + getString(R.string.sar));
         } else {
             popupDeliverDiscountLl.setVisibility(View.GONE);
             popupDeliverDiscountView.setVisibility(View.GONE);
@@ -684,24 +764,74 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         if (order.getItemPrice() != null) {
             popupDeliverItemPriceLl.setVisibility(View.VISIBLE);
             popupDeliverItemPriceView.setVisibility(View.VISIBLE);
-            popupDeliverItemPriceValueTv.setText(String.format(Locale.ENGLISH,"%.2f", order.getItemPrice()) + " " + getString(R.string.sar));
+            popupDeliverItemPriceValueTv.setText(String.format(Locale.ENGLISH, "%.2f", order.getItemPrice()) + " " + getString(R.string.sar));
             //popupDeliverTotalValueTv.setText(String.format("%.2f", (order.getShippingCost() + order.getItemPrice() + order.getVat())) + " " + getString(R.string.sar));
-            if (order.getDiscount() != null){
-                popupDeliverTotalValueTv.setText(String.format(Locale.ENGLISH,"%.2f", (order.getShippingCost() + order.getItemPrice() - order.getDiscount())) + " " + getString(R.string.sar));
-            }
-            else {
-                popupDeliverTotalValueTv.setText(String.format(Locale.ENGLISH,"%.2f", (order.getShippingCost() + order.getItemPrice())) + " " + getString(R.string.sar));
+            if (order.getDiscount() != null) {
+                popupDeliverTotalValueTv.setText(String.format(Locale.ENGLISH, "%.2f", (order.getShippingCost() + order.getItemPrice() - order.getDiscount())) + " " + getString(R.string.sar));
+            } else {
+                popupDeliverTotalValueTv.setText(String.format(Locale.ENGLISH, "%.2f", (order.getShippingCost() + order.getItemPrice())) + " " + getString(R.string.sar));
             }
         } else {
             popupDeliverItemPriceLl.setVisibility(View.GONE);
             popupDeliverItemPriceView.setVisibility(View.GONE);
             //popupDeliverTotalValueTv.setText(String.format("%.2f", (order.getShippingCost() + order.getVat())) + " " + getString(R.string.sar));
-            if (order.getDiscount() != null){
-                popupDeliverTotalValueTv.setText(String.format(Locale.ENGLISH,"%.2f", (order.getShippingCost() - order.getDiscount())) + " " + getString(R.string.sar));
+            if (order.getDiscount() != null) {
+                popupDeliverTotalValueTv.setText(String.format(Locale.ENGLISH, "%.2f", (order.getShippingCost() - order.getDiscount())) + " " + getString(R.string.sar));
+            } else {
+                popupDeliverTotalValueTv.setText(String.format(Locale.ENGLISH, "%.2f", (order.getShippingCost())) + " " + getString(R.string.sar));
             }
-            else {
-                popupDeliverTotalValueTv.setText(String.format(Locale.ENGLISH,"%.2f", (order.getShippingCost())) + " " + getString(R.string.sar));
+        }
+        if (order.isPaid()) {
+            popupPaymentMethodTv.setText(getString(R.string.is_paid));
+        } else {
+            popupPaymentMethodTv.setText("");
+        }
+    }
+
+    private void openInvoicePopup() {
+        invoiceOrderPopupWindow.showAtLocation(mainContentLl, Gravity.CENTER, 0, 0);
+    }
+
+    private void setInvoicePopupData() {
+        popupInvoiceShippingValueTv.setText(String.format(Locale.ENGLISH, "%.2f", order.getShippingCost()) + " " + getString(R.string.sar));
+        //popupInvoiceVatValueTv.setText(String.format("%.2f", order.getVat()) + " " + getString(R.string.sar));
+        if (order.getDiscount() != null && order.getDiscount() != 0) {
+            popupInvoiceDiscountLl.setVisibility(View.VISIBLE);
+            popupInvoiceDiscountView.setVisibility(View.VISIBLE);
+            popupInvoiceDiscountValueTv.setText(String.format(Locale.ENGLISH, "%.2f", order.getDiscount()) + " " + getString(R.string.sar));
+        } else {
+            popupInvoiceDiscountLl.setVisibility(View.GONE);
+            popupInvoiceDiscountView.setVisibility(View.GONE);
+        }
+
+        if (order.getItemPrice() != null) {
+            popupInvoiceItemPriceLl.setVisibility(View.VISIBLE);
+            popupInvoiceItemPriceView.setVisibility(View.VISIBLE);
+            popupInvoiceItemPriceValueTv.setText(String.format(Locale.ENGLISH, "%.2f", order.getItemPrice()) + " " + getString(R.string.sar));
+            //popupInvoiceTotalValueTv.setText(String.format("%.2f", (order.getShippingCost() + order.getItemPrice() + order.getVat())) + " " + getString(R.string.sar));
+            if (order.getDiscount() != null) {
+                popupInvoiceTotalValueTv.setText(String.format(Locale.ENGLISH, "%.2f", (order.getShippingCost() + order.getItemPrice() - order.getDiscount())) + " " + getString(R.string.sar));
+            } else {
+                popupInvoiceTotalValueTv.setText(String.format(Locale.ENGLISH, "%.2f", (order.getShippingCost() + order.getItemPrice())) + " " + getString(R.string.sar));
             }
+        } else {
+            popupInvoiceItemPriceLl.setVisibility(View.GONE);
+            popupInvoiceItemPriceView.setVisibility(View.GONE);
+            //popupInvoiceTotalValueTv.setText(String.format("%.2f", (order.getShippingCost() + order.getVat())) + " " + getString(R.string.sar));
+            if (order.getDiscount() != null) {
+                popupInvoiceTotalValueTv.setText(String.format(Locale.ENGLISH, "%.2f", (order.getShippingCost() - order.getDiscount())) + " " + getString(R.string.sar));
+            } else {
+                popupInvoiceTotalValueTv.setText(String.format(Locale.ENGLISH, "%.2f", (order.getShippingCost())) + " " + getString(R.string.sar));
+            }
+        }
+        if (order.isPaid()) {
+            popupInvoicePaymentMethodTv.setText(getString(R.string.is_paid));
+            popupInvoiceNoTv.setVisibility(View.GONE);
+            popupInvoiceYesTv.setVisibility(View.GONE);
+        } else {
+            popupInvoicePaymentMethodTv.setText("");
+            popupInvoiceNoTv.setVisibility(View.VISIBLE);
+            popupInvoiceYesTv.setVisibility(View.VISIBLE);
         }
     }
 
@@ -712,16 +842,15 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
     }
 
     private void switchToOrderDetails() {
-            Intent orderDetailsIntent;
-            if (!fromCustomerOrders) {
-                orderDetailsIntent = new Intent(this, DelegateOrderDetailsActivity.class);
-            } else {
-                orderDetailsIntent = new Intent(this, CustomerOrderDetailsActivity.class);
-            }
-            orderDetailsIntent.putExtra(Constants.ORDER, order);
-            orderDetailsIntent.putExtra(Constants.FROM_CUSTOMER_ORDERS, fromCustomerOrders);
-            startActivity(orderDetailsIntent);
-
+        Intent orderDetailsIntent;
+        if (!fromCustomerOrders) {
+            orderDetailsIntent = new Intent(this, DelegateOrderDetailsActivity.class);
+        } else {
+            orderDetailsIntent = new Intent(this, CustomerOrderDetailsActivity.class);
+        }
+        orderDetailsIntent.putExtra(Constants.ORDER, order);
+        orderDetailsIntent.putExtra(Constants.FROM_CUSTOMER_ORDERS, fromCustomerOrders);
+        startActivity(orderDetailsIntent);
     }
 
     private void switchToCustOrDelProfile(boolean isCustomerProfile, int custOrDelId) {
@@ -729,6 +858,12 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         custOrDelProfileIntent.putExtra(Constants.IS_CUSTOMER_REVIEWS, isCustomerProfile);
         custOrDelProfileIntent.putExtra(Constants.USER, custOrDelId);
         startActivity(custOrDelProfileIntent);
+    }
+
+    private void switchToAddMoneyPage() {
+        Intent addMoneyIntent = new Intent(this, AddMoneyActivity.class);
+        addMoneyIntent.putExtra(Constants.ORDER, order);
+        startActivity(addMoneyIntent);
     }
 
     private double calculateDistanceFromLegs(ArrayList<DirectionLeg> legs) {
@@ -745,9 +880,9 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         double fromToToDistance = SphericalUtil.computeDistanceBetween(new LatLng(order.getFromLat(), order.getFromLng()),
                 new LatLng(order.getToLat(), order.getToLng()));
         if (fromToToDistance < 1000) {
-            fromToToDistanceTv.setText(String.format(Locale.ENGLISH,"%.1f", fromToToDistance) + " " + getString(R.string.meter));
+            fromToToDistanceTv.setText(String.format(Locale.ENGLISH, "%.1f", fromToToDistance) + " " + getString(R.string.meter));
         } else {
-            fromToToDistanceTv.setText(String.format(Locale.ENGLISH,"%.1f", (fromToToDistance / 1000)) + " " + getString(R.string.kilometer));
+            fromToToDistanceTv.setText(String.format(Locale.ENGLISH, "%.1f", (fromToToDistance / 1000)) + " " + getString(R.string.kilometer));
         }
     }
 
@@ -756,18 +891,16 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
             double delegateToFromDistance = SphericalUtil.computeDistanceBetween(new LatLng(delLat, delLng),
                     new LatLng(order.getFromLat(), order.getFromLng()));
             if (delegateToFromDistance < 1000) {
-                if (!order.getStatus().equals("delivery_in_progress")){
-                    delToFromDistanceTv.setText(String.format(Locale.ENGLISH,"%.1f", delegateToFromDistance) + " " + getString(R.string.meter));
-                }
-                else {
-                    fromToToDistanceTv.setText(String.format(Locale.ENGLISH,"%.1f", delegateToFromDistance) + " " + getString(R.string.meter));
+                if (!order.getStatus().equals("delivery_in_progress")) {
+                    delToFromDistanceTv.setText(String.format(Locale.ENGLISH, "%.1f", delegateToFromDistance) + " " + getString(R.string.meter));
+                } else {
+                    fromToToDistanceTv.setText(String.format(Locale.ENGLISH, "%.1f", delegateToFromDistance) + " " + getString(R.string.meter));
                 }
             } else {
-                if (!order.getStatus().equals("delivery_in_progress")){
-                    delToFromDistanceTv.setText(String.format(Locale.ENGLISH,"%.1f", (delegateToFromDistance / 1000)) + " " + getString(R.string.kilometer));
-                }
-                else {
-                    fromToToDistanceTv.setText(String.format(Locale.ENGLISH,"%.1f", delegateToFromDistance) + " " + getString(R.string.meter));
+                if (!order.getStatus().equals("delivery_in_progress")) {
+                    delToFromDistanceTv.setText(String.format(Locale.ENGLISH, "%.1f", (delegateToFromDistance / 1000)) + " " + getString(R.string.kilometer));
+                } else {
+                    fromToToDistanceTv.setText(String.format(Locale.ENGLISH, "%.1f", delegateToFromDistance) + " " + getString(R.string.meter));
                 }
             }
         } else {
@@ -779,7 +912,7 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         }
     }
 
-    private void hideDelegateDistance(){
+    private void hideDelegateDistance() {
         delegateDistanceRl.setVisibility(View.GONE);
         delegateIv.setVisibility(View.GONE);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
@@ -796,7 +929,7 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         }
     }
 
-    protected void openDialer(String phone){
+    protected void openDialer(String phone) {
         Intent dialerIntent = new Intent(Intent.ACTION_DIAL);
         dialerIntent.setData(Uri.parse("tel:" + phone));
         startActivity(dialerIntent);
@@ -815,7 +948,7 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
             }
         } else if (view.getId() == R.id.tv_track_order) {
             Intent orderDetailsIntent;
-            if(!isTrackOrderClicked){
+            if (!isTrackOrderClicked) {
                 isTrackOrderClicked = true;
                 if (!fromCustomerOrders) {
                     orderDetailsIntent = new Intent(this, DelegateOrderDetailsActivity.class);
@@ -868,6 +1001,15 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
             deliverOrderPopupWindow.dismiss();
         } else if (view.getId() == R.id.ll_deliver_order_content) {
 
+        } else if (view.getId() == R.id.btn_invoice_details) {
+            setInvoicePopupData();
+            openInvoicePopup();
+        } else if (view.getId() == R.id.tv_invoice_details_no) {
+            invoiceOrderPopupWindow.dismiss();
+        } else if (view.getId() == R.id.tv_invoice_details_yes) {
+            switchToAddMoneyPage();
+        } else if (view.getId() == R.id.ll_invoice_details_order) {
+            invoiceOrderPopupWindow.dismiss();
         } else if (view.getId() == R.id.send_btn) {
 //            send.setEnabled(false);
 //            View focusedView = this.getCurrentFocus();
@@ -887,56 +1029,48 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
             orderChatPresenter.sendMessage(String.valueOf(order.getId()), message);
             // message_et.setText("");
         } else if (view.getId() == R.id.iv_close) {
-
             previewPopupWindow.dismiss();
-
         } else if (view.getId() == R.id.gallary_img) {
-
             checkGalleryOrCameraPermissions(Constants.GALLERY);
         } else if (view.getId() == R.id.camera_ic) {
-
             checkGalleryOrCameraPermissions(Constants.CAMERA);
         } else if (view.getId() == R.id.send_photo) {
             send_photo.setEnabled(false);
-
             String order_id = order.getId() + "";
             AddImageUtilities.resizeImage(imageFile);
             orderChatPresenter.uploadChatImage(localSettings.getToken(), localSettings.getLocale(), imageFile, order_id);
             //   orderChatPresenter.uploadChatImage(localSettings.getToken(), localSettings.getLocale(), this.imageFile,order_id);
 
-        } else if (view.getId() == R.id.tv_userName){
-            if (fromCustomerOrders){
-                if (order.getDelegate() != null){
+        } else if (view.getId() == R.id.tv_userName) {
+            if (fromCustomerOrders) {
+                if (order.getDelegate() != null) {
                     switchToCustOrDelProfile(false, order.getDelegate().getId());
                 }
-            }
-            else {
-                if (order.getCreatedBy() != null){
+            } else {
+                if (order.getCreatedBy() != null) {
                     switchToCustOrDelProfile(true, order.getCreatedBy().getId());
                 }
             }
 
-        } else if (view.getId() == R.id.iv_user_image){
-            if (fromCustomerOrders){
-                if (order.getDelegate() != null){
+        } else if (view.getId() == R.id.iv_user_image) {
+            if (fromCustomerOrders) {
+                if (order.getDelegate() != null) {
                     switchToCustOrDelProfile(false, order.getDelegate().getId());
                 }
-            }
-            else {
-                if (order.getCreatedBy() != null){
+            } else {
+                if (order.getCreatedBy() != null) {
                     switchToCustOrDelProfile(true, order.getCreatedBy().getId());
                 }
             }
-        } else if (view.getId() == R.id.ll_main_content){
+        } else if (view.getId() == R.id.ll_main_content) {
             hideKeyboard();
-        } else if (view.getId() == R.id.tv_call){
-            if (fromCustomerOrders){
-                if (order.getDelegate() != null){
+        } else if (view.getId() == R.id.tv_call) {
+            if (fromCustomerOrders) {
+                if (order.getDelegate() != null) {
                     openDialer(order.getDelegate().getMobile());
                 }
-            }
-            else {
-                if (order.getCreatedBy() != null){
+            } else {
+                if (order.getCreatedBy() != null) {
                     openDialer(order.getCreatedBy().getMobile());
                 }
             }
@@ -1079,10 +1213,9 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         startRideFl.setVisibility(View.GONE);
         itemPickedFl.setVisibility(View.VISIBLE);
         //tracker.getLocation();
-        if (order.getDelegate() != null){
+        if (order.getDelegate() != null) {
             orderChatPresenter.getOrderDelegateLocation(order.getDelegate().getId());
-        }
-        else {
+        } else {
             orderChatPresenter.getOrderDelegateLocation(localSettings.getUser().getId());
         }
     }
@@ -1095,11 +1228,24 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         orderDeliveredFl.setVisibility(View.VISIBLE);
         //tracker.getLocation();
         hideDelegateDistance();
-        if (order.getDelegate() != null){
+        if (order.getDelegate() != null) {
             orderChatPresenter.getOrderDelegateLocation(order.getDelegate().getId());
-        }
-        else {
+        } else {
             orderChatPresenter.getOrderDelegateLocation(localSettings.getUser().getId());
+        }
+    }
+
+    @Override
+    public void showOrderDetails(Order order) {
+        this.order = order;
+        if (!fromCustomerOrders) {
+            deliverOrderPopupWindow.dismiss();
+            setDeliveryPopupData();
+            openDeliveryPopup();
+        } else {
+            invoiceOrderPopupWindow.dismiss();
+            setInvoicePopupData();
+            openInvoicePopup();
         }
     }
 
@@ -1116,6 +1262,17 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         chatAdapter.notifyDataSetChanged();
         messages_list.scrollToPosition(this.messages.size() - 1);
         messages_list.smoothScrollToPosition(this.messages.size() - 1);
+        boolean found = false;
+        String searchedValue = "check the delivered item";
+        for (Message x : this.messages) {
+            if (x.getMsg().en.contains(searchedValue)) {
+                found = true;
+                break;
+            }
+        }
+        if (found) {
+            invoiceDetailsFl.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -1126,7 +1283,7 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
                         .placeholder(R.drawable.upload_default)
                         .dontAnimate())
                 .into(popupPreviewIv);
-                //.dontAnimate().placeholder(R.drawable.upload_default).into(popupPreviewIv);
+        //.dontAnimate().placeholder(R.drawable.upload_default).into(popupPreviewIv);
         previewPopupWindow.showAtLocation(mainContentLl, Gravity.CENTER, 0, 0);
     }
 
@@ -1180,15 +1337,15 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
             if (distance > 0) {
                 if (distance < 1000) {
                     if (!order.getStatus().equals("delivery_in_progress")) {
-                        delToFromDistanceTv.setText(String.format(Locale.ENGLISH,"%.1f", distance) + " " + getString(R.string.meter));
+                        delToFromDistanceTv.setText(String.format(Locale.ENGLISH, "%.1f", distance) + " " + getString(R.string.meter));
                     } else {
-                        fromToToDistanceTv.setText(String.format(Locale.ENGLISH,"%.1f", distance) + " " + getString(R.string.meter));
+                        fromToToDistanceTv.setText(String.format(Locale.ENGLISH, "%.1f", distance) + " " + getString(R.string.meter));
                     }
                 } else {
                     if (!order.getStatus().equals("delivery_in_progress")) {
-                        delToFromDistanceTv.setText(String.format(Locale.ENGLISH,"%.1f", (distance / 1000)) + " " + getString(R.string.kilometer));
+                        delToFromDistanceTv.setText(String.format(Locale.ENGLISH, "%.1f", (distance / 1000)) + " " + getString(R.string.kilometer));
                     } else {
-                        fromToToDistanceTv.setText(String.format(Locale.ENGLISH,"%.1f", (distance / 1000)) + " " + getString(R.string.kilometer));
+                        fromToToDistanceTv.setText(String.format(Locale.ENGLISH, "%.1f", (distance / 1000)) + " " + getString(R.string.kilometer));
                     }
                 }
             } else {
@@ -1197,9 +1354,9 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         } else {
             if (distance > 0) {
                 if (distance < 1000) {
-                    fromToToDistanceTv.setText(String.format(Locale.ENGLISH,"%.1f", distance) + " " + getString(R.string.meter));
+                    fromToToDistanceTv.setText(String.format(Locale.ENGLISH, "%.1f", distance) + " " + getString(R.string.meter));
                 } else {
-                    fromToToDistanceTv.setText(String.format(Locale.ENGLISH,"%.1f", (distance / 1000)) + " " + getString(R.string.kilometer));
+                    fromToToDistanceTv.setText(String.format(Locale.ENGLISH, "%.1f", (distance / 1000)) + " " + getString(R.string.kilometer));
                 }
             } else {
                 calculateAbsoluteDistance();
@@ -1280,7 +1437,7 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
                                         .placeholder(R.drawable.upload_default)
                                         .dontAnimate())
                                 .into(popupPreviewIv);
-                                //.placeholder(R.drawable.upload_default).dontAnimate().into(popupPreviewIv);
+                        //.placeholder(R.drawable.upload_default).dontAnimate().into(popupPreviewIv);
                         send_photo.setVisibility(View.VISIBLE);
                         send_photo.setEnabled(true);
 
@@ -1297,7 +1454,7 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
                                         .placeholder(R.drawable.upload_default)
                                         .dontAnimate())
                                 .into(popupPreviewIv);
-                                //.placeholder(R.drawable.upload_default).dontAnimate().into(popupPreviewIv);
+                        //.placeholder(R.drawable.upload_default).dontAnimate().into(popupPreviewIv);
                         send_photo.setVisibility(View.VISIBLE);
                         send_photo.setEnabled(true);
                         previewPopupWindow.showAtLocation(mainContentLl, Gravity.CENTER, 0, 0);

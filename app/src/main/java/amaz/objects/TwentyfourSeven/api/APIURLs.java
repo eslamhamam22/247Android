@@ -54,7 +54,7 @@ public class APIURLs {
     public static final String DELEGATES_LOCATIONS = "prod/delegates_locations";
     public static final String DELEGATES = "prod/delegates";
     public static final String CHAT_TABLE = "prod/orders_chat";
-    public static final String CLIENTID ="658431378721-23pau7q0bo9addbr3pqdbtl6ctfdrkul.apps.googleusercontent.com";
+    public static final String CLIENTID ="658431378721-0jhn3oaem2nnf0k2h871k65ns1r9tiv1.apps.googleusercontent.com";
     public static final String SECRETID ="Dy-uviiC6etQVfgF9N6beyPp";
     public static final String google_android_key ="AIzaSyBi3qVakaNh185b2cmgFsuhBntGtA2SLLA";
     public static final String google_server_key ="AIzaSyCCm_dEtdfR12jlhi6REsenrgKwjLKS_iQ";
@@ -129,17 +129,5 @@ public class APIURLs {
     public static final String STC_DirectPaymentConfirm = "DirectPaymentConfirm";
     public static final String STC_DirectPayment = "DirectPayment";
     public static final String STC_PaymentInquiry = "PaymentInquiry";
-
-    public static final String STC_MERCHANT_BASE_URL = "https://b2btest.stcpay.com.sa/B2B.MerchantTransactionsWebApi/MerchantTransactions/v3/";
-    public static final String STC_MERCHANT_PaymentInquiry = "PaymentInquiry";
-    public static final String STC_MERCHANT_PaymentAuthorize = "PaymentAuthorize";
-    public static final String STC_MERCHANT_MobilePaymentAuthorize = "MobilePaymentAuthorize";
-    public static final String STC_MERCHANT_OnlinePaymentAuthorize = "OnlinePaymentAuthorize";
-    public static final String STC_MERCHANT_CancelPaymentAuthorize = "CancelPaymentAuthorize";
-    public static final String STC_MERCHANT_RefundPayment = "RefundPayment";
-    public static final String STC_MERCHANT_ReversePayment = "ReversePayment";
-    public static final String STC_MERCHANT_PaymentOrderInquiry = "PaymentOrderInquiry";
-    public static final String STC_MERCHANT_PaymentOrderPay = "PaymentOrderPay";
-    public static final String STC_MERCHANT_PaymentOrderCancel = "PaymentOrderCancel";
 
 }

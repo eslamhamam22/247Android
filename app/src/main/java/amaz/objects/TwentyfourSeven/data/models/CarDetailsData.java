@@ -29,6 +29,10 @@ public class CarDetailsData {
     @Expose
     private String carDetails;
 
+    @SerializedName("id_number")
+    @Expose
+    private String idNumber;
+
     @SerializedName("active")
     @Expose
     private boolean active;
@@ -79,6 +83,14 @@ public class CarDetailsData {
 
     public void setCarDetails(String carDetails) {
         this.carDetails = carDetails;
+    }
+
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
     }
 
     public boolean isActive() {

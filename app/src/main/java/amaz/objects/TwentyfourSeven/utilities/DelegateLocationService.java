@@ -61,7 +61,6 @@ public class DelegateLocationService extends Service implements OnLocationChange
     }
 
     private void initialization(){
-        Log.e("omnia","database2");
         localSettings = new LocalSettings(this);
         delegatesLocationsDBRef = FirebaseDatabase.getInstance().getReference().child(APIURLs.DELEGATES_LOCATIONS);
         delegatesDBRef = FirebaseDatabase.getInstance().getReference().child(APIURLs.DELEGATES);

@@ -7,9 +7,9 @@
     <string name="google_server_key">AIzaSyCBZqsbT6XjJU_c4fczxqKVlmVT886085c</string>-->
 
     <!--GOOGLE_PROD_KEYS-->
-    <string name="client_id">658431378721-23pau7q0bo9addbr3pqdbtl6ctfdrkul.apps.googleusercontent.com</string>
+    <string name="client_id">658431378721-0jhn3oaem2nnf0k2h871k65ns1r9tiv1.apps.googleusercontent.com</string>
     <string name="secret_id">Dy-uviiC6etQVfgF9N6beyPp</string>
-    <string name="google_android_key">AIzaSyBi3qVakaNh185b2cmgFsuhBntGtA2SLLA</string>
+    <string name="google_android_key">AIzaSyAYR8NFqc1mIbM832Rj5sz_F_g1-NZV8pM</string>
     <string name="google_server_key">AIzaSyCCm_dEtdfR12jlhi6REsenrgKwjLKS_iQ</string>
 
     <!--general-->
@@ -114,6 +114,7 @@
     <string name="become_delegate">Become a Delegate</string>
     <string name="personal_info">Personal info</string>
     <string name="car_brand">ex. brand, model, year</string>
+    <string name="id_number">ID Number</string>
     <string name="upload_license">uploaded driver license image</string>
     <string name="upload_id">uploaded national ID image</string>
     <string name="upload_car_front">uploaded car front image</string>
@@ -331,6 +332,8 @@
     <string name="end_ride_message">You are ending the ride, as you\'ve delivered this order and about to receive the following from customer</string>
     <string name="order_chat">Order #</string>
     <string name="call">Call</string>
+    <string name="invoice_details">Invoice Details</string>
+    <string name="invoice_details_message">The order will be completed and the delivery will be confirmed by the delegate after receiving the following amount or online paid through you:</string>
 
     <!--blocked_areas-->
     <string name="place_not_allow">sorry, we don\'t operate in this area</string>
@@ -345,11 +348,16 @@
 
     <!--activity_Add_Money-->
     <string name="amount_nedded">Amount needs to be added</string>
+    <string name="is_paid">Is Paid</string>
+    <string name="payment_method">Payment method</string>
+    <string name="Cash_on_delivery">Cash on delivery</string>
+    <string name="payment_online">Payment online</string>
     <string name="select_payment">Select Payment method</string>
     <string name="credit_card">Cerdit Card</string>
     <string name="Sadad">Sadad</string>
     <string name="transaction_history">Transactions history</string>
     <string name="bank_transfer">Bank Transfer</string>
+    <string name="stc_pay">Stc Pay</string>
     <string name="bank_account_title">you have to make a bank userTransaction and deposit the money to one of the following accounts, then submit your request by attaching the details paper and wire transfer here:</string>
     <string name="account_no">account no.</string>
     <string name="submit_transaction">Submit Transaction</string>

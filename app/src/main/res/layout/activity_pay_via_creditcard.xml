@@ -20,7 +20,7 @@
             android:layout_marginEnd="45dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="@string/credit_card"
+            android:text="@string/payment_online"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp" />

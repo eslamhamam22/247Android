@@ -200,7 +200,6 @@ public class MyBalanceActivity extends BaseActivity implements MyBalancePresente
     }
 
     private void setWalletValue(){
-
         if (localSettings.getUser().getWallet_value()>= 0){
             wallet_rv.setBackgroundColor(getResources().getColor(R.color.honey_green));
             tv_wallet_amount.setTextColor(getResources().getColor(R.color.kelly_green));
@@ -219,7 +218,7 @@ public class MyBalanceActivity extends BaseActivity implements MyBalancePresente
             }
             addMoneyView.setVisibility(View.VISIBLE);
         }
-        addMoneyView.setVisibility(View.VISIBLE);
+        //addMoneyView.setVisibility(View.VISIBLE);
         tv_wallet_amount.setText(String.format(Locale.ENGLISH,"%.2f",localSettings.getUser().getWallet_value()) + " "+ getResources().getString(R.string.sar));
     }
 

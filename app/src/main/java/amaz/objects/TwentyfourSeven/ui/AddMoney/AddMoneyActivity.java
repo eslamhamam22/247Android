@@ -1,14 +1,18 @@
 package amaz.objects.TwentyfourSeven.ui.AddMoney;
 
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.ServiceConnection;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import android.os.IBinder;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,15 +21,35 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 //import com.payfort.sdk.android.dependancies.models.FortRequest;
+import com.oppwa.mobile.connect.checkout.dialog.CheckoutActivity;
+import com.oppwa.mobile.connect.checkout.meta.CheckoutSettings;
+import com.oppwa.mobile.connect.exception.PaymentError;
+import com.oppwa.mobile.connect.exception.PaymentException;
+import com.oppwa.mobile.connect.provider.Connect;
+import com.oppwa.mobile.connect.provider.Transaction;
+import com.oppwa.mobile.connect.provider.TransactionType;
+import com.oppwa.mobile.connect.service.ConnectService;
+import com.oppwa.mobile.connect.service.IProviderBinder;
 import com.rey.material.widget.ProgressView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.Locale;
+import java.util.Set;
 
 import amaz.objects.TwentyfourSeven.BaseActivity;
 import amaz.objects.TwentyfourSeven.MApplication;
 import amaz.objects.TwentyfourSeven.R;
+import amaz.objects.TwentyfourSeven.api.APIURLs;
+import amaz.objects.TwentyfourSeven.api.Callback;
+import amaz.objects.TwentyfourSeven.api.Checkout;
 import amaz.objects.TwentyfourSeven.data.models.CardPayRegisterationData;
+import amaz.objects.TwentyfourSeven.data.models.DirectPaymentAuthorizeData;
+import amaz.objects.TwentyfourSeven.data.models.DirectPaymentConfirmData;
+import amaz.objects.TwentyfourSeven.data.models.Order;
 import amaz.objects.TwentyfourSeven.data.models.UserTransaction;
 import amaz.objects.TwentyfourSeven.injection.Injection;
 import amaz.objects.TwentyfourSeven.listeners.OnRefeshTokenResponse;
@@ -48,7 +72,7 @@ public class AddMoneyActivity extends BaseActivity implements
         View.OnClickListener,
         OnRefeshTokenResponse {
 
-    private TextView add_money_title, tv_amount, tv_credit, tv_select_payment, tv_bank_transfer, tv_sadad;
+    private TextView add_money_title, tv_amount, tv_credit, tv_select_payment, tv_bank_transfer, tv_sadad, tv_stcPay;
     private Fonts fonts;
     private AddMoneyPresenter addMoneyPresenter;
     private LocalSettings localSettings;
@@ -56,12 +80,14 @@ public class AddMoneyActivity extends BaseActivity implements
     private ArrayList<UserTransaction> userTransactions = new ArrayList<>();
     private ImageView backIv, errorIv;
     private TextView errorTv;
-    private RelativeLayout bankTransferRV, creditCardLayout;
+    private RelativeLayout bankTransferRV, creditCardLayout, sadadRV, stcPayRV;
     private boolean firstConnect = false;
     private BroadcastReceiver mBroadcastReceiver;
+    private Order order;
+    private IProviderBinder binder;
+    private ServiceConnection serviceConnection;
+    private Double amount;
 
-    //public FortCallBackManager fortCallback = null;
-// payment
     @Override
     public PresenterFactory.PresenterType getPresenterType() {
         return PresenterFactory.PresenterType.ADDMONEY;
@@ -82,8 +108,7 @@ public class AddMoneyActivity extends BaseActivity implements
         initialization();
         setFonts();
         setBroadCast();
-
-        //initilizePayFortSDK();
+        initEnv();
 
     }
 
@@ -95,10 +120,27 @@ public class AddMoneyActivity extends BaseActivity implements
                 new IntentFilter(Constants.BROADCASTRECEVIERGENERATION));
         firstConnect = true;
         bankTransferRV.setBackground(getResources().getDrawable(R.drawable.bg_nr));
+        sadadRV.setBackground(getResources().getDrawable(R.drawable.bg_nr));
+        stcPayRV.setBackground(getResources().getDrawable(R.drawable.bg_nr));
         creditCardLayout.setBackground(getResources().getDrawable(R.drawable.bg_nr));
-        if(localSettings.getUser().getWallet_value() == 0){
+        if (localSettings.getUser().getWallet_value() == 0) {
             finish();
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Intent intent = new Intent(this, ConnectService.class);
+        startService(intent);
+        bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unbindService(serviceConnection);
+        stopService(new Intent(this, ConnectService.class));
     }
 
     private void initialization() {
@@ -108,8 +150,13 @@ public class AddMoneyActivity extends BaseActivity implements
         tv_credit = (TextView) findViewById(R.id.tv_credit);
         tv_sadad = (TextView) findViewById(R.id.tv_sadad);
         tv_bank_transfer = (TextView) findViewById(R.id.tv_bank_transfer);
+        sadadRV = (RelativeLayout) findViewById(R.id.sadadRV);
+        stcPayRV = (RelativeLayout) findViewById(R.id.stcPayRV);
+        tv_stcPay = (TextView) findViewById(R.id.tv_stcPay);
         bankTransferRV = (RelativeLayout) findViewById(R.id.bankTransferRV);
         creditCardLayout = (RelativeLayout) findViewById(R.id.creditCardLayout);
+        sadadRV.setOnClickListener(this);
+        stcPayRV.setOnClickListener(this);
         bankTransferRV.setOnClickListener(this);
         creditCardLayout.setOnClickListener(this);
 
@@ -124,6 +171,12 @@ public class AddMoneyActivity extends BaseActivity implements
         backIv.setOnClickListener(this);
 
         fonts = MApplication.getInstance().getFonts();
+
+        if (getIntent() != null && getIntent().getSerializableExtra(Constants.ORDER) != null)
+            order = (Order) getIntent().getSerializableExtra(Constants.ORDER);
+        if (order != null)
+            bankTransferRV.setVisibility(View.GONE);
+
         setAmountValue();
 
     }
@@ -132,29 +185,26 @@ public class AddMoneyActivity extends BaseActivity implements
         tv_amount.setTypeface(fonts.customFontBD());
         tv_bank_transfer.setTypeface(fonts.customFont());
         tv_sadad.setTypeface(fonts.customFont());
+        tv_stcPay.setTypeface(fonts.customFont());
         tv_credit.setTypeface(fonts.customFont());
         tv_select_payment.setTypeface(fonts.customFontBD());
         add_money_title.setTypeface(fonts.customFont());
     }
 
     private void setLanguage() {
-
         if (localSettings.getLocale().equals(Constants.ARABIC)) {
             LanguageUtilities.switchToArabicLocale(this);
         }
-
     }
 
     @Override
     public void hideLoading() {
         pvLoad.setVisibility(View.GONE);
-
     }
 
     @Override
     public void showLoading() {
         pvLoad.setVisibility(View.VISIBLE);
-
     }
 
     @Override
@@ -170,58 +220,107 @@ public class AddMoneyActivity extends BaseActivity implements
     }
 
     @Override
+    public void showSuccessStcAuthorize(DirectPaymentAuthorizeData data) {
+
+    }
+
+    @Override
+    public void showSuccessStcConfirm(DirectPaymentConfirmData data) {
+
+    }
+
+    @Override
     public void showSuccessRegisterCardPay(CardPayRegisterationData data) {
-        Intent intent = new Intent(this, PayViaCreditCardActivity.class);
+        /*Intent intent = new Intent(this, PayViaCreditCardActivity.class);
         intent.putExtra("card_pay_data", data);
+        startActivity(intent);*/
+        //configCheckout(data.getCheckoutId());
+        gotoWebView(data.getCheckoutId());
+    }
+
+    private void gotoWebView(String checkoutId) {
+        Intent intent = new Intent(this, PayViaCreditCardActivity.class);
+        intent.putExtra("checkoutId", checkoutId);
         startActivity(intent);
-//        Set<String> paymentBrands = new LinkedHashSet<String>();
-//
-//        paymentBrands.add("VISA");
-//        paymentBrands.add("MASTER");
-//
-//        CheckoutSettings checkoutSettings = new CheckoutSettings(data.getCheckoutId(), paymentBrands);
-////        Intent intent = checkoutSettings.createCheckoutActivityIntent(this);
-////
-////        startActivityForResult(intent, CheckoutActivity.REQUEST_CODE_CHECKOUT);
-//        checkoutSettings.setLocale("en");
-////        Intent intent = new Intent(this, CheckoutActivity.class);
-////        intent.putExtra(CheckoutActivity.CHECKOUT_SETTINGS, checkoutSettings);
-////        startActivityForResult(intent, CheckoutActivity.CHECKOUT_ACTIVITY);
-//
-//        PaymentParams paymentParams = null;
-//        try {
-//            paymentParams = new CardPaymentParams(data.getCheckoutId(), "VISA","4111111111111111",
-//                    "TEST","05","21","100");
-//            Transaction transaction = null;
-//
-//            try {
-//                transaction = new Transaction(paymentParams);
-//                binder.submitTransaction(transaction);
-//            } catch (PaymentException ee) {
-//                /* error occurred */
-//            }
-//        } catch (PaymentException e) {
-//            e.printStackTrace();
-//        }
+    }
 
-// Set shopper result URL
+    private void initEnv() {
+        serviceConnection = new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName name, IBinder service) {
+                binder = (IProviderBinder) service;
+                try {
+                    binder.initializeProvider(Connect.ProviderMode.LIVE);
+                } catch (PaymentException e) {
+                    e.printStackTrace();
+                }
+            }
 
+            @Override
+            public void onServiceDisconnected(ComponentName name) {
+                binder = null;
+            }
+        };
+    }
 
+    private void configCheckout(String checkoutId) {
+        //java.lang.SecurityException: getDeviceId: The user 10153 does not meet the requirements to access device identifiers.
+        Set<String> paymentBrands = new LinkedHashSet<String>();
+        paymentBrands.add("VISA");
+        CheckoutSettings checkoutSettings = new CheckoutSettings(checkoutId, paymentBrands);
+        checkoutSettings.setLocale("en");
+        checkoutSettings.setWebViewEnabledFor3DSecure(true);
+        Intent intent = new Intent(this, CheckoutActivity.class);
+        intent.putExtra(CheckoutActivity.CHECKOUT_SETTINGS, checkoutSettings);
+        startActivityForResult(intent, CheckoutActivity.CHECKOUT_ACTIVITY);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (resultCode) {
+            case CheckoutActivity.RESULT_OK:
+                /* transaction completed */
+                Transaction transaction = data.getParcelableExtra(CheckoutActivity.CHECKOUT_RESULT_TRANSACTION);
+                /* resource path if needed */
+                String resourcePath = data.getStringExtra(CheckoutActivity.CHECKOUT_RESULT_RESOURCE_PATH);
+                String checkoutId = data.getStringExtra(CheckoutActivity.EXTRA_CHECKOUT_ID);
+                if (transaction.getTransactionType() == TransactionType.SYNC) {
+                    /* check the result of synchronous transaction */
+                    gotoWebView(checkoutId);
+                } else {
+                    /* wait for the asynchronous transaction callback in the onNewIntent() */
+                }
+                break;
+            case CheckoutActivity.RESULT_CANCELED:
+                Toast.makeText(this, "Shoper cancelled transaction", Toast.LENGTH_LONG).show();
+                break;
+            case CheckoutActivity.RESULT_ERROR:
+                PaymentError error = data.getParcelableExtra(CheckoutActivity.CHECKOUT_RESULT_ERROR);
+                Toast.makeText(this, error.getErrorMessage(), Toast.LENGTH_LONG).show();
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        if (intent.getScheme().equals("devsupport")) {
+            String checkoutId = intent.getData().getQueryParameter("id");
+            gotoWebView(checkoutId);
+        }
     }
 
     @Override
     public void showNetworkError() {
-
         Toast.makeText(this, R.string.connection_error, Toast.LENGTH_LONG).show();
-
     }
-
 
     @Override
     public void showServerError() {
-
         Toast.makeText(this, R.string.server_error, Toast.LENGTH_LONG).show();
-
     }
 
     @Override
@@ -234,26 +333,23 @@ public class AddMoneyActivity extends BaseActivity implements
 
     }
 
-
     private void switchToRegisterationOrLogin() {
-
         Intent registerationOrLoginIntent = new Intent(this, RegisterOrLoginActivity.class);
         registerationOrLoginIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(registerationOrLoginIntent);
-
     }
-
 
     @Override
     public void hideTokenLoader() {
         hideLoading();
     }
 
-
     @Override
     public void onClick(View view) {
+        int orderId = 0;
+        if (order != null && order.getId() > 0)
+            orderId = order.getId();
         switch (view.getId()) {
-
             case R.id.iv_back:
                 finish();
                 break;
@@ -264,23 +360,35 @@ public class AddMoneyActivity extends BaseActivity implements
                 startActivity(intent);
                 break;
 
+            case R.id.sadadRV:
+                sadadRV.setBackground(getResources().getDrawable(R.drawable.bg_ac));
+                Intent intentSadad = new Intent(this, BankTransferActivity.class);
+                startActivity(intentSadad);
+                break;
+
+            case R.id.stcPayRV:
+                stcPayRV.setBackground(getResources().getDrawable(R.drawable.bg_ac));
+                Intent intentStc = new Intent(this, StcPayActivity.class);
+                if (order != null && order.getId() > 0)
+                    intentStc.putExtra(Constants.ORDER, order);
+                startActivity(intentStc);
+                break;
+
             case R.id.creditCardLayout:
                 creditCardLayout.setBackground(getResources().getDrawable(R.drawable.bg_ac));
-                //requestForPayfortPayment();
-                addMoneyPresenter.registerCardPayment(localSettings.getLocale(), localSettings.getToken(), localSettings.getUser().getWallet_value());
+                //addMoneyPresenter.registerCardPayment(localSettings.getLocale(), localSettings.getToken(), amount, orderId);
+                addMoneyPresenter.getCheckoutId(localSettings.getLocale(), localSettings.getToken(), amount, orderId);
                 break;
         }
 
     }
 
-//    private void initilizePayFortSDK() {
-//        fortCallback = FortCallback.Factory.create();
-//    }
-
-
     public void setAmountValue() {
-        tv_amount.setText(String.format(Locale.ENGLISH, "%.2f", localSettings.getUser().getWallet_value()) + " " + getResources().getString(R.string.sar));
-
+        if (order != null)
+            amount = order.getTotalPrice();
+        else
+            amount = localSettings.getUser().getWallet_value();
+        tv_amount.setText(String.format(Locale.ENGLISH, "%.2f", amount) + " " + getResources().getString(R.string.sar));
     }
 
     public void setBroadCast() {
@@ -291,78 +399,10 @@ public class AddMoneyActivity extends BaseActivity implements
                 if (intent.getAction().equals(Constants.BROADCASTRECEVIERGENERATION)) {
                     if (firstConnect) {
                         setAmountValue();
-
                     }
                 }
             }
         };
     }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == PayFortPayment.RESPONSE_PURCHASE) {
-//            fortCallback.onActivityResult(requestCode, resultCode, data);
-//        }
-    }
-
-//    private void requestForPayfortPayment() {
-//        PayFortData payFortData = new PayFortData();
-//            payFortData.amount = String.valueOf((int) (Float.parseFloat("500") * 100));// Multiplying with 100, bcz amount should not be in decimal format
-//            payFortData.command = PayFortPayment.PURCHASE;
-//            payFortData.currency = PayFortPayment.CURRENCY_TYPE;
-//        payFortData.paymentOption = "VISA";
-//
-//        payFortData.customerEmail = "readyandroid@gmail.com";
-//            payFortData.language = PayFortPayment.LANGUAGE_TYPE;
-//            payFortData.merchantReference = String.valueOf(System.currentTimeMillis());
-//
-//            PayFortPayment payFortPayment = new PayFortPayment(this, this.fortCallback, this);
-//            payFortPayment.requestForPayment(payFortData);
-//
-//    }
-
-//    @Override
-//    public void onPaymentRequestResponse(int responseType, final PayFortData responseData) {
-//        if (responseType == PayFortPayment.RESPONSE_GET_TOKEN) {
-//            Toast.makeText(this, "Token not generated", Toast.LENGTH_SHORT).show();
-//            Log.e("onPaymentResponse", "Token not generated");
-//        } else if (responseType == PayFortPayment.RESPONSE_PURCHASE_CANCEL) {
-//            Toast.makeText(this, "Payment cancelled", Toast.LENGTH_SHORT).show();
-//            Log.e("onPaymentResponse", "Payment cancelled");
-//        } else if (responseType == PayFortPayment.RESPONSE_PURCHASE_FAILURE) {
-//            Toast.makeText(this, "Payment failed", Toast.LENGTH_SHORT).show();
-//            Log.e("onPaymentResponse", "Payment failed");
-//        } else {
-//            Toast.makeText(this, "Payment successful", Toast.LENGTH_SHORT).show();
-//            Log.e("onPaymentResponse", "Payment successful");
-//        }
-//    }
-
-//    @Override
-//    public void setToken(String token) {
-//
-//        FortRequest fortrequest = new FortRequest();
-//        fortrequest.setRequestMap(collectRequestMap(token));
-//        fortrequest.setShowResponsePage(true); // to [display/use] the SDK response page
-//    }
-//    private Map<String, Object> collectRequestMap(String sdkToken) {
-//        Map<String, Object> requestMap = new HashMap<>();
-//        requestMap.put("command", "PURCHASE");
-//        requestMap.put("customer_email", "Sam@gmail.com");
-//        requestMap.put("currency", "SAR");
-//        requestMap.put("amount", "100");
-//        requestMap.put("language", "en");
-//        requestMap.put("merchant_reference", String.valueOf(System.currentTimeMillis()));
-//        requestMap.put("customer_name", "Sam");
-//        requestMap.put("customer_ip", "172.150.16.10");
-//        requestMap.put("payment_option", "VISA");
-//        requestMap.put("response_message", "Insufficient Funds");
-//        requestMap.put("eci", "ECOMMERCE");
-//        requestMap.put("token_name",FortSdk.getDeviceId(AddMoneyActivity.this));
-//        requestMap.put("sdk_token",sdkToken);
-//        requestMap.put("order_description", "DESCRIPTION");
-//        return requestMap;
-//    }
 
 }

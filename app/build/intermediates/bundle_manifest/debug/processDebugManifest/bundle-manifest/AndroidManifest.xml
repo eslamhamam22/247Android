@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="amaz.objects.TwentyfourSeven"
-    android:versionCode="11"
-    android:versionName="2.0" >
+    android:installLocation="preferExternal"
+    android:versionCode="14"
+    android:versionName="2.3" >
 
     <uses-sdk
         android:minSdkVersion="21"
         android:targetSdkVersion="29" />
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -15,10 +17,11 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
 
     <uses-feature android:name="android.hardware.location.gps" />
 
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- Create a unique permission for your app and use it so only your app can receive your OneSignal messages. -->
     <permission
         android:name="amaz.objects.TwentyfourSeven.permission.C2D_MESSAGE"
@@ -32,7 +35,6 @@
          Vibration settings of the device still apply.
     -->
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!--
  Use to restore notifications the user hasn't interacted with.
          They could be missed notifications if the user reboots their device if this isn't in place.
@@ -59,7 +61,17 @@
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
 
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
 
     <application
@@ -69,8 +81,10 @@
         android:debuggable="true"
         android:icon="@drawable/app_icon"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <uses-library
             android:name="org.apache.http.legacy"
@@ -145,6 +159,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="amaz.objects.TwentyfourSeven.ui.AddMoney.SubmitTransactionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="amaz.objects.TwentyfourSeven.ui.AddMoney.StcPayActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="amaz.objects.TwentyfourSeven.ui.StoreDetails.StoreDetailsActivity"
@@ -271,6 +288,12 @@
         <activity
             android:name="amaz.objects.TwentyfourSeven.ui.PayViaCreditCard.PayViaCreditCardActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.oppwa.mobile.connect.checkout.dialog.CheckoutActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.Checkout.Light"
+            android:windowSoftInputMode="adjustPan" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -290,7 +313,9 @@
                 <action android:name="com.onesignal.NotificationExtender" />
             </intent-filter>
         </service>
-
+        <service
+            android:name="com.oppwa.mobile.connect.service.ConnectService"
+            android:exported="false" />
         <!-- <service android:name=".utilities.DelegateLocationService" /> -->
         <service android:name="amaz.objects.TwentyfourSeven.utilities.tracking_module.TrackingService" />
 
@@ -435,6 +460,9 @@
             <meta-data
                 android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
         </service>
         <!--
              FirebaseMessagingService performs security checks at runtime,
@@ -461,6 +489,21 @@
             android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
             android:exported="true"
             android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
+
+        <activity
+            android:name="io.card.payment.CardIOActivity"
+            android:configChanges="keyboardHidden|orientation" />
+        <activity android:name="io.card.payment.DataEntryActivity" /> <!-- Enables the Android Pay API -->
+        <meta-data
+            android:name="com.google.android.gms.wallet.api.enabled"
+            android:value="true" />
+
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <receiver
             android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
@@ -519,8 +562,14 @@
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
             android:authorities="amaz.objects.TwentyfourSeven.firebaseinitprovider"
+            android:directBootAware="true"
             android:exported="false"
             android:initOrder="100" />
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <service
             android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
@@ -538,11 +587,6 @@
         <receiver
             android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
             android:exported="false" />
-
-        <activity
-            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-            android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     </application>
 
 </manifest>

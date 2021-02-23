@@ -1,5 +1,9 @@
 package amaz.objects.TwentyfourSeven.api;
 
+import org.json.JSONObject;
+
+import java.util.HashMap;
+
 import amaz.objects.TwentyfourSeven.data.models.GoogleTokenRequestBody;
 import amaz.objects.TwentyfourSeven.data.models.responses.AddOfferResponse;
 import amaz.objects.TwentyfourSeven.data.models.responses.BaseResponse;
@@ -12,7 +16,9 @@ import amaz.objects.TwentyfourSeven.data.models.responses.ComplaintsResponse;
 import amaz.objects.TwentyfourSeven.data.models.responses.ContactUsResponse;
 import amaz.objects.TwentyfourSeven.data.models.responses.CustomerOrderDetailsResponse;
 import amaz.objects.TwentyfourSeven.data.models.responses.DirectPaymentAuthorizeResponse;
+import amaz.objects.TwentyfourSeven.data.models.responses.DirectPaymentAuthorizeV4ResponseMessage;
 import amaz.objects.TwentyfourSeven.data.models.responses.DirectPaymentConfirmResponse;
+import amaz.objects.TwentyfourSeven.data.models.responses.DirectPaymentConfirmV4ResponseMessage;
 import amaz.objects.TwentyfourSeven.data.models.responses.DirectPaymentResponse;
 import amaz.objects.TwentyfourSeven.data.models.responses.DirectionsResponse;
 import amaz.objects.TwentyfourSeven.data.models.responses.GoogleAccessTokenResponse;
@@ -160,6 +166,7 @@ public interface ApiEndPointInterface {
     Call<BaseResponse> submitDelegateRequest(@Path("local") String local,
                                              @Query("token") String token,
                                              @Field("carDetails") String carDetails,
+                                             @Field("idNumber") String idNumber,
                                              @Field("images") String images);
 
     @GET("{locale}/" + APIURLs.GET_CAR_DETAILS)
@@ -520,18 +527,49 @@ public interface ApiEndPointInterface {
     @POST("{locale}/" + APIURLs.REGISTER_CARD_PAYMENT)
     Call<CardPayRegisterationResponse> registerCardPayment(@Path("locale") String local,
                                                            @Query("token") String token,
-                                                           @Field("amount") double amount);
+                                                           @Field("amount") double amount,
+                                                           @Field("orderId") int orderId);
+
+    @FormUrlEncoded
+    @POST("{locale}/" + APIURLs.REGISTER_CARD_PAYMENT)
+    Call<CardPayRegisterationResponse> getCheckoutId(@Path("locale") String local,
+                                                           @Query("token") String token,
+                                                           @Field("amount") double amount,
+                                                           @Field("orderId") int orderId,
+                                                           @Field("byapple") boolean byapple);
+
+    @FormUrlEncoded
+    @POST("{locale}/" + APIURLs.REGISTER_CARD_PAYMENT)
+    Call<DirectPaymentAuthorizeV4ResponseMessage> postStcDirectPaymentAuthorize(@Path("locale") String local,
+                                                                                @Query("token") String token,
+                                                                                @Field("mobile") String mobile,
+                                                                                @Field("amount") String amount,
+                                                                                @Field("bystcAuthorize") boolean authorize);
+
+    @FormUrlEncoded
+    @POST("{locale}/" + APIURLs.REGISTER_CARD_PAYMENT)
+    Call<DirectPaymentConfirmV4ResponseMessage> postStcDirectPaymentConfirm(@Path("locale") String local,
+                                                                            @Query("token") String token,
+                                                                            @Field("otpReference") String otpReference,
+                                                                            @Field("otpValue") String otpValue,
+                                                                            @Field("sTCPayPmtReference") String sTCPayPmtReference,
+                                                                            @Field("tokenReference") String tokenReference,
+                                                                            @Field("bystcConfirm") boolean authorize);
 
     @POST(APIURLs.STC_DirectPayment)
-    Call<DirectPaymentResponse> postStcDirectPayment(@Field("DirectPaymentV4RequestMessage") String payment);
+    Call<DirectPaymentResponse> postStcDirectPayment(@Header("X-ClientCode") String merchantId,
+                                                     @Body HashMap<String, JSONObject> body);
 
     @POST(APIURLs.STC_DirectPaymentAuthorize)
-    Call<DirectPaymentAuthorizeResponse> postStcDirectPaymentAuthorize(@Field("DirectPaymentAuthorizeV4RequestMessage") String payment);
+    Call<DirectPaymentAuthorizeResponse> postStcDirectPaymentAuthorize(@Header("X-ClientCode") String merchantId,
+                                                                       @Body HashMap<String, JSONObject> body);
 
     @POST(APIURLs.STC_DirectPaymentConfirm)
-    Call<DirectPaymentConfirmResponse> postStcDirectPaymentConfirm(@Field("DirectPaymentConfirmV4RequestMessage") String payment);
+    Call<DirectPaymentConfirmResponse> postStcDirectPaymentConfirm(@Header("X-ClientCode") String merchantId,
+                                                                   @Body HashMap<String, JSONObject> body);
 
     @POST(APIURLs.STC_PaymentInquiry)
-    Call<PaymentInquiryResponse> postStcPaymentInquiry(@Field("PaymentInquiryV4RequestMessage") String payment);
+    Call<PaymentInquiryResponse> postStcPaymentInquiry(@Header("X-ClientCode") String merchantId,
+                                                       @Field("PaymentInquiryV4RequestMessage") JSONObject payment);
 
 }

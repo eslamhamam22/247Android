@@ -114,10 +114,10 @@ public class DelegateRequestPresenter extends BasePresenter {
         });
     }
 
-    public void submitDelegateRequest(String token, String locale, String carDetails, String imagesIds){
+    public void submitDelegateRequest(String token, String locale, String carDetails, String idNumber, String imagesIds){
         final DelegateRequestView delegateRequestView = view.get();
         delegateRequestView.showLoading();
-        repository.submitDelegateRequest(token, locale, carDetails, imagesIds, new OnResponseListener() {
+        repository.submitDelegateRequest(token, locale, carDetails, idNumber, imagesIds, new OnResponseListener() {
             @Override
             public void onSuccess(Response response) {
                 delegateRequestView.hideLoading();

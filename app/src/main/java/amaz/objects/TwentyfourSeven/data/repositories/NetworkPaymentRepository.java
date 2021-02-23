@@ -4,8 +4,11 @@ import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+
 import amaz.objects.TwentyfourSeven.MApplication;
 import amaz.objects.TwentyfourSeven.api.ApiEndPointInterface;
 import amaz.objects.TwentyfourSeven.data.models.responses.DirectPaymentAuthorizeResponse;
@@ -19,6 +22,7 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Field;
 
 public class NetworkPaymentRepository implements PaymentRepository {
 
@@ -32,8 +36,10 @@ public class NetworkPaymentRepository implements PaymentRepository {
     private ApiEndPointInterface apiEndPointInterface = MApplication.getInstance().getPaymentStcApi();
 
     @Override
-    public void stcDirectPayment(String token, final OnResponseListener onStcDirectPaymentResponse) {
-        Call<DirectPaymentResponse> call = apiEndPointInterface.postStcDirectPayment(token);
+    public void stcDirectPayment(String merchantId, JSONObject payment, final OnResponseListener onStcDirectPaymentResponse) {
+        HashMap<String, JSONObject> body = new HashMap<String, JSONObject>();
+        body.put("DirectPaymentV4RequestMessage",payment);
+        Call<DirectPaymentResponse> call = apiEndPointInterface.postStcDirectPayment(merchantId, body);
         call.clone().enqueue(new Callback<DirectPaymentResponse>() {
             @Override
             public void onResponse(Call<DirectPaymentResponse> call, Response<DirectPaymentResponse> response) {
@@ -67,8 +73,10 @@ public class NetworkPaymentRepository implements PaymentRepository {
     }
 
     @Override
-    public void stcDirectPaymentAuthorize(String token, final OnResponseListener onStcDirectPaymentAuthorizeResponse) {
-        Call<DirectPaymentAuthorizeResponse> call = apiEndPointInterface.postStcDirectPaymentAuthorize(token);
+    public void stcDirectPaymentAuthorize(String merchantId, JSONObject payment, final OnResponseListener onStcDirectPaymentAuthorizeResponse) {
+        HashMap<String, JSONObject> body = new HashMap<String, JSONObject>();
+        body.put("DirectPaymentAuthorizeV4RequestMessage",payment);
+        Call<DirectPaymentAuthorizeResponse> call = apiEndPointInterface.postStcDirectPaymentAuthorize(merchantId, body);
         call.clone().enqueue(new Callback<DirectPaymentAuthorizeResponse>() {
             @Override
             public void onResponse(Call<DirectPaymentAuthorizeResponse> call, Response<DirectPaymentAuthorizeResponse> response) {
@@ -102,8 +110,10 @@ public class NetworkPaymentRepository implements PaymentRepository {
     }
 
     @Override
-    public void stcDirectPaymentConfirm(String token, final OnResponseListener onStcDirectPaymentConfirmResponse) {
-        Call<DirectPaymentConfirmResponse> call = apiEndPointInterface.postStcDirectPaymentConfirm(token);
+    public void stcDirectPaymentConfirm(String merchantId, JSONObject payment, final OnResponseListener onStcDirectPaymentConfirmResponse) {
+        HashMap<String, JSONObject> body = new HashMap<String, JSONObject>();
+        body.put("DirectPaymentConfirmV4RequestMessage",payment);
+        Call<DirectPaymentConfirmResponse> call = apiEndPointInterface.postStcDirectPaymentConfirm(merchantId, body);
         call.clone().enqueue(new Callback<DirectPaymentConfirmResponse>() {
             @Override
             public void onResponse(Call<DirectPaymentConfirmResponse> call, Response<DirectPaymentConfirmResponse> response) {
@@ -137,8 +147,8 @@ public class NetworkPaymentRepository implements PaymentRepository {
     }
 
     @Override
-    public void stcPaymentInquiry(String token, final OnResponseListener onStcPaymentInquiryResponse) {
-        Call<PaymentInquiryResponse> call = apiEndPointInterface.postStcPaymentInquiry(token);
+    public void stcPaymentInquiry(String merchantId, JSONObject payment, final OnResponseListener onStcPaymentInquiryResponse) {
+        Call<PaymentInquiryResponse> call = apiEndPointInterface.postStcPaymentInquiry(merchantId, payment);
         call.clone().enqueue(new Callback<PaymentInquiryResponse>() {
             @Override
             public void onResponse(Call<PaymentInquiryResponse> call, Response<PaymentInquiryResponse> response) {

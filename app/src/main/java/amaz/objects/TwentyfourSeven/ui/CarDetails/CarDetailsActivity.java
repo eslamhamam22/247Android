@@ -39,7 +39,7 @@ import amaz.objects.TwentyfourSeven.utilities.TokenUtilities;
 public class CarDetailsActivity extends BaseActivity implements CarDetailsPresenter.CarDetailsView, View.OnClickListener, OnRefeshTokenResponse {
 
     private LinearLayout mainContentLl;
-    private TextView titleTv, carBrandTv, licenseTv, idTv, carFrontTv, carBackTv;
+    private TextView titleTv, carBrandTv, idNumberTv, licenseTv, idTv, carFrontTv, carBackTv;
     private ImageView licenseIv, idIv, carFrontIv, carBackIv, backIv;
     private ProgressView loaderPv;
 
@@ -95,6 +95,7 @@ public class CarDetailsActivity extends BaseActivity implements CarDetailsPresen
         mainContentLl = findViewById(R.id.ll_main_content);
         mainContentLl.setVisibility(View.GONE);
         carBrandTv = findViewById(R.id.tv_car_brand);
+        idNumberTv = findViewById(R.id.tv_id_number);
         licenseIv = findViewById(R.id.iv_license);
         licenseIv.setOnClickListener(this);
         licenseTv = findViewById(R.id.tv_license);
@@ -128,6 +129,7 @@ public class CarDetailsActivity extends BaseActivity implements CarDetailsPresen
         fonts = MApplication.getInstance().getFonts();
         titleTv.setTypeface(fonts.customFontBD());
         carBrandTv.setTypeface(fonts.customFont());
+        idNumberTv.setTypeface(fonts.customFont());
         licenseTv.setTypeface(fonts.customFont());
         idTv.setTypeface(fonts.customFont());
         carFrontTv.setTypeface(fonts.customFont());
@@ -267,6 +269,7 @@ public class CarDetailsActivity extends BaseActivity implements CarDetailsPresen
             Picasso.with(this).load(data.getCarFront().getSmall()).placeholder(R.drawable.grayscale).into(carFrontIv);
             Picasso.with(this).load(data.getCarBack().getSmall()).placeholder(R.drawable.grayscale).into(carBackIv);
             carBrandTv.setText(data.getCarDetails());
+            idNumberTv.setText(data.getIdNumber());
         }
     }
 

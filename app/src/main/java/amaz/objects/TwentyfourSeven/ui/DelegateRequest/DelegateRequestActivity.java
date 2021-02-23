@@ -55,9 +55,9 @@ import amaz.objects.TwentyfourSeven.utilities.TokenUtilities;
 public class DelegateRequestActivity extends BaseActivity implements DelegateRequestPresenter.DelegateRequestView, View.OnClickListener,
         OnRequestImageIntentListener, OnRefeshTokenResponse {
 
-    private TextView titleTv, personalInfoTv, fullNameTv, phoneNoTv, cityTv, carDetailsTv, uploadLicenseTv, uploadIdTv, uploadCarFront, uploadCarBack;
+    private TextView titleTv, personalInfoTv, fullNameTv, phoneNoTv, cityTv, carDetailsTv,idNumberTv, uploadLicenseTv, uploadIdTv, uploadCarFront, uploadCarBack;
     private ImageView backIv, licenseIv, licenseCloseIv, idIv, idCloseIv, carFrontIv, frontCloseIv, carBackIv, backCloseIv;
-    private EditText carBrandEt;
+    private EditText carBrandEt,idNumberEt;
     private Button submitRequestBtn;
     private CardView licenseCv, idCv, carFrontCv, carBackCv;
     private LinearLayout mainContentLl, licenseLl, idLl, carFrontLl, carBackLl;
@@ -134,6 +134,24 @@ public class DelegateRequestActivity extends BaseActivity implements DelegateReq
 
             }
         });
+        idNumberTv = findViewById(R.id.tv_id_number);
+        idNumberEt = findViewById(R.id.et_id_number);
+        idNumberEt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                validateRequestFields();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
         licenseCv = findViewById(R.id.cv_license);
         licenseCv.setOnClickListener(this);
@@ -191,6 +209,8 @@ public class DelegateRequestActivity extends BaseActivity implements DelegateReq
         cityTv.setTypeface(fonts.customFont());
         carDetailsTv.setTypeface(fonts.customFontBD());
         carBrandEt.setTypeface(fonts.customFont());
+        idNumberTv.setTypeface(fonts.customFontBD());
+        idNumberEt.setTypeface(fonts.customFont());
         uploadLicenseTv.setTypeface(fonts.customFont());
         uploadIdTv.setTypeface(fonts.customFont());
         uploadCarFront.setTypeface(fonts.customFont());
@@ -319,7 +339,7 @@ public class DelegateRequestActivity extends BaseActivity implements DelegateReq
         }
         Gson gson = new Gson();
         String idsJson = gson.toJson(imagesIds);
-        delegateRequestPresenter.submitDelegateRequest(localSettings.getToken(), localSettings.getLocale(), carBrandEt.getText().toString(), idsJson);
+        delegateRequestPresenter.submitDelegateRequest(localSettings.getToken(), localSettings.getLocale(), carBrandEt.getText().toString(),idNumberEt.getText().toString(), idsJson);
 
     }
 
@@ -334,7 +354,7 @@ public class DelegateRequestActivity extends BaseActivity implements DelegateReq
     }
 
     private void validateRequestFields(){
-        if (!carBrandEt.getText().toString().isEmpty() && licenseImageId != 0 && idImageId != 0 && frontImageId != 0 && backImageId != 0){
+        if (!carBrandEt.getText().toString().isEmpty() && !idNumberEt.getText().toString().isEmpty() && licenseImageId != 0 && idImageId != 0 && frontImageId != 0 && backImageId != 0){
             enableSubmitBtn();
         }
         else {

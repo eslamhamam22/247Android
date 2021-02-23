@@ -1,59 +1,68 @@
 {
   "project_info": {
-    "project_number": "387615629444",
-    "firebase_url": "https://app-224415.firebaseio.com",
-    "project_id": "app-224415",
-    "storage_bucket": "app-224415.appspot.com"
+    "project_number": "658431378721",
+    "firebase_url": "https://app-30576.firebaseio.com",
+    "project_id": "app-30576",
+    "storage_bucket": "app-30576.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:387615629444:android:101d386943e1f8fc",
+        "mobilesdk_app_id": "1:658431378721:android:101d386943e1f8fc",
         "android_client_info": {
           "package_name": "amaz.objects.TwentyfourSeven"
         }
       },
       "oauth_client": [
         {
-          "client_id": "387615629444-n3vqrsm9bjkqhn9g8f7kdhi7ljr3il9u.apps.googleusercontent.com",
+          "client_id": "658431378721-0jhn3oaem2nnf0k2h871k65ns1r9tiv1.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "amaz.objects.TwentyfourSeven",
-            "certificate_hash": "8de4781c5db4b635733e2b7fad3f0ee199b3f30f"
+            "certificate_hash": "153a82025f99c9861f1b0d483a472b54519f1f0a"
           }
         },
         {
-          "client_id": "387615629444-hhqts1ei8oslrpb97ast6c14qpdafgf7.apps.googleusercontent.com",
+          "client_id": "658431378721-3h54usmk9qjq8h737tc957djuc6rbesl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "amaz.objects.TwentyfourSeven",
+            "certificate_hash": "72d4185d422473f2d545718930699f0295be0213"
+          }
+        },
+        {
+          "client_id": "658431378721-ccpnt49j52c2o72ggcht7p7snsfu5gh3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "amaz.objects.TwentyfourSeven",
+            "certificate_hash": "4552f5817c1159af7489fa32fbcd85ca7e81d7db"
+          }
+        },
+        {
+          "client_id": "658431378721-23pau7q0bo9addbr3pqdbtl6ctfdrkul.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCW7uAajspdHmOm9Rz5CrxPYAN8R5UXnMQ"
+          "current_key": "AIzaSyBi3qVakaNh185b2cmgFsuhBntGtA2SLLA"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "387615629444-hhqts1ei8oslrpb97ast6c14qpdafgf7.apps.googleusercontent.com",
+              "client_id": "658431378721-23pau7q0bo9addbr3pqdbtl6ctfdrkul.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "387615629444-skq79j4on7nmcq2s6v2c7d7hollapqvh.apps.googleusercontent.com",
+              "client_id": "658431378721-od889u2l691svd4124dfj1rlfl888q8o.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.amaz.TwentyfourSeven"
+                "bundle_id": "amaz.objects.TwentyfourSeven"
               }
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }

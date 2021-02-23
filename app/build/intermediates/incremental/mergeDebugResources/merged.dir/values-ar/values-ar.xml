@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
     <bool name="layout_direction_rtl">true</bool>
+    <string name="Cash_on_delivery">الدفع عند الإستلام</string>
     <string name="Sadad">سداد</string>
     <string msgid="7903180715631665059" name="abc_action_bar_home_description">"التوجه إلى المنزل"</string>
     <string msgid="6794660482873516081" name="abc_action_bar_up_description">"التنقل إلى أعلى"</string>
@@ -87,7 +88,7 @@
     <string name="choose_bank">اختر بنك</string>
     <string name="choose_reason">اختر سبب الغاء الطلب</string>
     <string name="city">المدينة</string>
-    <string name="client_id">658431378721-23pau7q0bo9addbr3pqdbtl6ctfdrkul.apps.googleusercontent.com</string>
+    <string name="client_id">658431378721-0jhn3oaem2nnf0k2h871k65ns1r9tiv1.apps.googleusercontent.com</string>
     <string name="closed">مغلق</string>
     <string name="code_hint">0000</string>
     <string gender="unknown" name="com_facebook_device_auth_instructions">تفضل بزيارة &lt;b>facebook.com/device&lt;/b> وإدخال الرمز الموضح أعلاه.</string>
@@ -182,7 +183,7 @@
     <string name="from">من</string>
     <string name="full_name">الإسم كامل</string>
     <string name="gender">الجنس</string>
-    <string name="google_android_key">AIzaSyBi3qVakaNh185b2cmgFsuhBntGtA2SLLA</string>
+    <string name="google_android_key">AIzaSyAYR8NFqc1mIbM832Rj5sz_F_g1-NZV8pM</string>
     <string name="google_server_key">AIzaSyCCm_dEtdfR12jlhi6REsenrgKwjLKS_iQ</string>
     <string name="gps_dialog_message">نظام تحديد الموقع غير مفعل هل ترغب فى تفعيله؟</string>
     <string name="gps_dialog_title">افتح نظام تحديد الموقع</string>
@@ -191,6 +192,7 @@
     <string name="houre">س</string>
     <string name="how_to_use">كيف يعمل التطبيق</string>
     <string name="id_image">بطاقة الهوية</string>
+    <string name="id_number">رقم الهوية</string>
     <string name="ignore_message">سيتم رفض الطلب و لن تتمكن من اضافة عرض توصيل</string>
     <string name="image_size_error">الحد الاقصى لحجم الصورة 20MB</string>
     <string name="image_type_error">ادخل صورة في صيغة png, jpg, jpeg</string>
@@ -200,6 +202,9 @@
     <string name="invalid_name_error">الاسم يقبل حروف و ارقام فقط</string>
     <string name="invalid_phone_number">برجاء أدخال رقم جوال صحيح </string>
     <string name="invalid_verification_code">رمز غير صحيح، برجاء ادخال رمز صحيح</string>
+    <string name="invoice_details">تفاصيل الفاتورة</string>
+    <string name="invoice_details_message">سيتم انهاء الطلب و تأكيد التسليم من المندوب بعد استلام المبلغ الاتى او الدفع الالكترونى من خلالك:</string>
+    <string name="is_paid">تم الدفع</string>
     <string name="item_picked">استلم الغرض</string>
     <string name="item_price">سعر السلعة</string>
     <string name="kilometer">كم</string>
@@ -257,6 +262,8 @@
     <string name="order_no">شكوى خاصه بالطلب رقم</string>
     <string name="order_submitted_successfully">تم تقديم طلبك بنجاح</string>
     <string name="orders_no">عدد الطلبات</string>
+    <string name="payment_method">طريقة الدفع</string>
+    <string name="payment_online">الدفع الإلكترونى</string>
     <string name="pending">في الإنتظار</string>
     <string name="personal_info">Personal info</string>
     <string name="phone_no">رقم الجوال</string>
@@ -322,6 +329,7 @@
     <string name="skip_login"><u>تخطي التسجيل</u></string>
     <string name="start_ride">ابدأ الرحلة</string>
     <string msgid="8106346172024741305" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="stc_pay">Stc Pay</string>
     <string name="stores">المتاجر</string>
     <string name="subject">موضوع الشكوى</string>
     <string name="submit">تفعيل</string>

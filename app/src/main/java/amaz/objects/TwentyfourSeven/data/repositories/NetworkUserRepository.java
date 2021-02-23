@@ -15,6 +15,8 @@ import amaz.objects.TwentyfourSeven.data.models.responses.CarDetailsResponse;
 import amaz.objects.TwentyfourSeven.data.models.responses.CardPayRegisterationResponse;
 import amaz.objects.TwentyfourSeven.data.models.responses.ComplaintsResponse;
 import amaz.objects.TwentyfourSeven.data.models.responses.ContactUsResponse;
+import amaz.objects.TwentyfourSeven.data.models.responses.DirectPaymentAuthorizeV4ResponseMessage;
+import amaz.objects.TwentyfourSeven.data.models.responses.DirectPaymentConfirmV4ResponseMessage;
 import amaz.objects.TwentyfourSeven.data.models.responses.MyAddressesResponse;
 import amaz.objects.TwentyfourSeven.data.models.responses.MyBalanceResponse;
 import amaz.objects.TwentyfourSeven.data.models.responses.MyBankAccountsResponse;
@@ -672,8 +674,8 @@ public class NetworkUserRepository implements UserRepository {
     }
 
     @Override
-    public void submitDelegateRequest(String token, String locale, String carDetails, String imagesIds, final OnResponseListener onSubmitRequestResponse) {
-        Call<BaseResponse> call = apiEndPointInterface.submitDelegateRequest(locale, token, carDetails, imagesIds);
+    public void submitDelegateRequest(String token, String locale, String carDetails, String idNumber, String imagesIds, final OnResponseListener onSubmitRequestResponse) {
+        Call<BaseResponse> call = apiEndPointInterface.submitDelegateRequest(locale, token, carDetails, idNumber, imagesIds);
         call.clone().enqueue(new Callback<BaseResponse>() {
             @Override
             public void onResponse(Call<BaseResponse> call, Response<BaseResponse> response) {
@@ -1299,12 +1301,12 @@ public class NetworkUserRepository implements UserRepository {
     }
 
     @Override
-    public void registerCardPayment(String token, String locale, double amount, final OnResponseListener onRegisterCardPaymentResponse) {
+    public void registerCardPayment(String token, String locale, double amount, int orderId, final OnResponseListener onRegisterCardPaymentResponse) {
         Log.e("amount", amount + "omnia");
         if (amount < 0) {
             amount *= -1;
         }
-        Call<CardPayRegisterationResponse> call = apiEndPointInterface.registerCardPayment(locale, token, amount);
+        Call<CardPayRegisterationResponse> call = apiEndPointInterface.registerCardPayment(locale, token, amount, orderId);
         call.clone().enqueue(new Callback<CardPayRegisterationResponse>() {
             @Override
             public void onResponse(Call<CardPayRegisterationResponse> call, Response<CardPayRegisterationResponse> response) {
@@ -1332,6 +1334,114 @@ public class NetworkUserRepository implements UserRepository {
 
             @Override
             public void onFailure(Call<CardPayRegisterationResponse> call, Throwable t) {
+                onRegisterCardPaymentResponse.onFailure();
+            }
+        });
+    }
+
+    @Override
+    public void getCheckoutId(String token, String locale, double amount, int orderId, final OnResponseListener onRegisterCardPaymentResponse) {
+        if (amount < 0) {
+            amount *= -1;
+        }
+        Call<CardPayRegisterationResponse> call = apiEndPointInterface.getCheckoutId(locale, token, amount, orderId, true);
+        call.clone().enqueue(new Callback<CardPayRegisterationResponse>() {
+            @Override
+            public void onResponse(Call<CardPayRegisterationResponse> call, Response<CardPayRegisterationResponse> response) {
+                if (response.body() != null) {
+                    onRegisterCardPaymentResponse.onSuccess(response);
+                } else if (response.code() == INVALID_TOKEN_ERROR) {
+                    onRegisterCardPaymentResponse.onAuthError();
+                } else if (response.code() == SERVER_ERROR) {
+                    onRegisterCardPaymentResponse.onServerError();
+                } else if (response.code() == UNAUTHORIZED_ERROR) {
+                    try {
+                        if (response.errorBody() != null) {
+                            String errorBodyString = response.errorBody().string();
+                            String errorMessage = readErrorMessage(errorBodyString);
+                            onRegisterCardPaymentResponse.onValidationError(errorMessage);
+                        }
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    onRegisterCardPaymentResponse.onFailure();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CardPayRegisterationResponse> call, Throwable t) {
+                onRegisterCardPaymentResponse.onFailure();
+            }
+        });
+    }
+
+    @Override
+    public void postStcDirectPaymentAuthorize(String token, String locale, String mobile, Double amount, final OnResponseListener onRegisterCardPaymentResponse) {
+        Call<DirectPaymentAuthorizeV4ResponseMessage> call = apiEndPointInterface.postStcDirectPaymentAuthorize(locale, token, mobile, amount.toString(), true);
+        call.clone().enqueue(new Callback<DirectPaymentAuthorizeV4ResponseMessage>() {
+            @Override
+            public void onResponse(Call<DirectPaymentAuthorizeV4ResponseMessage> call, Response<DirectPaymentAuthorizeV4ResponseMessage> response) {
+                if (response.body() != null) {
+                    onRegisterCardPaymentResponse.onSuccess(response);
+                } else if (response.code() == INVALID_TOKEN_ERROR) {
+                    onRegisterCardPaymentResponse.onAuthError();
+                } else if (response.code() == SERVER_ERROR) {
+                    onRegisterCardPaymentResponse.onServerError();
+                } else if (response.code() == UNAUTHORIZED_ERROR) {
+                    try {
+                        if (response.errorBody() != null) {
+                            String errorBodyString = response.errorBody().string();
+                            String errorMessage = readErrorMessage(errorBodyString);
+                            onRegisterCardPaymentResponse.onValidationError(errorMessage);
+                        }
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    onRegisterCardPaymentResponse.onFailure();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DirectPaymentAuthorizeV4ResponseMessage> call, Throwable t) {
+                onRegisterCardPaymentResponse.onFailure();
+            }
+        });
+    }
+
+    @Override
+    public void postStcDirectPaymentConfirm(String token, String locale, String otpReference, String otpValue, String sTCPayPmtReference, String tokenReference, final OnResponseListener onRegisterCardPaymentResponse) {
+        Call<DirectPaymentConfirmV4ResponseMessage> call = apiEndPointInterface.postStcDirectPaymentConfirm(locale, token, otpReference, otpValue, sTCPayPmtReference, tokenReference, true);
+        call.clone().enqueue(new Callback<DirectPaymentConfirmV4ResponseMessage>() {
+            @Override
+            public void onResponse(Call<DirectPaymentConfirmV4ResponseMessage> call, Response<DirectPaymentConfirmV4ResponseMessage> response) {
+                if (response.body() != null) {
+                    onRegisterCardPaymentResponse.onSuccess(response);
+                } else if (response.code() == INVALID_TOKEN_ERROR) {
+                    onRegisterCardPaymentResponse.onAuthError();
+                } else if (response.code() == SERVER_ERROR) {
+                    onRegisterCardPaymentResponse.onServerError();
+                } else if (response.code() == UNAUTHORIZED_ERROR) {
+                    try {
+                        if (response.errorBody() != null) {
+                            String errorBodyString = response.errorBody().string();
+                            String errorMessage = readErrorMessage(errorBodyString);
+                            onRegisterCardPaymentResponse.onValidationError(errorMessage);
+                        }
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    onRegisterCardPaymentResponse.onFailure();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DirectPaymentConfirmV4ResponseMessage> call, Throwable t) {
                 onRegisterCardPaymentResponse.onFailure();
             }
         });

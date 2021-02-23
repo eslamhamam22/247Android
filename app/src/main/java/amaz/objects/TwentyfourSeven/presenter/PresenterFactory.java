@@ -5,6 +5,7 @@ import amaz.objects.TwentyfourSeven.ui.AccountDetails.AccountDetailsPresenter;
 import amaz.objects.TwentyfourSeven.ui.AddAddress.AddAddressPresenter;
 import amaz.objects.TwentyfourSeven.ui.AddMoney.AddMoneyPresenter;
 import amaz.objects.TwentyfourSeven.ui.AddMoney.BankTransferPresenter;
+import amaz.objects.TwentyfourSeven.ui.AddMoney.StcPayPresenter;
 import amaz.objects.TwentyfourSeven.ui.AddMoney.SubmitTransactionPresenter;
 import amaz.objects.TwentyfourSeven.ui.CarDetails.CarDetailsPresenter;
 import amaz.objects.TwentyfourSeven.ui.Categories.CategoriesPresenter;
@@ -57,6 +58,7 @@ public class PresenterFactory {
         OrderChat,
         MYBALANCE,
         ADDMONEY,
+        StcPay,
         MYBANKTRANSFER,
         SUBMITTRANSACTION,
 
@@ -165,6 +167,10 @@ public class PresenterFactory {
 
             case ADDMONEY:
                 presenter = new AddMoneyPresenter(Injection.provideUserRepository());
+                break;
+
+            case StcPay:
+                presenter = new StcPayPresenter(Injection.providePaymentRepository());
                 break;
 
             case MYBANKTRANSFER:

@@ -126,6 +126,10 @@ public class Order implements Serializable {
     @Expose
     private Double discount;
 
+    @SerializedName("is_paid")
+    @Expose
+    private boolean isPaid;
+
     public int getId() {
         return id;
     }
@@ -357,6 +361,15 @@ public class Order implements Serializable {
     public void setDiscount(Double discount) {
         this.discount = discount;
     }
+
+    public boolean isPaid() {
+        return isPaid;
+    }
+
+    public void setPaid(boolean _isPaid) {
+        isPaid = _isPaid;
+    }
+
 }
 
 

@@ -74,8 +74,11 @@ public class Constants {
     public static final int  PAYMENT_METHOD_BANK_TRANSFER = 1;
     public static final int  PAYMENT_METHOD_CREDIT_CARD = 2;
     public static final int  PAYMENT_METHOD_SADAD = 3;
+    public static final int  PAYMENT_METHOD_STC_PAY = 4;
 
     public static final String IS_CUSTOMER_REVIEWS = "is_customer_reviews";
     public static final String STATUS = "status";
     public static final String CODE = "code";
+
+    public static final String STC_MerchantId = "61287499388";
 }
