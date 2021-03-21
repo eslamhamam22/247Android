@@ -64,7 +64,6 @@ import amaz.objects.TwentyfourSeven.ui.MyComplaints.MyComplaintsActivity;
 import amaz.objects.TwentyfourSeven.ui.MyOrders.MyOrdersFragment;
 import amaz.objects.TwentyfourSeven.ui.MyReviews.MyReviewsActivity;
 import amaz.objects.TwentyfourSeven.ui.Notification.NotificationFragment;
-import amaz.objects.TwentyfourSeven.ui.OrderChat.OrderChatActivity;
 import amaz.objects.TwentyfourSeven.ui.OrderDetails.CustomerOrderDetails.CustomerOrderDetailsActivity;
 import amaz.objects.TwentyfourSeven.ui.OrderDetails.DelegateOrderDetails.DelegateOrderDetailsActivity;
 import amaz.objects.TwentyfourSeven.ui.OrderDetails.OrderDetailsActivity;

@@ -9,8 +9,8 @@ android {
         applicationId "amaz.objects.TwentyfourSeven"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 14
-        versionName "2.3"
+        versionCode 16
+        versionName "2.5"
         multiDexEnabled true
         //test
         /*manifestPlaceholders = [onesignal_app_id: "e073e56d-809f-4a58-80b6-f4f1b9626afe",

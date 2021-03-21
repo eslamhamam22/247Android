@@ -234,14 +234,17 @@ public class AddMoneyActivity extends BaseActivity implements
         /*Intent intent = new Intent(this, PayViaCreditCardActivity.class);
         intent.putExtra("card_pay_data", data);
         startActivity(intent);*/
-        //configCheckout(data.getCheckoutId());
-        gotoWebView(data.getCheckoutId());
+        configCheckout(data.getCheckoutId());
+        //gotoWebView(data.getCheckoutId());
     }
 
     private void gotoWebView(String checkoutId) {
         Intent intent = new Intent(this, PayViaCreditCardActivity.class);
         intent.putExtra("checkoutId", checkoutId);
+        if (order != null && order.getId() > 0)
+            intent.putExtra("orderId", order.getId());
         startActivity(intent);
+        finish();
     }
 
     private void initEnv() {

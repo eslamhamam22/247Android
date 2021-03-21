@@ -240,7 +240,7 @@
     <color name="accent_material_dark">@color/material_deep_teal_200</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
     <color name="alpha_white">#80ffffff</color>
-    <color name="app_color">#e84450</color>
+    <color name="app_color">#009F80</color>
     <color name="ash_gray">#a8afbb</color>
     <color name="assigned_color">#FF9F3E</color>
     <color name="baby_blue">#a3cdf5</color>
@@ -333,7 +333,7 @@
     <color name="common_google_signin_btn_text_light_disabled">#1F000000</color>
     <color name="common_google_signin_btn_text_light_focused">#90000000</color>
     <color name="common_google_signin_btn_text_light_pressed">#DE000000</color>
-    <color name="dark_red">#d43844</color>
+    <color name="dark_red">#009F80</color>
     <color name="defaultBorderFlagColor">@android:color/transparent</color>
     <color name="defaultContentColor">@android:color/black</color>
     <color name="design_bottom_navigation_shadow_color">#14000000</color>
@@ -1265,7 +1265,7 @@
     <string name="amount">Amount </string>
     <string name="amount_nedded">Amount needs to be added</string>
     <string name="androidpay">Android Pay</string>
-    <string name="app_name">24/7</string>
+    <string name="app_name">Around U</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
     <string name="arabic">العربية</string>
     <string name="are_you_ready">Are you ready to deliver?</string>
@@ -1418,7 +1418,7 @@
     <string name="contact_info">Contact info</string>
     <string name="contact_us">Contact Us</string>
     <string name="content_description"> </string>
-    <string name="copy_right">All Copyrights reserved@24.7</string>
+    <string name="copy_right">All Copyrights reserved @ Around U</string>
     <string name="coupon_code">Add Coupon Code</string>
     <string name="credit_card">Cerdit Card</string>
     <string name="current_request">Current orders</string>

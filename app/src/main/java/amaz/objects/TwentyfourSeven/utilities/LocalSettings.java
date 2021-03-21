@@ -31,6 +31,8 @@ public class LocalSettings {
     private static final String APP_SHARE_LINK = "app_share_link";
     private static final String FIREBASE_TOKEN = "firebase_token";
     private static final String IS_ORDER_DETAILS_OPENED = "isOrderDetailsOpened";
+    private static final String CustomerTokens = "customer_tokens";
+    private static final String DelegateTokens = "delegate_tokens";
 
     public LocalSettings(Context context) {
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -206,5 +208,24 @@ public class LocalSettings {
         editor.apply();
     }
 
+    public void setCustomerTokens(ArrayList<String> tokens){
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(CustomerTokens,new Gson().toJson(tokens));
+        editor.apply();
+    }
+
+    public ArrayList<String> getCustomerTokens() {
+        return new Gson().fromJson(preferences.getString(CustomerTokens,null),new TypeToken<ArrayList<String>>(){}.getType());
+    }
+
+    public void setDelegateTokens(ArrayList<String> tokens){
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(DelegateTokens,new Gson().toJson(tokens));
+        editor.apply();
+    }
+
+    public ArrayList<String> getDelegateTokens() {
+        return new Gson().fromJson(preferences.getString(DelegateTokens,null),new TypeToken<ArrayList<String>>(){}.getType());
+    }
 
 }

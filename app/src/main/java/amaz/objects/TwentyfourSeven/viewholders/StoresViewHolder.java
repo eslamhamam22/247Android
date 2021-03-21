@@ -142,7 +142,7 @@ public class StoresViewHolder extends RecyclerView.ViewHolder implements View.On
                     openNowTv.setText(R.string.open_now);
                 }
                 else {
-                    openNowTv.setTextColor(ContextCompat.getColor(itemView.getContext(),R.color.app_color));
+                    openNowTv.setTextColor(ContextCompat.getColor(itemView.getContext(),R.color.colorAccent));
                     openNowTv.setText(R.string.closed);
                 }
             }

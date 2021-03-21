@@ -3,6 +3,9 @@ package amaz.objects.TwentyfourSeven.data.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -370,6 +373,12 @@ public class Order implements Serializable {
         isPaid = _isPaid;
     }
 
+    public JSONObject toJSON() throws JSONException {
+        JSONObject jo = new JSONObject();
+        jo.put("id", getId());
+        jo.put("status", getStatus());
+        return jo;
+    }
 }
 
 

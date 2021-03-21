@@ -1207,4 +1207,14 @@ public class OrderDetailsActivity extends BaseActivity implements View.OnClickLi
     public void showServerErrorMessage(String errorMessage) {
         Toast.makeText(this, errorMessage, Toast.LENGTH_LONG).show();
     }
+
+    @Override
+    public void saveCustomerTokens(ArrayList<String> tokens) {
+        localSettings.setCustomerTokens(tokens);
+    }
+
+    @Override
+    public void saveDelegateTokens(ArrayList<String> tokens) {
+        localSettings.setDelegateTokens(tokens);
+    }
 }

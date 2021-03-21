@@ -1,6 +1,8 @@
 package amaz.objects.TwentyfourSeven.ui.OrderDetails;
 
 import androidx.annotation.NonNull;
+
+import android.content.Context;
 import android.util.Log;
 
 import com.firebase.geofire.GeoFire;
@@ -34,6 +36,7 @@ import amaz.objects.TwentyfourSeven.data.repositories.OrderRepository;
 import amaz.objects.TwentyfourSeven.listeners.OnResponseListener;
 import amaz.objects.TwentyfourSeven.presenter.BasePresenter;
 import amaz.objects.TwentyfourSeven.ui.OrderDetails.CustomerOrderDetails.CustomerOrderDetailsActivity;
+import amaz.objects.TwentyfourSeven.utilities.LocalSettings;
 import retrofit2.Response;
 
 public class OrderDetailsPresenter extends BasePresenter {
@@ -41,10 +44,8 @@ public class OrderDetailsPresenter extends BasePresenter {
     private WeakReference<OrderDetailsView> view = new WeakReference<>(null);
     private OrderRepository orderRepository;
     private GoogleRepository googleRepository;
-
     private int counter = 1;
     private boolean isFirstTime = true;
-
     private double prevLat, prevLng;
 
     public OrderDetailsPresenter(OrderRepository orderRepository, GoogleRepository googleRepository) {
@@ -65,6 +66,8 @@ public class OrderDetailsPresenter extends BasePresenter {
                 orderDetailsView.hideLoading();
                 Order order = ((CustomerOrderDetailsResponse) response.body()).getData().getOrder();
                 orderDetailsView.showOrderDetails(order);
+                ArrayList<String> delegateTokens = ((CustomerOrderDetailsResponse) response.body()).getData().getDelegateTokens();
+                orderDetailsView.saveDelegateTokens(delegateTokens);
                 orderDetailsView.showMapData(order.getFromLat(), order.getFromLng(), order.getToLat(), order.getToLng());
             }
 
@@ -116,6 +119,8 @@ public class OrderDetailsPresenter extends BasePresenter {
                 orderDetailsView.showFreeCommission(freeCommission);
                 orderDetailsView.showOrderDetails(order);
                 orderDetailsView.showMapData(order.getFromLat(), order.getFromLng(), order.getToLat(), order.getToLng());
+                ArrayList<String> customerTokens = ((CustomerOrderDetailsResponse) response.body()).getData().getCustomerTokens();
+                orderDetailsView.saveCustomerTokens(customerTokens);
             }
 
             @Override
@@ -361,7 +366,9 @@ public class OrderDetailsPresenter extends BasePresenter {
                     public void onSuccess(Response response) {
                         orderDetailsView.hideLoading();
                         Order order = ((CustomerOrderDetailsResponse) response.body()).getData().getOrder();
+                        ArrayList<String> delegateTokens = ((CustomerOrderDetailsResponse) response.body()).getData().getDelegateTokens();
                         orderDetailsView.showSuccessAcceptOffer(order);
+                        orderDetailsView.saveDelegateTokens(delegateTokens);
                     }
 
                     @Override
@@ -488,7 +495,7 @@ public class OrderDetailsPresenter extends BasePresenter {
             @Override
             public void onValidationError(String errorMessage) {
                 orderDetailsView.hideLoading();
-                Log.e("errormessage","error: "+errorMessage);
+                Log.e("errormessage", "error: " + errorMessage);
                 orderDetailsView.showServerErrorMessage(errorMessage);
             }
 
@@ -699,7 +706,7 @@ public class OrderDetailsPresenter extends BasePresenter {
         });
     }
 
-    public void getCancelationReasons(String locale, int customerOrDelegate){
+    public void getCancelationReasons(String locale, int customerOrDelegate) {
         final OrderDetailsView orderDetailsView = view.get();
         orderDetailsView.showLoading();
         orderRepository.getCancelationReasons(locale, customerOrDelegate,
@@ -875,6 +882,10 @@ public class OrderDetailsPresenter extends BasePresenter {
         void showSuccessIgnoreOrder();
 
         void showServerErrorMessage(String errorMessage);
+
+        void saveCustomerTokens(ArrayList<String> tokens);
+
+        void saveDelegateTokens(ArrayList<String> tokens);
 
     }
 

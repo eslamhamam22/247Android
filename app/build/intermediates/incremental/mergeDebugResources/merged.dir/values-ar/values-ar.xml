@@ -51,7 +51,7 @@
     <string name="all_stores">جميع المتاجر</string>
     <string name="amount">المبلغ </string>
     <string name="amount_nedded">المبلغ المطلوب اضافته</string>
-    <string name="app_name">24/7</string>
+    <string name="app_name">Around U</string>
     <string name="arabic">العربية</string>
     <string name="are_you_ready">هل انت مستعد لتوصيل الطلب؟</string>
     <string name="assigned">تم التعيين</string>
@@ -140,7 +140,7 @@
     <string name="connection_error">خطأ فى الإتصال, برجاء التأكد من اللإتصال بالشبكة وإعادة المحاولة</string>
     <string name="contact_info">بيانات الإتصال</string>
     <string name="contact_us">اتصل بنا</string>
-    <string name="copy_right">All Copyrights reserved@24.7</string>
+    <string name="copy_right">All Copyrights reserved @ Around U</string>
     <string name="coupon_code">اضافة الرمز</string>
     <string name="credit_card">بطاقة ائتمان</string>
     <string name="current_request">طلبات حالية</string>

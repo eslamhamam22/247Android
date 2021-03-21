@@ -5,7 +5,7 @@
   <color name="colorAccent">#D81B60</color>
 
   <!--general-->
-  <color name="app_color">#e84450</color>
+  <color name="app_color">#009F80</color>
   <color name="transparent_popup">#80000000</color>
   <color name="transparent_map">#50000000</color>
   <color name="transparent">#00000000</color>
@@ -48,7 +48,7 @@
   <color name="ash_gray">#a8afbb</color>
 
   <!--activity_address_search-->
-  <color name="dark_red">#d43844</color>
+  <color name="dark_red">#009F80</color>
 
   <!--status_colors-->
   <color name="progress_color">#5CACF9</color>

@@ -13,7 +13,7 @@
     <string name="google_server_key">AIzaSyCCm_dEtdfR12jlhi6REsenrgKwjLKS_iQ</string>
 
     <!--general-->
-    <string name="app_name">24/7</string>
+    <string name="app_name">Around U</string>
     <string name="facebook_app_id">251812285515179</string>
     <!--//debug-->
     <!--<string name="google_android_key">AIzaSyCW7uAajspdHmOm9Rz5CrxPYAN8R5UXnMQ</string>-->
@@ -54,7 +54,7 @@
 
     <!--activity_pages-->
     <string name="terms_conditions_title">الأحكام و الشروط</string>
-    <string name="copy_right">All Copyrights reserved@24.7</string>
+    <string name="copy_right">All Copyrights reserved @ Around U</string>
     <string name="version">Version</string>
 
     <!--activity_how_become_a_driver-->

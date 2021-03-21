@@ -33,8 +33,6 @@ import amaz.objects.TwentyfourSeven.data.models.Route;
 import amaz.objects.TwentyfourSeven.presenter.BasePresenter;
 import amaz.objects.TwentyfourSeven.presenter.PresenterFactory;
 import amaz.objects.TwentyfourSeven.ui.MyBalance.MyBalanceActivity;
-import amaz.objects.TwentyfourSeven.ui.OrderChat.OrderChatActivity;
-import amaz.objects.TwentyfourSeven.ui.OrderChat.OrderChatPresenter;
 import amaz.objects.TwentyfourSeven.ui.OrderDetails.OrderDetailsPresenter;
 import amaz.objects.TwentyfourSeven.utilities.Constants;
 import amaz.objects.TwentyfourSeven.utilities.Fonts;
@@ -80,27 +78,9 @@ public class PayViaCreditCardActivity extends BaseActivity implements View.OnCli
                         String link_to = intent.getStringExtra("link_to");
                         Log.e("link_to_chat", link_to);
                         if (link_to.equals("order_details")) {
-                            String orderNotificationData = intent.getStringExtra("order_data");
-                            if (orderNotificationData != null) {
-                                try {
-                                    JSONObject orderNotificationJson = new JSONObject(orderNotificationData);
-                                    if (orderNotificationJson.getInt("id") == orderId && orderNotificationJson.get("status").equals("delivery_in_progress")) {
-                                        orderDetailsPresenter.getCustomerOrderDetails(localSettings.getToken(), localSettings.getLocale(), orderId);
-                                    }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                            }
+                            finish();
                         } else if (link_to.equals("account")) {
-                            String accountData = intent.getStringExtra("account");
-                            if (accountData != null) {
-                                try {
-                                    JSONObject orderNotificationJson = new JSONObject(accountData);
-                                    switchToMyBalance();
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                            }
+                            switchToMyBalance();
                         }
                     }
                 }
@@ -143,7 +123,7 @@ public class PayViaCreditCardActivity extends BaseActivity implements View.OnCli
             String url = "https://app.24-7-delivery.com/payment-cards/payment/callback/?stcRef=" + stcRefNum + "&orderId=" + orderId + "&userId=" + userId + "&amount=" + amount;
             htmlHyperPayWv.loadUrl(url);
         } else if (checkoutId != null && !checkoutId.isEmpty()) {
-            String url = "https://app.24-7-delivery.com/payment-cards/payment/callback/?id=" + checkoutId + "&resourcePath=/v1/checkouts/" + checkoutId + "/payment";
+            String url = "https://app.24-7-delivery.com/payment-cards/payment/callback/?id=" + checkoutId + "&resourcePath=/v1/checkouts/" + checkoutId + "/payment&orderId=" + orderId;
             htmlHyperPayWv.loadUrl(url);
         } else
             htmlHyperPayWv.loadDataWithBaseURL(null, cardPayData.getHtml(), "text/html", null, null);
@@ -290,10 +270,10 @@ public class PayViaCreditCardActivity extends BaseActivity implements View.OnCli
 
     @Override
     public void showOrderDetails(Order order) {
-        Intent orderChatIntent = new Intent(this, OrderChatActivity.class);
+        /*Intent orderChatIntent = new Intent(this, OrderChatActivity.class);
         orderChatIntent.putExtra(Constants.ORDER, order);
         orderChatIntent.putExtra(Constants.FROM_CUSTOMER_ORDERS, true);
-        startActivity(orderChatIntent);
+        startActivity(orderChatIntent);*/
         finish();
     }
 
@@ -374,6 +354,16 @@ public class PayViaCreditCardActivity extends BaseActivity implements View.OnCli
 
     @Override
     public void showServerErrorMessage(String errorMessage) {
+
+    }
+
+    @Override
+    public void saveCustomerTokens(ArrayList<String> tokens) {
+
+    }
+
+    @Override
+    public void saveDelegateTokens(ArrayList<String> tokens) {
 
     }
 }

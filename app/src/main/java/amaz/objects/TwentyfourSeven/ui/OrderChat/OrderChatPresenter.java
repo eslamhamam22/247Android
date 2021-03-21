@@ -3,7 +3,6 @@ package amaz.objects.TwentyfourSeven.ui.OrderChat;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import android.util.Log;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -12,17 +11,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.File;
 import java.lang.ref.WeakReference;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-
-import amaz.objects.TwentyfourSeven.data.models.DelegateImageData;
 import amaz.objects.TwentyfourSeven.data.models.Order;
 import amaz.objects.TwentyfourSeven.api.APIURLs;
 import amaz.objects.TwentyfourSeven.data.models.Message;
@@ -34,11 +25,9 @@ import amaz.objects.TwentyfourSeven.data.repositories.GoogleRepository;
 import amaz.objects.TwentyfourSeven.data.repositories.OrderRepository;
 import amaz.objects.TwentyfourSeven.listeners.OnResponseListener;
 import amaz.objects.TwentyfourSeven.presenter.BasePresenter;
-import amaz.objects.TwentyfourSeven.ui.OrderDetails.OrderDetailsPresenter;
-import amaz.objects.TwentyfourSeven.ui.RequestFromStore.RequestFromStorePresenter;
 import amaz.objects.TwentyfourSeven.utilities.Constants;
+import amaz.objects.TwentyfourSeven.utilities.LocalSettings;
 import amaz.objects.TwentyfourSeven.utilities.NetworkUtilities;
-import okhttp3.internal.Util;
 import retrofit2.Response;
 
 public class OrderChatPresenter extends BasePresenter {
@@ -49,17 +38,18 @@ public class OrderChatPresenter extends BasePresenter {
     private DatabaseReference chatDBRef;
     private ArrayList<Message> allMessages = new ArrayList<>();
     private Context context;
+    private LocalSettings localSettings;
 
     public OrderChatPresenter(OrderRepository orderRepository, GoogleRepository googleRepository) {
         this.orderRepository = orderRepository;
         this.googleRepository = googleRepository;
         initializeDBReferences();
-
     }
 
     public void setView(OrderChatView view, Context context) {
         this.view = new WeakReference<>(view);
         this.context = context;
+        localSettings = new LocalSettings(context);
     }
 
     private void initializeDBReferences() {
@@ -228,6 +218,8 @@ public class OrderChatPresenter extends BasePresenter {
                 orderDetailsView.hideLoading();
                 Order order = ((CustomerOrderDetailsResponse) response.body()).getData().getOrder();
                 orderDetailsView.showOrderDetails(order);
+                ArrayList<String> customerTokens = ((CustomerOrderDetailsResponse) response.body()).getData().getCustomerTokens();
+                orderDetailsView.saveCustomerTokens(customerTokens);
             }
 
             @Override
@@ -271,6 +263,8 @@ public class OrderChatPresenter extends BasePresenter {
                 orderDetailsView.hideLoading();
                 Order order = ((CustomerOrderDetailsResponse) response.body()).getData().getOrder();
                 orderDetailsView.showOrderDetails(order);
+                ArrayList<String> delegateTokens = ((CustomerOrderDetailsResponse) response.body()).getData().getDelegateTokens();
+                orderDetailsView.saveDelegateTokens(delegateTokens);
             }
 
             @Override
@@ -367,7 +361,7 @@ public class OrderChatPresenter extends BasePresenter {
                 long size = dataSnapshot.getChildrenCount();
                 long i = 1;
                 allMessages.clear();
-                if (size >0) {
+                if (size > 0) {
                     for (DataSnapshot child : dataSnapshot.getChildren()) {
 
                         Message message = child.getValue(Message.class);
@@ -378,10 +372,8 @@ public class OrderChatPresenter extends BasePresenter {
                         if (message.getRecipient_type() == Constants.RECIPIENT_TYPE_ALL || message.getRecipient_type() == recive_type) {
                             allMessages.add(message);
                         }
-
                     }
                     chatView.showMessagesList(allMessages);
-
                 }
 
                 chatView.hideLoading();
@@ -395,13 +387,13 @@ public class OrderChatPresenter extends BasePresenter {
         });
     }
 
-    public void sendMessage(String orderId,Message sendingMessage) {
+    public void sendMessage(String orderId, final Message sendingMessage) {
 
         final OrderChatView chatView = view.get();
-        if (!NetworkUtilities.isInternetConnection(context)){
+        if (!NetworkUtilities.isInternetConnection(context)) {
             chatView.showToastNetworkError();
 
-        }else {
+        } else {
             chatView.clearMessageText();
             chatView.showLoading();
             String key = chatDBRef.child(orderId).push().getKey();
@@ -411,7 +403,7 @@ public class OrderChatPresenter extends BasePresenter {
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
                         chatView.hideLoading();
-                        chatView.showSuccessSend();
+                        chatView.showSuccessSend(sendingMessage);
                     } else {
                         chatView.hideLoading();
                         chatView.showToastNetworkError();
@@ -423,14 +415,14 @@ public class OrderChatPresenter extends BasePresenter {
 
     }
 
-    public void uploadChatImage(String token, String locale, File imageFile,String  orderId){
+    public void uploadChatImage(String token, String locale, File imageFile, String orderId) {
         final OrderChatView orderChatView = view.get();
         orderChatView.showPopUpLoading();
-        orderRepository.uploadChatImage(token, locale, imageFile, orderId,new OnResponseListener() {
+        orderRepository.uploadChatImage(token, locale, imageFile, orderId, new OnResponseListener() {
             @Override
             public void onSuccess(Response response) {
                 orderChatView.hidePopUpLoading(true);
-              orderChatView.showSuccessUploadImage((UploadDelegateImagesResponse)response.body());
+                orderChatView.showSuccessUploadImage((UploadDelegateImagesResponse) response.body());
             }
 
             @Override
@@ -541,6 +533,7 @@ public class OrderChatPresenter extends BasePresenter {
             }
         });
     }
+
     @Override
     public void onResume() {
 
@@ -590,7 +583,7 @@ public class OrderChatPresenter extends BasePresenter {
 
         void showMessagesList(ArrayList<Message> messages);
 
-        void showSuccessSend();
+        void showSuccessSend(Message message);
 
         void showPopUpLoading();
 
@@ -605,6 +598,10 @@ public class OrderChatPresenter extends BasePresenter {
         void showDefaultDistance(boolean isDelegateDirection);
 
         void showDelegateCurrentLocation(double delLat, double delLng);
+
+        void saveCustomerTokens(ArrayList<String> tokens);
+
+        void saveDelegateTokens(ArrayList<String> tokens);
 
     }
 }

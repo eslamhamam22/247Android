@@ -51,6 +51,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.JsonObject;
 import com.google.maps.android.SphericalUtil;
+import com.onesignal.OneSignal;
 import com.rey.material.widget.ProgressView;
 import com.squareup.picasso.Picasso;
 
@@ -60,7 +61,9 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Properties;
 
 import amaz.objects.TwentyfourSeven.BaseActivity;
@@ -220,7 +223,6 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
             finish();
         }
         isActivityVisible = true;
-
     }
 
     @Override
@@ -269,7 +271,6 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
                                             } else {
                                                 orderChatPresenter.getOrderDelegateLocation(localSettings.getUser().getId());
                                             }
-
                                             orderChatPresenter.getCustomerOrderDetails(localSettings.getToken(), localSettings.getLocale(), order.getId());
                                         } else {
                                             order.setStatus(orderNotificationJson.get("status").toString());
@@ -1021,6 +1022,8 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
             Message message = new Message();
             MessageChat messageChat = new MessageChat();
             messageChat.no_locale = message_et.getText().toString();
+            messageChat.ar = message_et.getText().toString();
+            messageChat.en = message_et.getText().toString();
             message.setMsg(messageChat);
             message.setCreated_by(localSettings.getUser().getId());
             message.setRecipient_type(2);
@@ -1288,8 +1291,62 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
     }
 
     @Override
-    public void showSuccessSend() {
+    public void showSuccessSend(Message message) {
         Log.d("sucessSend", "sucess send");
+        String linkTo = fromCustomerOrders == true ? "delegate_order_details" : "order_details";
+
+        try {
+            JSONObject json = new JSONObject("{\"contents\":{\"en\":\"" + message.getMsg().no_locale.toString() + "\",\"ar\":\"" + message.getMsg().no_locale + "\"},\"include_player_ids\":" + localSettings.getDelegateTokens().toString() + ",\"data\":{\"has_app_notif\":true,\"link_to\":" + linkTo + ",\"order\":{\"id\":" + order.getId() + ",\"from_type\":1,\"status\":" + order.getStatus() + "},\"content_available\":true}}");
+            OneSignal.postNotification(json,
+                    new OneSignal.PostNotificationResponseHandler() {
+                        @Override
+                        public void onSuccess(JSONObject response) {
+                            Log.i("OneSignalExample", "postNotification Success: " + response.toString());
+                        }
+
+                        @Override
+                        public void onFailure(JSONObject response) {
+                            Log.e("OneSignalExample", "postNotification Failure: " + response.toString());
+                        }
+                    });
+            /*if (fromCustomerOrders == true && localSettings.getDelegateTokens() != null && localSettings.getDelegateTokens().size() > 0) {
+                for (int i = 0; i < localSettings.getDelegateTokens().size(); i++) {
+                    sendNotifyToPlayerId(localSettings.getDelegateTokens().get(i), message.getMsg().no_locale);
+                }
+            } else if (fromCustomerOrders == false && localSettings.getCustomerTokens() != null && localSettings.getCustomerTokens().size() > 0) {
+                for (int i = 0; i < localSettings.getCustomerTokens().size(); i++) {
+                    sendNotifyToPlayerId(localSettings.getCustomerTokens().get(i), message.getMsg().no_locale);
+                }
+            }*/
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    //link_to//order_details//delegate_order_details
+    //order_data//id//status
+    //Bundle[{link_to=delegate_order_details, order_data={"from_type":1,"id":4819,"status":"in_progress"}}]
+    private void sendNotifyToPlayerId(String playerId, String message) {
+        String linkTo = fromCustomerOrders == true ? "delegate_order_details" : "order_details";
+        try {
+            if (!playerId.isEmpty()) {
+                JSONObject json = new JSONObject("{'contents': {'en':'" + message + "','ar':'" + message + "'}, 'include_player_ids': ['" + playerId + "'], 'data': {'link_to':'" + linkTo + "', 'order_data':" + order.toJSON().toString() + "}}");
+                OneSignal.postNotification(json,
+                        new OneSignal.PostNotificationResponseHandler() {
+                            @Override
+                            public void onSuccess(JSONObject response) {
+                                Log.i("OneSignalExample", "postNotification Success: " + response.toString());
+                            }
+
+                            @Override
+                            public void onFailure(JSONObject response) {
+                                Log.e("OneSignalExample", "postNotification Failure: " + response.toString());
+                            }
+                        });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -1506,6 +1563,15 @@ public class OrderChatActivity extends BaseActivity implements View.OnClickListe
         }
     }
 
+    @Override
+    public void saveCustomerTokens(ArrayList<String> tokens) {
+        localSettings.setCustomerTokens(tokens);
+    }
+
+    @Override
+    public void saveDelegateTokens(ArrayList<String> tokens) {
+        localSettings.setDelegateTokens(tokens);
+    }
     /*@Override
     public void setAddressData(String countryNameCode, String city, double latitude, double longitude) {
         tracker.stopUsingGPS();

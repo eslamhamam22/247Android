@@ -42,8 +42,6 @@ import amaz.objects.TwentyfourSeven.listeners.OnOrderClickListener;
 import amaz.objects.TwentyfourSeven.listeners.OnRefeshTokenResponse;
 import amaz.objects.TwentyfourSeven.presenter.BasePresenter;
 import amaz.objects.TwentyfourSeven.presenter.PresenterFactory;
-import amaz.objects.TwentyfourSeven.ui.MyAccount.MainActivity;
-import amaz.objects.TwentyfourSeven.ui.OrderChat.OrderChatActivity;
 import amaz.objects.TwentyfourSeven.ui.OrderDetails.CustomerOrderDetails.CustomerOrderDetailsActivity;
 import amaz.objects.TwentyfourSeven.ui.OrderDetails.DelegateOrderDetails.DelegateOrderDetailsActivity;
 import amaz.objects.TwentyfourSeven.ui.OrderDetails.OrderDetailsActivity;
