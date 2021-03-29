@@ -695,17 +695,22 @@ attr loading_color
 attr loading_width
 attr logo
 attr logoDescription
+attr lottieAnimationViewStyle
 attr lottie_autoPlay
+attr lottie_cacheComposition
 attr lottie_colorFilter
 attr lottie_enableMergePathsForKitKatAndAbove
+attr lottie_fallbackRes
 attr lottie_fileName
 attr lottie_imageAssetsFolder
 attr lottie_loop
 attr lottie_progress
 attr lottie_rawRes
+attr lottie_renderMode
 attr lottie_repeatCount
 attr lottie_repeatMode
 attr lottie_scale
+attr lottie_speed
 attr lottie_url
 attr lpd_inAnimDuration
 attr lpd_keepDuration
@@ -3137,6 +3142,7 @@ id google_wallet_monochrome
 id grayscale
 id group_divider
 id groups
+id hardware
 id header
 id helper
 id helperWithError
@@ -3578,6 +3584,7 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id software
 id sp_cancelation_reasons
 id sp_delivery_durations
 id spacer
@@ -4274,6 +4281,7 @@ raw chinese_simplified
 raw chinese_traditional
 raw consumer_onesignal_keep
 raw czech
+raw data
 raw dutch
 raw english
 raw farsi
@@ -5522,7 +5530,7 @@ styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width 
 styleable LinearProgressDrawable lpd_inAnimDuration lpd_keepDuration lpd_maxLineWidth lpd_minLineWidth lpd_outAnimDuration lpd_reverse lpd_strokeColor lpd_strokeColors lpd_strokeSecondaryColor lpd_strokeSize lpd_transformDuration lpd_transformInterpolator lpd_travelDuration lpd_verticalAlign pv_progress pv_progressMode pv_secondaryProgress
 styleable ListPopupWindow android_dropDownHorizontalOffset android_dropDownVerticalOffset
 styleable LoadingImageView circleCrop imageAspectRatio imageAspectRatioAdjust
-styleable LottieAnimationView lottie_autoPlay lottie_colorFilter lottie_enableMergePathsForKitKatAndAbove lottie_fileName lottie_imageAssetsFolder lottie_loop lottie_progress lottie_rawRes lottie_repeatCount lottie_repeatMode lottie_scale lottie_url
+styleable LottieAnimationView lottie_autoPlay lottie_cacheComposition lottie_colorFilter lottie_enableMergePathsForKitKatAndAbove lottie_fallbackRes lottie_fileName lottie_imageAssetsFolder lottie_loop lottie_progress lottie_rawRes lottie_renderMode lottie_repeatCount lottie_repeatMode lottie_scale lottie_speed lottie_url
 styleable MapAttrs ambientEnabled cameraBearing cameraMaxZoomPreference cameraMinZoomPreference cameraTargetLat cameraTargetLng cameraTilt cameraZoom latLngBoundsNorthEastLatitude latLngBoundsNorthEastLongitude latLngBoundsSouthWestLatitude latLngBoundsSouthWestLongitude liteMode mapType uiCompass uiMapToolbar uiRotateGestures uiScrollGestures uiScrollGesturesDuringRotateOrZoom uiTiltGestures uiZoomControls uiZoomGestures useViewLifecycle zOrderOnTop
 styleable MaterialButton android_insetLeft android_insetRight android_insetTop android_insetBottom backgroundTint backgroundTintMode cornerRadius icon iconGravity iconPadding iconSize iconTint iconTintMode rippleColor strokeColor strokeWidth
 styleable MaterialCardView strokeColor strokeWidth

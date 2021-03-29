@@ -21,15 +21,15 @@ public final class R {
         public static final int environment = 0x7f03018c;
         public static final int fragmentMode = 0x7f0301db;
         public static final int fragmentStyle = 0x7f0301dc;
-        public static final int maskedWalletDetailsBackground = 0x7f03029c;
-        public static final int maskedWalletDetailsButtonBackground = 0x7f03029d;
-        public static final int maskedWalletDetailsButtonTextAppearance = 0x7f03029e;
-        public static final int maskedWalletDetailsHeaderTextAppearance = 0x7f03029f;
-        public static final int maskedWalletDetailsLogoImageType = 0x7f0302a0;
-        public static final int maskedWalletDetailsLogoTextColor = 0x7f0302a1;
-        public static final int maskedWalletDetailsTextAppearance = 0x7f0302a2;
-        public static final int toolbarTextColorStyle = 0x7f0303d1;
-        public static final int windowTransitionStyle = 0x7f03041d;
+        public static final int maskedWalletDetailsBackground = 0x7f0302a1;
+        public static final int maskedWalletDetailsButtonBackground = 0x7f0302a2;
+        public static final int maskedWalletDetailsButtonTextAppearance = 0x7f0302a3;
+        public static final int maskedWalletDetailsHeaderTextAppearance = 0x7f0302a4;
+        public static final int maskedWalletDetailsLogoImageType = 0x7f0302a5;
+        public static final int maskedWalletDetailsLogoTextColor = 0x7f0302a6;
+        public static final int maskedWalletDetailsTextAppearance = 0x7f0302a7;
+        public static final int toolbarTextColorStyle = 0x7f0303d6;
+        public static final int windowTransitionStyle = 0x7f030422;
     }
     public static final class color {
         private color() {}
@@ -69,21 +69,21 @@ public final class R {
         public static final int google_wallet_grayscale = 0x7f08015e;
         public static final int google_wallet_monochrome = 0x7f08015f;
         public static final int grayscale = 0x7f080160;
-        public static final int holo_dark = 0x7f08016a;
-        public static final int holo_light = 0x7f08016b;
-        public static final int light = 0x7f0801e0;
-        public static final int logo_only = 0x7f080224;
-        public static final int match_parent = 0x7f08022d;
-        public static final int material = 0x7f08022f;
-        public static final int monochrome = 0x7f08023c;
-        public static final int none = 0x7f08024b;
-        public static final int production = 0x7f080296;
-        public static final int sandbox = 0x7f0802f0;
-        public static final int selectionDetails = 0x7f08030d;
-        public static final int slide = 0x7f080315;
-        public static final int strict_sandbox = 0x7f08032f;
-        public static final int test = 0x7f08033e;
-        public static final int wrap_content = 0x7f0804c0;
+        public static final int holo_dark = 0x7f08016b;
+        public static final int holo_light = 0x7f08016c;
+        public static final int light = 0x7f0801e1;
+        public static final int logo_only = 0x7f080225;
+        public static final int match_parent = 0x7f08022e;
+        public static final int material = 0x7f080230;
+        public static final int monochrome = 0x7f08023d;
+        public static final int none = 0x7f08024c;
+        public static final int production = 0x7f080297;
+        public static final int sandbox = 0x7f0802f1;
+        public static final int selectionDetails = 0x7f08030e;
+        public static final int slide = 0x7f080316;
+        public static final int strict_sandbox = 0x7f080331;
+        public static final int test = 0x7f080340;
+        public static final int wrap_content = 0x7f0804c2;
     }
     public static final class layout {
         private layout() {}
@@ -106,7 +106,7 @@ public final class R {
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] CustomWalletTheme = { 0x7f030129, 0x7f0303d1, 0x7f03041d };
+        public static final int[] CustomWalletTheme = { 0x7f030129, 0x7f0303d6, 0x7f030422 };
         public static final int CustomWalletTheme_customThemeStyle = 0;
         public static final int CustomWalletTheme_toolbarTextColorStyle = 1;
         public static final int CustomWalletTheme_windowTransitionStyle = 2;
@@ -115,7 +115,7 @@ public final class R {
         public static final int WalletFragmentOptions_environment = 1;
         public static final int WalletFragmentOptions_fragmentMode = 2;
         public static final int WalletFragmentOptions_fragmentStyle = 3;
-        public static final int[] WalletFragmentStyle = { 0x7f030067, 0x7f030068, 0x7f030069, 0x7f03006a, 0x7f03029c, 0x7f03029d, 0x7f03029e, 0x7f03029f, 0x7f0302a0, 0x7f0302a1, 0x7f0302a2 };
+        public static final int[] WalletFragmentStyle = { 0x7f030067, 0x7f030068, 0x7f030069, 0x7f03006a, 0x7f0302a1, 0x7f0302a2, 0x7f0302a3, 0x7f0302a4, 0x7f0302a5, 0x7f0302a6, 0x7f0302a7 };
         public static final int WalletFragmentStyle_buyButtonAppearance = 0;
         public static final int WalletFragmentStyle_buyButtonHeight = 1;
         public static final int WalletFragmentStyle_buyButtonText = 2;

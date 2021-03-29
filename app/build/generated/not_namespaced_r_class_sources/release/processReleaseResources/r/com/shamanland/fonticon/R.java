@@ -19,13 +19,13 @@ public final class R {
         public static final int iconRight = 0x7f0301f5;
         public static final int iconStart = 0x7f0301f7;
         public static final int iconTop = 0x7f0301fb;
-        public static final int needMirroring = 0x7f0302b6;
-        public static final int overridePressed = 0x7f0302b9;
-        public static final int pressedGlowColor = 0x7f0302cd;
-        public static final int pressedGlowRadius = 0x7f0302ce;
-        public static final int text = 0x7f03039a;
-        public static final int textColor = 0x7f0303b1;
-        public static final int textSize = 0x7f0303b7;
+        public static final int needMirroring = 0x7f0302bb;
+        public static final int overridePressed = 0x7f0302be;
+        public static final int pressedGlowColor = 0x7f0302d2;
+        public static final int pressedGlowRadius = 0x7f0302d3;
+        public static final int text = 0x7f03039f;
+        public static final int textColor = 0x7f0303b6;
+        public static final int textSize = 0x7f0303bc;
     }
     public static final class bool {
         private bool() {}
@@ -42,13 +42,13 @@ public final class R {
         public static final int CompoundDrawables_iconRight = 3;
         public static final int CompoundDrawables_iconStart = 4;
         public static final int CompoundDrawables_iconTop = 5;
-        public static final int[] FontIconDrawable = { 0x7f03002f, 0x7f0302b6, 0x7f03039a, 0x7f0303b1, 0x7f0303b7 };
+        public static final int[] FontIconDrawable = { 0x7f03002f, 0x7f0302bb, 0x7f03039f, 0x7f0303b6, 0x7f0303bc };
         public static final int FontIconDrawable_autoMirrored = 0;
         public static final int FontIconDrawable_needMirroring = 1;
         public static final int FontIconDrawable_text = 2;
         public static final int FontIconDrawable_textColor = 3;
         public static final int FontIconDrawable_textSize = 4;
-        public static final int[] FontIconView = { 0x7f0302b9, 0x7f0302cd, 0x7f0302ce };
+        public static final int[] FontIconView = { 0x7f0302be, 0x7f0302d2, 0x7f0302d3 };
         public static final int FontIconView_overridePressed = 0;
         public static final int FontIconView_pressedGlowColor = 1;
         public static final int FontIconView_pressedGlowRadius = 2;

@@ -116,20 +116,20 @@
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\08210cd0731855b18ae05c751517396d\\res\\color\\mtrl_tabs_colored_ripple_color.xml"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
-        "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\96006989be4961797bda525ef825601d\\res\\drawable-xhdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
-    },
-    {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_action_tombstone.xml.flat",
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\9194b57bdfdf819698e049a43a14b1e8\\res\\layout-v21\\notification_action_tombstone.xml"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_play.png.flat",
-        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-hdpi\\play.png"
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
+        "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\96006989be4961797bda525ef825601d\\res\\drawable-xhdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_play.png.flat",
         "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-xxhdpi\\play.png"
+    },
+    {
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_play.png.flat",
+        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-hdpi\\play.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_btn_blue_ar.png.flat",
@@ -144,16 +144,16 @@
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\596dd94c7174ace59a621540ab428d43\\res\\drawable-nodpi-v4\\flag_saint_vicent_and_the_grenadines.png"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_complaints_ic.png.flat",
-        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-ldpi\\complaints_ic.png"
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_bad.png.flat",
+        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-ldpi\\bad.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_balance_ic.png.flat",
         "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-xhdpi\\balance_ic.png"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_bad.png.flat",
-        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-ldpi\\bad.png"
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_complaints_ic.png.flat",
+        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-ldpi\\complaints_ic.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
@@ -172,16 +172,16 @@
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\9194b57bdfdf819698e049a43a14b1e8\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_ethiopia.png.flat",
-        "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\596dd94c7174ace59a621540ab428d43\\res\\drawable-nodpi-v4\\flag_ethiopia.png"
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_saint_pierre.png.flat",
+        "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\596dd94c7174ace59a621540ab428d43\\res\\drawable-nodpi-v4\\flag_saint_pierre.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\96006989be4961797bda525ef825601d\\res\\drawable-xxhdpi-v4\\abc_text_select_handle_right_mtrl_dark.png"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_saint_pierre.png.flat",
-        "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\596dd94c7174ace59a621540ab428d43\\res\\drawable-nodpi-v4\\flag_saint_pierre.png"
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_ethiopia.png.flat",
+        "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\596dd94c7174ace59a621540ab428d43\\res\\drawable-nodpi-v4\\flag_ethiopia.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_star_black_16dp.png.flat",
@@ -220,12 +220,12 @@
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\96006989be4961797bda525ef825601d\\res\\layout\\abc_popup_menu_header_item_layout.xml"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_add_coupon.xml.flat",
-        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\layout\\dialog_add_coupon.xml"
-    },
-    {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_red.png.flat",
         "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-hdpi\\red.png"
+    },
+    {
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_add_coupon.xml.flat",
+        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\layout\\dialog_add_coupon.xml"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_smile_1__2.png.flat",
@@ -236,12 +236,12 @@
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\596dd94c7174ace59a621540ab428d43\\res\\drawable-nodpi-v4\\flag_japan.png"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_16dp.png.flat",
-        "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\96006989be4961797bda525ef825601d\\res\\drawable-mdpi-v4\\abc_ic_star_black_16dp.png"
-    },
-    {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_close_rate.png.flat",
         "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-ldpi\\close_rate.png"
+    },
+    {
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_16dp.png.flat",
+        "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\96006989be4961797bda525ef825601d\\res\\drawable-mdpi-v4\\abc_ic_star_black_16dp.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_expanded_menu_layout.xml.flat",
@@ -312,16 +312,16 @@
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\96006989be4961797bda525ef825601d\\res\\color-v23\\abc_tint_switch_track.xml"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_upload_license_ic.png.flat",
+        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-ldpi\\upload_license_ic.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\anim_btn_checkbox_to_unchecked_box_inner_merged_animation.xml.flat",
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\96006989be4961797bda525ef825601d\\res\\anim\\btn_checkbox_to_unchecked_box_inner_merged_animation.xml"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_upload_license_ic.png.flat",
-        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-ldpi\\upload_license_ic.png"
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_costa_rica.png.flat",
@@ -352,16 +352,16 @@
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\48efdadba0985cb0a15e568392e780fe\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_black_xout.png"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\layout_klarna_agreement.xml.flat",
-        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\oppwa.mobile-2.2.0\\build\\.transforms\\fcb7781852db694c50ed8534c217cf73\\res\\layout\\klarna_agreement.xml"
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_from_to_pins_02.png.flat",
+        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-hdpi\\from_to_pins_02.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_dark_btn.png.flat",
         "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-mdpi\\dark_btn.png"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_from_to_pins_02.png.flat",
-        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-hdpi\\from_to_pins_02.png"
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\layout_klarna_agreement.xml.flat",
+        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\oppwa.mobile-2.2.0\\build\\.transforms\\fcb7781852db694c50ed8534c217cf73\\res\\layout\\klarna_agreement.xml"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4_flag_antigua_and_barbuda.png.flat",
@@ -380,12 +380,12 @@
         "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-tvdpi\\grey.png"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
-        "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\96006989be4961797bda525ef825601d\\res\\drawable-xxxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
-    },
-    {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_shrink_fade_out_from_bottom.xml.flat",
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\96006989be4961797bda525ef825601d\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\96006989be4961797bda525ef825601d\\res\\drawable-xxxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_chevron_ic.png.flat",
@@ -400,16 +400,16 @@
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\08210cd0731855b18ae05c751517396d\\res\\color\\mtrl_btn_text_btn_ripple_color.xml"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-tvdpi_camera_ic.png.flat",
-        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-tvdpi\\camera_ic.png"
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_car_details.png.flat",
+        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-ldpi\\car_details.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_addresses_ic.png.flat",
         "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-xxxhdpi\\addresses_ic.png"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_car_details.png.flat",
-        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-ldpi\\car_details.png"
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-tvdpi_camera_ic.png.flat",
+        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-tvdpi\\camera_ic.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\raw_places_keep.xml.flat",
@@ -504,12 +504,12 @@
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\96006989be4961797bda525ef825601d\\res\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\layout_places_autocomplete_progress.xml.flat",
-        "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\1128c72cd4f0ef4efa4a20996788da9b\\res\\layout\\places_autocomplete_progress.xml"
-    },
-    {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_checked_ic.png.flat",
         "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-ldpi\\checked_ic.png"
+    },
+    {
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\layout_places_autocomplete_progress.xml.flat",
+        "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\1128c72cd4f0ef4efa4a20996788da9b\\res\\layout\\places_autocomplete_progress.xml"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_car_front_ic.png.flat",
@@ -544,12 +544,12 @@
         "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-hdpi\\meh.png"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_meh.png.flat",
-        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-xxxhdpi\\meh.png"
-    },
-    {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\layout_dialog_pick_item.xml.flat",
         "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\layout\\dialog_pick_item.xml"
+    },
+    {
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_meh.png.flat",
+        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-xxxhdpi\\meh.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable_transparent_drawable.xml.flat",
@@ -648,12 +648,12 @@
         "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-ldpi\\dark_shaded_bg.png"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_search_ic.png.flat",
-        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-xxhdpi\\search_ic.png"
-    },
-    {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_home_placeholder_img.png.flat",
         "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-ldpi\\home_placeholder_img.png"
+    },
+    {
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_search_ic.png.flat",
+        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-xxhdpi\\search_ic.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\raw_offers_loader.json.flat",
@@ -716,12 +716,12 @@
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\96006989be4961797bda525ef825601d\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_sadad.png.flat",
-        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-xxhdpi\\sadad.png"
-    },
-    {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\raw_french.xml.flat",
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\596dd94c7174ace59a621540ab428d43\\res\\raw\\french.xml"
+    },
+    {
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_sadad.png.flat",
+        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-xxhdpi\\sadad.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_smile_1__2_1.png.flat",
@@ -756,20 +756,20 @@
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\96006989be4961797bda525ef825601d\\res\\drawable-hdpi-v4\\abc_list_focused_holo.9.png"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable_masterpass.png.flat",
-        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\oppwa.mobile-2.2.0\\build\\.transforms\\fcb7781852db694c50ed8534c217cf73\\res\\drawable\\masterpass.png"
-    },
-    {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_my_orders.xml.flat",
         "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\layout\\fragment_my_orders.xml"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_red_pin.png.flat",
-        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-xxhdpi\\red_pin.png"
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable_masterpass.png.flat",
+        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\oppwa.mobile-2.2.0\\build\\.transforms\\fcb7781852db694c50ed8534c217cf73\\res\\drawable\\masterpass.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\raw_chinese_simplified.xml.flat",
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\596dd94c7174ace59a621540ab428d43\\res\\raw\\chinese_simplified.xml"
+    },
+    {
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_red_pin.png.flat",
+        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-xxhdpi\\red_pin.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_delegate_louding_img.png.flat",
@@ -812,12 +812,16 @@
         "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\596dd94c7174ace59a621540ab428d43\\res\\drawable-nodpi-v4\\flag_cape_verde.png"
     },
     {
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_store_pin_map.png.flat",
+        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-xxhdpi\\store_pin_map.png"
+    },
+    {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_ic_camera.png.flat",
         "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\oppwa.mobile-2.2.0\\build\\.transforms\\fcb7781852db694c50ed8534c217cf73\\res\\drawable-mdpi-v4\\ic_camera.png"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_store_pin_map.png.flat",
-        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-xxhdpi\\store_pin_map.png"
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\raw_data.json.flat",
+        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\raw\\data.json"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_grey.png.flat",
@@ -828,12 +832,12 @@
         "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-xxhdpi\\grey.png"
     },
     {
-        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_pin_ic.png.flat",
-        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-ldpi\\pin_ic.png"
-    },
-    {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_bg_ac.png.flat",
         "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-hdpi\\bg_ac.png"
+    },
+    {
+        "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_pin_ic.png.flat",
+        "source": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\src\\main\\res\\drawable-ldpi\\pin_ic.png"
     },
     {
         "merged": "E:\\Work\\nahr\\twentyfourseven\\twentyfourseven-android-payment\\twentyfourseven-android-payment\\TwentyFourSeven\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_smile_1__2_1.png.flat",

@@ -29,7 +29,7 @@
                     android:layout_marginTop="40dp"
                     android:layout_marginBottom="40dp"
                     android:contentDescription="@null"
-                    android:src="@drawable/logo" />
+                    android:src="@drawable/logo_red" />
 
                 <TextView
                     android:id="@+id/tv_register_or_login"
@@ -106,7 +106,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:text="@string/terms_conditions"
-                    android:textColor="@color/light_pink"
+                    android:textColor="@color/light_green"
                     android:textSize="13sp" />
 
                 <TextView

@@ -467,7 +467,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
-        android:background="@drawable/blue_corners"
+        android:background="@drawable/red_corners"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="10dp">

@@ -14,7 +14,7 @@ public final class R {
 
         public static final int loading_color = 0x7f03027d;
         public static final int loading_width = 0x7f03027e;
-        public static final int shadow_position = 0x7f030325;
+        public static final int shadow_position = 0x7f03032a;
     }
     public static final class color {
         private color() {}
@@ -53,7 +53,7 @@ public final class R {
     public static final class styleable {
         private styleable() {}
 
-        public static final int[] RotateLoading = { 0x7f03027d, 0x7f03027e, 0x7f030325 };
+        public static final int[] RotateLoading = { 0x7f03027d, 0x7f03027e, 0x7f03032a };
         public static final int RotateLoading_loading_color = 0;
         public static final int RotateLoading_loading_width = 1;
         public static final int RotateLoading_shadow_position = 2;

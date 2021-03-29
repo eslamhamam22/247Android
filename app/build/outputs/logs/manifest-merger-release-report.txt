@@ -24,7 +24,7 @@ MERGED from [com.facebook.android:facebook-login:4.39.0] C:\Users\HP\.gradle\cac
 MERGED from [com.hbb20:ccp:2.2.3] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\596dd94c7174ace59a621540ab428d43\AndroidManifest.xml:2:1-17:12
 MERGED from [com.github.rey5137:material:1.2.4] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2a82f95e4fe5e6d8816c08c91893b2a0\AndroidManifest.xml:2:1-11:12
 MERGED from [com.github.pzienowicz:androidx-auto-scroll-view-pager:1.0.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\547bf366f16603965f96f1e9f283372a\AndroidManifest.xml:2:1-11:12
-MERGED from [com.airbnb.android:lottie:2.7.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3bfa6a5a5427a1ec7ac6553768d9dd36\AndroidManifest.xml:2:1-13:12
+MERGED from [com.airbnb.android:lottie:3.6.1] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\50420f884ffebf2e06dea76d90ab17d5\AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.android:facebook-common:4.39.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\a2ee21b534aafd3c9e69700d503c65b4\AndroidManifest.xml:21:1-37:12
 MERGED from [com.futuremind.recyclerfastscroll:fastscroll:0.2.5] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\5ea1ba265f1794be5b5651eea4f04c01\AndroidManifest.xml:2:1-13:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\96006989be4961797bda525ef825601d\AndroidManifest.xml:17:1-24:12
@@ -271,8 +271,8 @@ MERGED from [com.facebook.android:facebook-login:4.39.0] C:\Users\HP\.gradle\cac
 MERGED from [com.facebook.android:facebook-login:4.39.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\48efdadba0985cb0a15e568392e780fe\AndroidManifest.xml:28:5-29:19
 MERGED from [com.hbb20:ccp:2.2.3] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\596dd94c7174ace59a621540ab428d43\AndroidManifest.xml:11:5-15:19
 MERGED from [com.hbb20:ccp:2.2.3] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\596dd94c7174ace59a621540ab428d43\AndroidManifest.xml:11:5-15:19
-MERGED from [com.airbnb.android:lottie:2.7.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3bfa6a5a5427a1ec7ac6553768d9dd36\AndroidManifest.xml:11:5-20
-MERGED from [com.airbnb.android:lottie:2.7.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3bfa6a5a5427a1ec7ac6553768d9dd36\AndroidManifest.xml:11:5-20
+MERGED from [com.airbnb.android:lottie:3.6.1] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\50420f884ffebf2e06dea76d90ab17d5\AndroidManifest.xml:9:5-20
+MERGED from [com.airbnb.android:lottie:3.6.1] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\50420f884ffebf2e06dea76d90ab17d5\AndroidManifest.xml:9:5-20
 MERGED from [com.facebook.android:facebook-common:4.39.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\a2ee21b534aafd3c9e69700d503c65b4\AndroidManifest.xml:28:5-35:19
 MERGED from [com.facebook.android:facebook-common:4.39.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\a2ee21b534aafd3c9e69700d503c65b4\AndroidManifest.xml:28:5-35:19
 MERGED from [com.futuremind.recyclerfastscroll:fastscroll:0.2.5] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\5ea1ba265f1794be5b5651eea4f04c01\AndroidManifest.xml:11:5-20
@@ -776,8 +776,8 @@ MERGED from [com.github.rey5137:material:1.2.4] C:\Users\HP\.gradle\caches\trans
 MERGED from [com.github.rey5137:material:1.2.4] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\2a82f95e4fe5e6d8816c08c91893b2a0\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.pzienowicz:androidx-auto-scroll-view-pager:1.0.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\547bf366f16603965f96f1e9f283372a\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.pzienowicz:androidx-auto-scroll-view-pager:1.0.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\547bf366f16603965f96f1e9f283372a\AndroidManifest.xml:7:5-9:41
-MERGED from [com.airbnb.android:lottie:2.7.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3bfa6a5a5427a1ec7ac6553768d9dd36\AndroidManifest.xml:7:5-9:41
-MERGED from [com.airbnb.android:lottie:2.7.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\3bfa6a5a5427a1ec7ac6553768d9dd36\AndroidManifest.xml:7:5-9:41
+MERGED from [com.airbnb.android:lottie:3.6.1] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\50420f884ffebf2e06dea76d90ab17d5\AndroidManifest.xml:5:5-7:41
+MERGED from [com.airbnb.android:lottie:3.6.1] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\50420f884ffebf2e06dea76d90ab17d5\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.android:facebook-common:4.39.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\a2ee21b534aafd3c9e69700d503c65b4\AndroidManifest.xml:24:5-26:41
 MERGED from [com.facebook.android:facebook-common:4.39.0] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\a2ee21b534aafd3c9e69700d503c65b4\AndroidManifest.xml:24:5-26:41
 MERGED from [com.futuremind.recyclerfastscroll:fastscroll:0.2.5] C:\Users\HP\.gradle\caches\transforms-2\files-2.1\5ea1ba265f1794be5b5651eea4f04c01\AndroidManifest.xml:7:5-9:41
